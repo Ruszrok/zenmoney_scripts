@@ -1,0 +1,12 @@
+{
+  "name": "zenmoney-scripts",
+  "type": "module",
+  "scripts": {
+    "submit": "bun run src/submit.ts",
+    "accounts": "bun run src/submit.ts --list-accounts",
+    "categories": "bun run src/submit.ts --list-categories"
+  },
+  "devDependencies": {
+    "bun-types": "^1.3.9"
+  }
+}
