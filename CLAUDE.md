@@ -48,31 +48,34 @@ Map each transaction to a ZenMoney category ID (tag_group ID) using reasoning.
 
 When unsure, set `categoryId: 0` (uncategorized) and note it in the confirmation table.
 
-### 5. Show confirmation table
+### 5. Save review file
 
-Present a markdown table to the user for review before submitting:
-
-```
-| # | Date | Payee | Amount | In/Out | Category | Comment |
-|---|------|-------|--------|--------|----------|---------|
-| 1 | 22.02.2026 | Lidl | 45.50 | OUT | Продукты | |
-```
-
-Wait for user confirmation before proceeding.
-
-### 6. Dry run
+Pipe the parsed transactions JSON to `--prepare`, which fetches categories from ZenMoney and writes a review file to `data/review.json`:
 
 ```bash
-bun run src/submit.ts --dry-run --cookie "PHPSESSID=xxx" --account "ACCOUNT_ID" <<< '[
-  {"date":"22.02.2026","amount":45.50,"payee":"Lidl","comment":"","isIncome":false,"categoryId":650871}
+bun run src/submit.ts --prepare --cookie "PHPSESSID=xxx" --account "ACCOUNT_ID" <<< '[
+  {"date":"22.02.2026","amount":45.50,"payee":"Lidl","comment":"","isIncome":false,"categoryId":1107891,"categoryName":"Продукты"}
 ]'
 ```
 
-### 7. Submit
+The review file contains:
+- `categories` — all available ZenMoney categories (id, title, type)
+- `transactions` — each transaction with `categoryId` and `categoryName` for easy review
+- `account` — the target account ID
+
+**Always include `categoryName`** in each transaction — it's for user review only and is ignored during submission.
+
+### 6. User reviews `data/review.json`
+
+Wait for the user to review and edit the file. They may change `categoryId`/`categoryName` or remove transactions.
+
+### 7. Submit from review file
 
 ```bash
-bun run src/submit.ts --cookie "PHPSESSID=xxx" --account "ACCOUNT_ID" <<< '[json]'
+bun run src/submit.ts --submit-review --cookie "PHPSESSID=xxx"
 ```
+
+This reads `data/review.json` and submits all transactions in it.
 
 ## Other commands
 

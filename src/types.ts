@@ -6,6 +6,14 @@ export interface ParsedTransaction {
   comment: string;
   isIncome: boolean;
   categoryId: number; // tag_group ID, 0 = uncategorized
+  categoryName?: string; // human-readable, for review only — not sent to API
+}
+
+/** Review file saved to data/ for user approval before submission */
+export interface ReviewFile {
+  account: string;
+  categories: { id: number; title: string; type: string }[];
+  transactions: ParsedTransaction[];
 }
 
 /** ZenMoney API payload for creating a transaction */

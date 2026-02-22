@@ -1,10 +1,21 @@
 import { fetchAccounts, fetchCategories, submitTransactions } from "./api";
-import type { ParsedTransaction, ZenMoneyTransaction } from "./types";
+import type {
+  ParsedTransaction,
+  ReviewFile,
+  ZenMoneyTransaction,
+} from "./types";
+import { mkdirSync } from "fs";
+import { join } from "path";
+
+const DATA_DIR = join(import.meta.dir, "..", "data");
+const REVIEW_FILE = join(DATA_DIR, "review.json");
 
 function usage(): never {
   console.error(`Usage:
   bun run src/submit.ts --list-accounts --cookie "PHPSESSID=..."
   bun run src/submit.ts --list-categories --cookie "PHPSESSID=..."
+  bun run src/submit.ts --prepare --cookie "PHPSESSID=..." --account "ID" <<< '[json]'
+  bun run src/submit.ts --submit-review --cookie "PHPSESSID=..."
   bun run src/submit.ts [--dry-run] --cookie "PHPSESSID=..." --account "ID" <<< '[json]'`);
   process.exit(1);
 }
@@ -16,6 +27,8 @@ function parseArgs(args: string[]) {
     listAccounts: false,
     listCategories: false,
     dryRun: false,
+    prepare: false,
+    submitReview: false,
   };
   for (let i = 0; i < args.length; i++) {
     switch (args[i]) {
@@ -33,6 +46,12 @@ function parseArgs(args: string[]) {
         break;
       case "--dry-run":
         flags.dryRun = true;
+        break;
+      case "--prepare":
+        flags.prepare = true;
+        break;
+      case "--submit-review":
+        flags.submitReview = true;
         break;
     }
   }
@@ -85,6 +104,68 @@ async function main() {
     return;
   }
 
+  // --prepare: fetch categories, merge with parsed transactions, write review JSON
+  if (flags.prepare) {
+    if (!flags.account) {
+      console.error("Error: --account is required for --prepare");
+      usage();
+    }
+
+    const input = await readStdin();
+    if (!input.trim()) {
+      console.error("Error: no JSON input on stdin");
+      usage();
+    }
+
+    let parsed: ParsedTransaction[];
+    try {
+      parsed = JSON.parse(input);
+    } catch {
+      console.error("Error: invalid JSON input");
+      process.exit(1);
+    }
+
+    const rawCategories = await fetchCategories(flags.cookie);
+    const categories = Object.entries(rawCategories).map(([id, cat]) => ({
+      id: Number(id),
+      title: cat.title,
+      type: cat.type,
+    }));
+
+    const review: ReviewFile = {
+      account: flags.account,
+      categories,
+      transactions: parsed,
+    };
+
+    mkdirSync(DATA_DIR, { recursive: true });
+    await Bun.write(REVIEW_FILE, JSON.stringify(review, null, 2) + "\n");
+    console.log(`Review file written to ${REVIEW_FILE}`);
+    console.log(
+      `${parsed.length} transaction(s), ${categories.length} categories`
+    );
+    return;
+  }
+
+  // --submit-review: read review JSON and submit
+  if (flags.submitReview) {
+    const file = Bun.file(REVIEW_FILE);
+    if (!(await file.exists())) {
+      console.error(`Error: review file not found at ${REVIEW_FILE}`);
+      console.error("Run --prepare first to generate it.");
+      process.exit(1);
+    }
+
+    const review: ReviewFile = await file.json();
+    const transactions = toZenMoney(review.transactions, review.account);
+
+    console.log(`Submitting ${transactions.length} transaction(s)...`);
+    const result = await submitTransactions(flags.cookie, transactions);
+    console.log("Success:", JSON.stringify(result, null, 2));
+    return;
+  }
+
+  // Direct submit from stdin (legacy)
   if (!flags.account) {
     console.error("Error: --account is required for submitting transactions");
     usage();
