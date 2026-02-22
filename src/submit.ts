@@ -1,4 +1,4 @@
-import { fetchAccounts, fetchCategories, submitTransactions } from "./api";
+import { fetchAccounts, fetchCategories, fetchTagGroups, submitTransactions } from "./api";
 import type {
   ParsedTransaction,
   ReviewFile,
@@ -63,7 +63,8 @@ function toZenMoney(
   accountId: string
 ): ZenMoneyTransaction[] {
   return parsed.map((t) => ({
-    tag_group: t.categoryId || null,
+    category: "0",
+    tag_groups: (t.categoryIds || []).map(String),
     income: t.isIncome ? t.amount : 0,
     outcome: t.isIncome ? 0 : t.amount,
     date: t.date,
@@ -96,10 +97,9 @@ async function main() {
   }
 
   if (flags.listCategories) {
-    const categories = await fetchCategories(flags.cookie);
-    for (const [id, cat] of Object.entries(categories)) {
-      const parent = cat.parent_id ? ` (parent: ${cat.parent_id})` : "";
-      console.log(`${id}\t${cat.title}${parent}\t${cat.type}`);
+    const tagGroups = await fetchTagGroups(flags.cookie);
+    for (const tg of tagGroups) {
+      console.log(`${tg.id}\t${tg.label}\t${tg.type}`);
     }
     return;
   }
@@ -125,12 +125,7 @@ async function main() {
       process.exit(1);
     }
 
-    const rawCategories = await fetchCategories(flags.cookie);
-    const categories = Object.entries(rawCategories).map(([id, cat]) => ({
-      id: Number(id),
-      title: cat.title,
-      type: cat.type,
-    }));
+    const categories = await fetchTagGroups(flags.cookie);
 
     const review: ReviewFile = {
       account: flags.account,
