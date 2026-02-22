@@ -18,7 +18,7 @@ export interface ReviewFile {
 
 /** ZenMoney API payload for creating a transaction */
 export interface ZenMoneyTransaction {
-  tag_groups: number[];
+  tag_group: number | null;
   income: number;
   outcome: number;
   date: string; // DD.MM.YYYY

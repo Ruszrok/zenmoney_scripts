@@ -63,7 +63,7 @@ function toZenMoney(
   accountId: string
 ): ZenMoneyTransaction[] {
   return parsed.map((t) => ({
-    tag_groups: t.categoryId ? [t.categoryId] : [],
+    tag_group: t.categoryId || null,
     income: t.isIncome ? t.amount : 0,
     outcome: t.isIncome ? 0 : t.amount,
     date: t.date,
