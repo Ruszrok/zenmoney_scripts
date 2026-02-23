@@ -47,7 +47,7 @@ Map each transaction to one or more ZenMoney tag_group IDs using reasoning. Tran
 | Farmacia, Dental, medical | Медицицина | 1143194 |
 | Spotify, Netflix, YouTube | Отдых и развлечения / Подписки | 30850494 |
 | Swedbank, SEB, Luminor | skip — likely a transfer |  |
-| Maksu Services SA | Машина | 650928 |
+| Maksu Services SA, Bx Valor 03-transacco | Машина | 650928 |
 | Salary, Palk | Зарплата (income) | 650877 |
 
 When unsure, set `categoryIds: []` (uncategorized) and note it in the confirmation table.
