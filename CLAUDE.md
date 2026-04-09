@@ -39,16 +39,22 @@ Map each transaction to one or more ZenMoney tag_group IDs using reasoning. Tran
 **Category mapping hints** (payee substring → tag_group):
 | Payee contains | Category | tag_group ID |
 |---|---|---|
-| Bolt, Uber | Проезд / Такси | 37480071 |
-| Uber Eats, Wolt, Glovo | Еда / Кафе и рестораны | 650876 |
-| Lidl, Maxima, Rimi, Barbora, Continente, Pingo Doce, Gleba | Еда / Продукты | 650871 |
-| Starbucks, Simit Sarayı, BUGA RAMEN | Еда / Кафе и рестораны | 650876 |
-| Decathlon | Спорт | 2357438 |
-| Farmacia, Dental, medical | Медицицина | 1143194 |
-| Spotify, Netflix, YouTube | Отдых и развлечения / Подписки | 30850494 |
+| Bolt, Uber, Donkey Republic, Rejsekort, Copenhagen Metro, Aeroporto | Проезд / Такси | 37480071 |
+| Uber Eats, Wolt, Glovo, Starbucks, BUGA RAMEN, McDonalds, BEEBEE, Cofoco, Artisani, Vitaminas, SoLo Brewing, Order from restaurant | Еда / Кафе и рестораны | 650876 |
+| Lidl, Maxima, Rimi, Barbora, Continente, Pingo Doce, Gleba, Netto, Coop Danmark, fotex, Intermarche, TERRA PURA, MIX Markt, CAFEMILAGRE.COM, ALFACINHA FRES | Еда / Продукты | 650871 |
+| Decathlon, HP ACTIVE, FEDERACAO PORT, A.S. PADRE CRUZ, MOVIMENTO ENCA | Спорт | 2357438 |
+| Farmacia, Dental, medical, HOSPITAL CUF, CLINICA CUF, WELLS.PT, Farmacias Holon | Медицицина | 1143194 |
+| Spotify, Netflix, YouTube, Todoist, OpenAI, ChatGPT, Claude, Anthropic, Zoho, updown.io, Nord Security, Apple (small) | Подписки | 30850494 |
+| Fly.io, Lovable, Homesage.ai, Figma, Google Cloud | Бизнес расходы / 4realty.ai | 43938404 |
+| Maksu Services SA, Bx Valor 03-transacco, GALP, IUC | Машина | 650928 |
+| GOLDENERGY, PAGAMENTOS VOD, LW*EDP, PQ EDF SEDE EDP | Квартплата | 650878 |
+| Amazon, AliExpress, UNIQLO, Magasin, Other Stories | Личные траты | 650875 |
+| SEF, INSTITUTO DE GESTAO F | Налоги и пошлины | 35732742 |
+| MANUT CONTA, Invoice (bunq) | Банковские издержки | 4790456 |
+| Salary, Palk, Deel | Зарплата (income) | 650877 |
+| Cashback, bunq Payday | проценты (income) | 1536922 |
 | Swedbank, SEB, Luminor | skip — likely a transfer |  |
-| Maksu Services SA, Bx Valor 03-transacco | Машина | 650928 |
-| Salary, Palk | Зарплата (income) | 650877 |
+| To EUR, TRF CXDAPP, TRF POUP, Trf Mbway, LEVANTAMENTO | transfer — add with comment, user converts manually |  |
 
 When unsure, set `categoryIds: []` (uncategorized) and note it in the confirmation table.
 
