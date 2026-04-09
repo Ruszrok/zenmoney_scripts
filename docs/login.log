@@ -1,0 +1,1362 @@
+default	16:33:06.544251+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=476
+default	16:33:06.544467+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=560
+default	16:33:06.544235+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=476
+default	16:33:06.544199+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=476
+default	16:33:06.544457+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=560
+default	16:33:06.544430+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=560
+default	16:33:06.544181+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=476
+default	16:33:06.544416+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=560
+default	16:33:06.544215+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=476
+default	16:33:06.544225+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=476
+default	16:33:06.544440+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=560
+default	16:33:06.544449+0100	Zenmoney	SecTaskLoadEntitlements: failed to get cs_flags, error=1, pid=560
+default	16:33:07.859499+0100	Zenmoney	TX focusApplication (peekAppEvent) stealKB:Y scene:ru.zenmoney.ZenMoneyNative-default
+default	16:33:07.859546+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.859586+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.859626+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.859662+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.859504+0100	Zenmoney	TX focusApplication (peekAppEvent) stealKB:Y scene:ru.zenmoney.ZenMoneyNative-default
+default	16:33:07.859509+0100	Zenmoney	TX focusApplication (peekAppEvent) stealKB:Y scene:ru.zenmoney.ZenMoneyNative-default
+default	16:33:07.859555+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.859560+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.859600+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.859595+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.859633+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.859638+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.859674+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.859669+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.859491+0100	Zenmoney	TX focusApplication (peekAppEvent) stealKB:Y scene:ru.zenmoney.ZenMoneyNative-default
+default	16:33:07.859519+0100	Zenmoney	TX focusApplication (peekAppEvent) stealKB:Y scene:ru.zenmoney.ZenMoneyNative-default
+default	16:33:07.859540+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.859565+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.859603+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.859581+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.859643+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.859524+0100	Zenmoney	TX focusApplication (peekAppEvent) stealKB:Y scene:ru.zenmoney.ZenMoneyNative-default
+default	16:33:07.859621+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.859679+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.859574+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.859657+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.859608+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.859648+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.859684+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.943290+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.943341+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.943401+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.943970+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:07.943300+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.943308+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.943351+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.943358+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.943414+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.943408+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.943981+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:07.943991+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:07.943315+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.943367+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.943324+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.943420+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.943375+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.943430+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.944001+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:07.944011+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:07.943269+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:33:07.943334+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:33:07.943388+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x1032032d0>; contextId: 0x8B8D6462
+default	16:33:07.943958+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:07.945646+0100	Zenmoney	[C38] event: client:connection_reused @65.660s
+default	16:33:07.946193+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:33:07.946268+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:07.946317+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> now using Connection 38
+default	16:33:07.947516+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> sent request, body S 263
+default	16:33:07.945655+0100	Zenmoney	[C38] event: client:connection_reused @65.660s
+default	16:33:07.946203+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:33:07.946275+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:07.946326+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> now using Connection 38
+default	16:33:07.947524+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> sent request, body S 263
+default	16:33:07.945662+0100	Zenmoney	[C38] event: client:connection_reused @65.660s
+default	16:33:07.946223+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:33:07.946283+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:07.946332+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> now using Connection 38
+default	16:33:07.947530+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> sent request, body S 263
+default	16:33:07.945636+0100	Zenmoney	[C38] event: client:connection_reused @65.660s
+default	16:33:07.945669+0100	Zenmoney	[C38] event: client:connection_reused @65.660s
+default	16:33:07.946177+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:33:07.946260+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:07.946238+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:33:07.946310+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> now using Connection 38
+default	16:33:07.946290+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:07.946340+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> now using Connection 38
+default	16:33:07.947506+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> sent request, body S 263
+default	16:33:07.947536+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> sent request, body S 263
+default	16:33:07.945677+0100	Zenmoney	[C38] event: client:connection_reused @65.660s
+default	16:33:07.946248+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:33:07.946299+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:07.946346+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> now using Connection 38
+default	16:33:07.947544+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> sent request, body S 263
+default	16:33:07.959058+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+default	16:33:07.959072+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+default	16:33:07.959064+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+default	16:33:07.959049+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+default	16:33:07.959079+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+default	16:33:07.959085+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x107d13600; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+default	16:33:11.158556+0100	Zenmoney	[C38] event: client:data_stall @68.874s
+default	16:33:11.158566+0100	Zenmoney	[C38] event: client:data_stall @68.874s
+default	16:33:11.158575+0100	Zenmoney	[C38] event: client:data_stall @68.874s
+default	16:33:11.158541+0100	Zenmoney	[C38] event: client:data_stall @68.874s
+default	16:33:11.158582+0100	Zenmoney	[C38] event: client:data_stall @68.874s
+default	16:33:11.158509+0100	Zenmoney	[C38] event: client:data_stall @68.874s
+default	16:33:11.161427+0100	Zenmoney	Connection 38 idle 59.741445 will initiate stall recovery
+default	16:33:11.161420+0100	Zenmoney	Connection 38 idle 59.741445 will initiate stall recovery
+default	16:33:11.161453+0100	Zenmoney	Connection 38 idle 59.741445 will initiate stall recovery
+default	16:33:11.161446+0100	Zenmoney	Connection 38 idle 59.741445 will initiate stall recovery
+default	16:33:11.161439+0100	Zenmoney	Connection 38 idle 59.741445 will initiate stall recovery
+default	16:33:11.161433+0100	Zenmoney	Connection 38 idle 59.741445 will initiate stall recovery
+default	16:33:11.270768+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> received response, status 200 content K
+default	16:33:11.270750+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> received response, status 200 content K
+default	16:33:11.271189+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> done using Connection 38
+default	16:33:11.271336+0100	Zenmoney	[C38] event: client:connection_idle @68.984s
+default	16:33:11.270762+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> received response, status 200 content K
+default	16:33:11.271693+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:11.271173+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> done using Connection 38
+default	16:33:11.270757+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> received response, status 200 content K
+default	16:33:11.270745+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> received response, status 200 content K
+default	16:33:11.271740+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:11.271306+0100	Zenmoney	[C38] event: client:connection_idle @68.984s
+default	16:33:11.270737+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> received response, status 200 content K
+default	16:33:11.271908+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> response ended
+default	16:33:11.271583+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:11.271722+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:11.271183+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> done using Connection 38
+default	16:33:11.272031+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> summary for task success {transaction_duration_ms=3325, response_status=200, connection=38, reused=1, reused_after_ms=56527, request_start_ms=1, request_duration_ms=0, response_start_ms=3323, response_duration_ms=1, request_bytes=309, request_throughput_kbps=2743, response_bytes=262, response_throughput_kbps=1248, cache_hit=false}
+default	16:33:11.272066+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> finished successfully
+default	16:33:11.271178+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> done using Connection 38
+default	16:33:11.271326+0100	Zenmoney	[C38] event: client:connection_idle @68.984s
+default	16:33:11.271166+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> done using Connection 38
+default	16:33:11.271318+0100	Zenmoney	[C38] event: client:connection_idle @68.984s
+default	16:33:11.271891+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> response ended
+default	16:33:11.272001+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> summary for task success {transaction_duration_ms=3325, response_status=200, connection=38, reused=1, reused_after_ms=56527, request_start_ms=1, request_duration_ms=0, response_start_ms=3323, response_duration_ms=1, request_bytes=309, request_throughput_kbps=2743, response_bytes=262, response_throughput_kbps=1248, cache_hit=false}
+default	16:33:11.271641+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:11.271594+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:11.271298+0100	Zenmoney	[C38] event: client:connection_idle @68.984s
+default	16:33:11.272051+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> finished successfully
+default	16:33:11.271157+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> done using Connection 38
+default	16:33:11.271532+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:11.271291+0100	Zenmoney	[C38] event: client:connection_idle @68.984s
+default	16:33:11.271461+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:11.271708+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:11.271879+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> response ended
+default	16:33:11.271966+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> summary for task success {transaction_duration_ms=3325, response_status=200, connection=38, reused=1, reused_after_ms=56527, request_start_ms=1, request_duration_ms=0, response_start_ms=3323, response_duration_ms=1, request_bytes=309, request_throughput_kbps=2743, response_bytes=262, response_throughput_kbps=1248, cache_hit=false}
+default	16:33:11.272039+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> finished successfully
+default	16:33:11.271716+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:11.271728+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:11.271886+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> response ended
+default	16:33:11.271897+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> response ended
+default	16:33:11.271987+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> summary for task success {transaction_duration_ms=3325, response_status=200, connection=38, reused=1, reused_after_ms=56527, request_start_ms=1, request_duration_ms=0, response_start_ms=3323, response_duration_ms=1, request_bytes=309, request_throughput_kbps=2743, response_bytes=262, response_throughput_kbps=1248, cache_hit=false}
+default	16:33:11.272046+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> finished successfully
+default	16:33:11.272011+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> summary for task success {transaction_duration_ms=3325, response_status=200, connection=38, reused=1, reused_after_ms=56527, request_start_ms=1, request_duration_ms=0, response_start_ms=3323, response_duration_ms=1, request_bytes=309, request_throughput_kbps=2743, response_bytes=262, response_throughput_kbps=1248, cache_hit=false}
+default	16:33:11.272056+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> finished successfully
+default	16:33:11.271733+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:11.271902+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> response ended
+default	16:33:11.272021+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> summary for task success {transaction_duration_ms=3325, response_status=200, connection=38, reused=1, reused_after_ms=56527, request_start_ms=1, request_duration_ms=0, response_start_ms=3323, response_duration_ms=1, request_bytes=309, request_throughput_kbps=2743, response_bytes=262, response_throughput_kbps=1248, cache_hit=false}
+default	16:33:11.272061+0100	Zenmoney	Task <8ED84084-E949-4C6F-B544-DC00BB9E1C56>.<9> finished successfully
+default	16:33:11.280908+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.280946+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:11.280991+0100	Zenmoney	Creating new background assertion
+default	16:33:11.280926+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.280960+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:11.281075+0100	Zenmoney	Creating new background assertion
+default	16:33:11.281114+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d325d0>
+default	16:33:11.280864+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.280936+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:11.280973+0100	Zenmoney	Creating new background assertion
+default	16:33:11.281088+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d325d0>
+default	16:33:11.281982+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:11.282114+0100	Zenmoney	Created background task <private>.
+default	16:33:11.280893+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.280941+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:11.280983+0100	Zenmoney	Creating new background assertion
+default	16:33:11.281095+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d325d0>
+default	16:33:11.281099+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d325d0>
+default	16:33:11.281987+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:11.280915+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.280951+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:11.280920+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.281991+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:11.281063+0100	Zenmoney	Creating new background assertion
+default	16:33:11.280955+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:11.281105+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d325d0>
+default	16:33:11.282120+0100	Zenmoney	Created background task <private>.
+default	16:33:11.281070+0100	Zenmoney	Creating new background assertion
+default	16:33:11.282124+0100	Zenmoney	Created background task <private>.
+default	16:33:11.281109+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d325d0>
+default	16:33:11.282005+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:11.281996+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:11.282139+0100	Zenmoney	Created background task <private>.
+default	16:33:11.282000+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:11.282129+0100	Zenmoney	Created background task <private>.
+default	16:33:11.282134+0100	Zenmoney	Created background task <private>.
+default	16:33:11.299278+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 203
+default	16:33:11.299338+0100	Zenmoney	Ending task with identifier 203 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.299254+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 203
+default	16:33:11.299390+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 203: <private>)
+default	16:33:11.299316+0100	Zenmoney	Ending task with identifier 203 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.299369+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 203: <private>)
+default	16:33:11.299437+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d325d0> for task identifier: 203
+default	16:33:11.299417+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d325d0> for task identifier: 203
+default	16:33:11.299209+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 203
+default	16:33:11.299241+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 203
+default	16:33:11.299299+0100	Zenmoney	Ending task with identifier 203 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.299309+0100	Zenmoney	Ending task with identifier 203 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.299263+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 203
+default	16:33:11.299355+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 203: <private>)
+default	16:33:11.299364+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 203: <private>)
+default	16:33:11.299324+0100	Zenmoney	Ending task with identifier 203 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.299402+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d325d0> for task identifier: 203
+default	16:33:11.299410+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d325d0> for task identifier: 203
+default	16:33:11.299375+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 203: <private>)
+default	16:33:11.299423+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d325d0> for task identifier: 203
+default	16:33:11.299271+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 203
+default	16:33:11.299330+0100	Zenmoney	Ending task with identifier 203 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x1452dd0e0>
+default	16:33:11.299384+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 203: <private>)
+default	16:33:11.299431+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d325d0> for task identifier: 203
+error	16:33:11.327976+0100	Zenmoney	Missing user details, aborting makePollerRequest
+error	16:33:11.327981+0100	Zenmoney	Missing user details, aborting makePollerRequest
+error	16:33:11.327955+0100	Zenmoney	Missing user details, aborting makePollerRequest
+default	16:33:11.328493+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:11.328499+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:11.328454+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:11.329006+0100	Zenmoney	[C38] event: client:connection_reused @69.043s
+default	16:33:11.329020+0100	Zenmoney	[C38] event: client:connection_reused @69.043s
+error	16:33:11.327967+0100	Zenmoney	Missing user details, aborting makePollerRequest
+default	16:33:11.328939+0100	Zenmoney	[C38] event: client:connection_reused @69.043s
+default	16:33:11.329152+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+error	16:33:11.327961+0100	Zenmoney	Missing user details, aborting makePollerRequest
+default	16:33:11.329221+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:33:11.329127+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:33:11.329288+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+error	16:33:11.327972+0100	Zenmoney	Missing user details, aborting makePollerRequest
+default	16:33:11.329330+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> now using Connection 38
+default	16:33:11.328480+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:11.328471+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:11.328486+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:33:11.328948+0100	Zenmoney	[C38] event: client:connection_reused @69.043s
+default	16:33:11.328944+0100	Zenmoney	[C38] event: client:connection_reused @69.043s
+default	16:33:11.329140+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:33:11.328990+0100	Zenmoney	[C38] event: client:connection_reused @69.043s
+default	16:33:11.329308+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:11.329134+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:33:11.329433+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> now using Connection 38
+default	16:33:11.329147+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:33:11.329302+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:11.329313+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:11.329385+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> now using Connection 38
+default	16:33:11.329484+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> now using Connection 38
+default	16:33:11.329319+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:11.329323+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:11.329541+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> now using Connection 38
+default	16:33:11.329552+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> now using Connection 38
+default	16:33:11.329766+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> sent request, body S 90
+default	16:33:11.329771+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> sent request, body S 90
+default	16:33:11.329742+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> sent request, body S 90
+default	16:33:11.329749+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> sent request, body S 90
+default	16:33:11.329756+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> sent request, body S 90
+default	16:33:11.329761+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> sent request, body S 90
+default	16:33:14.577651+0100	Zenmoney	[C38] event: client:data_stall @72.290s
+default	16:33:14.575237+0100	Zenmoney	[C38] event: client:data_stall @72.290s
+default	16:33:14.575289+0100	Zenmoney	[C38] event: client:data_stall @72.290s
+default	16:33:14.577691+0100	Zenmoney	[C38] event: client:data_stall @72.290s
+default	16:33:14.577673+0100	Zenmoney	[C38] event: client:data_stall @72.290s
+default	16:33:14.577605+0100	Zenmoney	[C38] event: client:data_stall @72.290s
+default	16:33:18.530636+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> received response, status 200 content U
+default	16:33:18.530649+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> received response, status 200 content U
+default	16:33:18.530600+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> received response, status 200 content U
+default	16:33:18.530670+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> received response, status 200 content U
+default	16:33:18.530657+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> received response, status 200 content U
+default	16:33:18.530663+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> received response, status 200 content U
+default	16:33:18.922569+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> done using Connection 38
+default	16:33:18.922730+0100	Zenmoney	[C38] event: client:connection_idle @76.638s
+default	16:33:18.922866+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:18.922903+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:18.923177+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> response ended
+default	16:33:18.923327+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> summary for task success {transaction_duration_ms=7595, response_status=200, connection=38, reused=1, reused_after_ms=58, request_start_ms=0, request_duration_ms=0, response_start_ms=7202, response_duration_ms=392, request_bytes=165, request_throughput_kbps=6168, response_bytes=1523485, response_throughput_kbps=31019, cache_hit=false}
+default	16:33:18.923382+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> finished successfully
+default	16:33:18.922599+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> done using Connection 38
+default	16:33:18.922631+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> done using Connection 38
+default	16:33:18.922616+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> done using Connection 38
+default	16:33:18.922624+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> done using Connection 38
+default	16:33:18.922736+0100	Zenmoney	[C38] event: client:connection_idle @76.638s
+default	16:33:18.922758+0100	Zenmoney	[C38] event: client:connection_idle @76.638s
+default	16:33:18.922748+0100	Zenmoney	[C38] event: client:connection_idle @76.638s
+default	16:33:18.922753+0100	Zenmoney	[C38] event: client:connection_idle @76.638s
+default	16:33:18.922872+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:18.922894+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:18.922883+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:18.922888+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:18.922909+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:18.922929+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:18.922923+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:18.922918+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:18.923214+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> response ended
+default	16:33:18.923191+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> response ended
+default	16:33:18.923208+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> response ended
+default	16:33:18.923202+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> response ended
+default	16:33:18.923374+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> summary for task success {transaction_duration_ms=7595, response_status=200, connection=38, reused=1, reused_after_ms=58, request_start_ms=0, request_duration_ms=0, response_start_ms=7202, response_duration_ms=392, request_bytes=165, request_throughput_kbps=6168, response_bytes=1523485, response_throughput_kbps=31019, cache_hit=false}
+default	16:33:18.923341+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> summary for task success {transaction_duration_ms=7595, response_status=200, connection=38, reused=1, reused_after_ms=58, request_start_ms=0, request_duration_ms=0, response_start_ms=7202, response_duration_ms=392, request_bytes=165, request_throughput_kbps=6168, response_bytes=1523485, response_throughput_kbps=31019, cache_hit=false}
+default	16:33:18.923366+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> summary for task success {transaction_duration_ms=7595, response_status=200, connection=38, reused=1, reused_after_ms=58, request_start_ms=0, request_duration_ms=0, response_start_ms=7202, response_duration_ms=392, request_bytes=165, request_throughput_kbps=6168, response_bytes=1523485, response_throughput_kbps=31019, cache_hit=false}
+default	16:33:18.923357+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> summary for task success {transaction_duration_ms=7595, response_status=200, connection=38, reused=1, reused_after_ms=58, request_start_ms=0, request_duration_ms=0, response_start_ms=7202, response_duration_ms=392, request_bytes=165, request_throughput_kbps=6168, response_bytes=1523485, response_throughput_kbps=31019, cache_hit=false}
+default	16:33:18.923408+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> finished successfully
+default	16:33:18.923388+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> finished successfully
+default	16:33:18.923403+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> finished successfully
+default	16:33:18.923398+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> finished successfully
+default	16:33:18.922610+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> done using Connection 38
+default	16:33:18.922743+0100	Zenmoney	[C38] event: client:connection_idle @76.638s
+default	16:33:18.922877+0100	Zenmoney	nw_protocol_tcp_notify [C38.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:33:18.922913+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C38.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:33:18.923197+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> response ended
+default	16:33:18.923348+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> summary for task success {transaction_duration_ms=7595, response_status=200, connection=38, reused=1, reused_after_ms=58, request_start_ms=0, request_duration_ms=0, response_start_ms=7202, response_duration_ms=392, request_bytes=165, request_throughput_kbps=6168, response_bytes=1523485, response_throughput_kbps=31019, cache_hit=false}
+default	16:33:18.923393+0100	Zenmoney	Task <CD4731B7-4123-45A3-87D7-5B0503DFD312>.<10> finished successfully
+error	16:33:45.692904+0100	Zenmoney	Missing user details, aborting makePollerRequest
+default	16:33:45.693039+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b21830>
+default	16:33:45.693072+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+error	16:33:45.692929+0100	Zenmoney	Missing user details, aborting makePollerRequest
+default	16:33:45.693048+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b21830>
+default	16:33:45.693077+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.693108+0100	Zenmoney	Creating new background assertion
+default	16:33:45.693134+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d32f30>
+error	16:33:45.692979+0100	Zenmoney	Missing user details, aborting makePollerRequest
+default	16:33:45.693057+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b21830>
+default	16:33:45.693084+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+error	16:33:45.692953+0100	Zenmoney	Missing user details, aborting makePollerRequest
+default	16:33:45.693114+0100	Zenmoney	Creating new background assertion
+default	16:33:45.693387+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.693053+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b21830>
+default	16:33:45.693141+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d32f30>
+default	16:33:45.693080+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.693444+0100	Zenmoney	Created background task <private>.
+default	16:33:45.693111+0100	Zenmoney	Creating new background assertion
+default	16:33:45.693103+0100	Zenmoney	Creating new background assertion
+default	16:33:45.693497+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 204
+default	16:33:45.693137+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d32f30>
+default	16:33:45.693557+0100	Zenmoney	Ending task with identifier 204 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b21830>
+default	16:33:45.693619+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 204: <private>)
+default	16:33:45.693681+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d32f30> for task identifier: 204
+default	16:33:45.693392+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.693448+0100	Zenmoney	Created background task <private>.
+default	16:33:45.693501+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 204
+default	16:33:45.693561+0100	Zenmoney	Ending task with identifier 204 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b21830>
+default	16:33:45.693623+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 204: <private>)
+default	16:33:45.693685+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d32f30> for task identifier: 204
+default	16:33:45.693396+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.693451+0100	Zenmoney	Created background task <private>.
+error	16:33:45.694467+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite
+error	16:33:45.694494+0100	Zenmoney	invalidated open fd: 32 (0x11)
+error	16:33:45.694521+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-shm
+error	16:33:45.694547+0100	Zenmoney	invalidated open fd: 31 (0x11)
+default	16:33:45.693506+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 204
+error	16:33:45.692866+0100	Zenmoney	Missing user details, aborting makePollerRequest
+default	16:33:45.693031+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b21830>
+error	16:33:45.693002+0100	Zenmoney	Missing user details, aborting makePollerRequest
+default	16:33:45.693061+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b21830>
+default	16:33:45.693089+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.693119+0100	Zenmoney	Creating new background assertion
+default	16:33:45.693145+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d32f30>
+default	16:33:45.693068+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.693095+0100	Zenmoney	Creating new background assertion
+default	16:33:45.693125+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d32f30>
+error	16:33:45.694701+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-wal
+default	16:33:45.693566+0100	Zenmoney	Ending task with identifier 204 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b21830>
+error	16:33:45.694470+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite
+default	16:33:45.693130+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d32f30>
+default	16:33:45.693627+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 204: <private>)
+error	16:33:45.694499+0100	Zenmoney	invalidated open fd: 32 (0x11)
+default	16:33:45.693399+0100	Zenmoney	Incrementing reference count for background assertion <private>
+error	16:33:45.694526+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-shm
+default	16:33:45.693689+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d32f30> for task identifier: 204
+error	16:33:45.694551+0100	Zenmoney	invalidated open fd: 31 (0x11)
+default	16:33:45.693455+0100	Zenmoney	Created background task <private>.
+default	16:33:45.693380+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.693510+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 204
+error	16:33:45.694789+0100	Zenmoney	invalidated open fd: 36 (0x11)
+default	16:33:45.693435+0100	Zenmoney	Created background task <private>.
+default	16:33:45.693569+0100	Zenmoney	Ending task with identifier 204 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b21830>
+default	16:33:45.693490+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 204
+error	16:33:45.694705+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-wal
+default	16:33:45.693630+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 204: <private>)
+default	16:33:45.693547+0100	Zenmoney	Ending task with identifier 204 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b21830>
+default	16:33:45.693692+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d32f30> for task identifier: 204
+error	16:33:45.694793+0100	Zenmoney	invalidated open fd: 36 (0x11)
+default	16:33:45.693609+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 204: <private>)
+default	16:33:45.693671+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d32f30> for task identifier: 204
+default	16:33:45.693383+0100	Zenmoney	Incrementing reference count for background assertion <private>
+error	16:33:45.694474+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite
+error	16:33:45.694503+0100	Zenmoney	invalidated open fd: 32 (0x11)
+error	16:33:45.694530+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-shm
+error	16:33:45.694555+0100	Zenmoney	invalidated open fd: 31 (0x11)
+default	16:33:45.693440+0100	Zenmoney	Created background task <private>.
+error	16:33:45.694478+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite
+error	16:33:45.694710+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-wal
+error	16:33:45.694506+0100	Zenmoney	invalidated open fd: 32 (0x11)
+default	16:33:45.693494+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 204
+error	16:33:45.694535+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-shm
+error	16:33:45.694560+0100	Zenmoney	invalidated open fd: 31 (0x11)
+error	16:33:45.694797+0100	Zenmoney	invalidated open fd: 36 (0x11)
+error	16:33:45.694458+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite
+error	16:33:45.694484+0100	Zenmoney	invalidated open fd: 32 (0x11)
+default	16:33:45.693552+0100	Zenmoney	Ending task with identifier 204 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b21830>
+error	16:33:45.694514+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-shm
+default	16:33:45.696120+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.696196+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+error	16:33:45.694540+0100	Zenmoney	invalidated open fd: 31 (0x11)
+error	16:33:45.694714+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-wal
+default	16:33:45.696299+0100	Zenmoney	Creating new background assertion
+default	16:33:45.696377+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d321c0>
+default	16:33:45.693614+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 204: <private>)
+error	16:33:45.694801+0100	Zenmoney	invalidated open fd: 36 (0x11)
+error	16:33:45.694693+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-wal
+default	16:33:45.696564+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74900>
+default	16:33:45.693676+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d32f30> for task identifier: 204
+error	16:33:45.694781+0100	Zenmoney	invalidated open fd: 36 (0x11)
+default	16:33:45.697134+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697217+0100	Zenmoney	Created background task <private>.
+default	16:33:45.697297+0100	Zenmoney	Reusing background assertion <BKSProcessAssertion: 0x140d321c0>
+default	16:33:45.697590+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697644+0100	Zenmoney	Created background task <private>.
+default	16:33:45.697704+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 205
+default	16:33:45.697767+0100	Zenmoney	Ending task with identifier 205 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.697824+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 206
+default	16:33:45.697977+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 205: <private>)
+default	16:33:45.698194+0100	Zenmoney	Ending task with identifier 206 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74ae0>
+default	16:33:45.696075+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.696162+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.696104+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.696144+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.696237+0100	Zenmoney	Creating new background assertion
+default	16:33:45.696186+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+error	16:33:45.694463+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite
+default	16:33:45.696341+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d321c0>
+default	16:33:45.696131+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.696218+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.698328+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 206: <private>)
+error	16:33:45.694489+0100	Zenmoney	invalidated open fd: 32 (0x11)
+default	16:33:45.696207+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.696288+0100	Zenmoney	Creating new background assertion
+default	16:33:45.696525+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74900>
+error	16:33:45.694518+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-shm
+default	16:33:45.696320+0100	Zenmoney	Creating new background assertion
+default	16:33:45.696310+0100	Zenmoney	Creating new background assertion
+default	16:33:45.696366+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d321c0>
+default	16:33:45.698390+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d321c0> for task identifier: 206
+default	16:33:45.696389+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d321c0>
+error	16:33:45.694545+0100	Zenmoney	invalidated open fd: 31 (0x11)
+default	16:33:45.696403+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d321c0>
+default	16:33:45.696579+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74900>
+default	16:33:45.696552+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74900>
+default	16:33:45.696592+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74900>
+default	16:33:45.697102+0100	Zenmoney	Incrementing reference count for background assertion <private>
+error	16:33:45.694696+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/11C02CB4-84FE-4FA3-942D-DBC7265C1DF6/Library/zenmoney.sqlite-wal
+default	16:33:45.697145+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697182+0100	Zenmoney	Created background task <private>.
+default	16:33:45.697228+0100	Zenmoney	Created background task <private>.
+default	16:33:45.697308+0100	Zenmoney	Reusing background assertion <BKSProcessAssertion: 0x140d321c0>
+default	16:33:45.697124+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697258+0100	Zenmoney	Reusing background assertion <BKSProcessAssertion: 0x140d321c0>
+error	16:33:45.694785+0100	Zenmoney	invalidated open fd: 36 (0x11)
+default	16:33:45.697160+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697207+0100	Zenmoney	Created background task <private>.
+default	16:33:45.697238+0100	Zenmoney	Created background task <private>.
+default	16:33:45.697285+0100	Zenmoney	Reusing background assertion <BKSProcessAssertion: 0x140d321c0>
+default	16:33:45.697319+0100	Zenmoney	Reusing background assertion <BKSProcessAssertion: 0x140d321c0>
+default	16:33:45.697593+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697649+0100	Zenmoney	Created background task <private>.
+default	16:33:45.697707+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 205
+default	16:33:45.697576+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697585+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697772+0100	Zenmoney	Ending task with identifier 205 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.697828+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 206
+default	16:33:45.697597+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697640+0100	Zenmoney	Created background task <private>.
+default	16:33:45.697633+0100	Zenmoney	Created background task <private>.
+default	16:33:45.698004+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 205: <private>)
+default	16:33:45.697700+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 205
+default	16:33:45.697690+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 205
+default	16:33:45.697653+0100	Zenmoney	Created background task <private>.
+default	16:33:45.698263+0100	Zenmoney	Ending task with identifier 206 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74ae0>
+default	16:33:45.698333+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 206: <private>)
+default	16:33:45.697752+0100	Zenmoney	Ending task with identifier 205 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.697711+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 205
+default	16:33:45.697762+0100	Zenmoney	Ending task with identifier 205 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.698395+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d321c0> for task identifier: 206
+default	16:33:45.697819+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 206
+default	16:33:45.697809+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 206
+default	16:33:45.697777+0100	Zenmoney	Ending task with identifier 205 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.697832+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 206
+default	16:33:45.697946+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 205: <private>)
+default	16:33:45.697868+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 205: <private>)
+default	16:33:45.699443+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.699471+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.698086+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 205: <private>)
+default	16:33:45.698175+0100	Zenmoney	Ending task with identifier 206 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74ae0>
+default	16:33:45.698189+0100	Zenmoney	Ending task with identifier 206 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74ae0>
+default	16:33:45.699503+0100	Zenmoney	Creating new background assertion
+default	16:33:45.698313+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 206: <private>)
+default	16:33:45.698323+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 206: <private>)
+default	16:33:45.698271+0100	Zenmoney	Ending task with identifier 206 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74ae0>
+default	16:33:45.699531+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d33200>
+default	16:33:45.698375+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d321c0> for task identifier: 206
+default	16:33:45.698337+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 206: <private>)
+default	16:33:45.698385+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d321c0> for task identifier: 206
+default	16:33:45.696090+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.696175+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.698471+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d321c0> for task identifier: 206
+default	16:33:45.696269+0100	Zenmoney	Creating new background assertion
+default	16:33:45.696353+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d321c0>
+default	16:33:45.696541+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x144f74900>
+default	16:33:45.699448+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.699476+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.699507+0100	Zenmoney	Creating new background assertion
+default	16:33:45.699534+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d33200>
+default	16:33:45.697113+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697194+0100	Zenmoney	Created background task <private>.
+default	16:33:45.697271+0100	Zenmoney	Reusing background assertion <BKSProcessAssertion: 0x140d321c0>
+default	16:33:45.697581+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.700444+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697638+0100	Zenmoney	Created background task <private>.
+default	16:33:45.700496+0100	Zenmoney	Created background task <private>.
+default	16:33:45.700448+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.697695+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 205
+default	16:33:45.700500+0100	Zenmoney	Created background task <private>.
+default	16:33:45.699438+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.699424+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.699467+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.697757+0100	Zenmoney	Ending task with identifier 205 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74bd0>
+default	16:33:45.699460+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.699453+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.699501+0100	Zenmoney	Creating new background assertion
+default	16:33:45.699486+0100	Zenmoney	Creating new background assertion
+default	16:33:45.699479+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.707629+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 207
+default	16:33:45.707626+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 207
+default	16:33:45.697814+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 206
+default	16:33:45.699527+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d33200>
+default	16:33:45.699517+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d33200>
+default	16:33:45.707665+0100	Zenmoney	Ending task with identifier 207 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.699512+0100	Zenmoney	Creating new background assertion
+default	16:33:45.707662+0100	Zenmoney	Ending task with identifier 207 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.707696+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 207: <private>)
+default	16:33:45.699538+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d33200>
+default	16:33:45.697917+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 205: <private>)
+default	16:33:45.707736+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d33200> for task identifier: 207
+default	16:33:45.707691+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 207: <private>)
+default	16:33:45.698183+0100	Zenmoney	Ending task with identifier 206 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x144f74ae0>
+default	16:33:45.707731+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d33200> for task identifier: 207
+default	16:33:45.698318+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 206: <private>)
+default	16:33:45.698380+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d321c0> for task identifier: 206
+default	16:33:45.708209+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.708234+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.708259+0100	Zenmoney	Creating new background assertion
+default	16:33:45.708439+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.708204+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.708230+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.708770+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.708255+0100	Zenmoney	Creating new background assertion
+default	16:33:45.708848+0100	Zenmoney	Created background task <private>.
+default	16:33:45.708410+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.700440+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.700432+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.700452+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.700494+0100	Zenmoney	Created background task <private>.
+default	16:33:45.700485+0100	Zenmoney	Created background task <private>.
+default	16:33:45.700505+0100	Zenmoney	Created background task <private>.
+default	16:33:45.709574+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 208
+default	16:33:45.709619+0100	Zenmoney	Ending task with identifier 208 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.709647+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 208: <private>)
+default	16:33:45.709681+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 208
+default	16:33:45.707622+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 207
+default	16:33:45.708765+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.707657+0100	Zenmoney	Ending task with identifier 207 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.707633+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 207
+default	16:33:45.707606+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 207
+default	16:33:45.707686+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 207: <private>)
+default	16:33:45.707647+0100	Zenmoney	Ending task with identifier 207 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.707670+0100	Zenmoney	Ending task with identifier 207 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.708846+0100	Zenmoney	Created background task <private>.
+default	16:33:45.707727+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d33200> for task identifier: 207
+default	16:33:45.707700+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 207: <private>)
+default	16:33:45.707678+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 207: <private>)
+default	16:33:45.699433+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.707717+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d33200> for task identifier: 207
+default	16:33:45.707741+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d33200> for task identifier: 207
+default	16:33:45.699465+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.709927+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.709953+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.699496+0100	Zenmoney	Creating new background assertion
+default	16:33:45.709976+0100	Zenmoney	Creating new background assertion
+default	16:33:45.699522+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d33200>
+default	16:33:45.710002+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.709564+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 208
+default	16:33:45.709614+0100	Zenmoney	Ending task with identifier 208 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.710567+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.709644+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 208: <private>)
+default	16:33:45.710597+0100	Zenmoney	Created background task <private>.
+default	16:33:45.708199+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.709676+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 208
+default	16:33:45.708226+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.708190+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.708250+0100	Zenmoney	Creating new background assertion
+default	16:33:45.708213+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.708219+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.708244+0100	Zenmoney	Creating new background assertion
+default	16:33:45.710786+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 209
+default	16:33:45.708237+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.708381+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.710856+0100	Zenmoney	Ending task with identifier 209 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.708302+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.708261+0100	Zenmoney	Creating new background assertion
+default	16:33:45.711040+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 209: <private>)
+default	16:33:45.709923+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.708467+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.711142+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 209
+default	16:33:45.709949+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.709974+0100	Zenmoney	Creating new background assertion
+default	16:33:45.710000+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.708761+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.708753+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.700437+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.708842+0100	Zenmoney	Created background task <private>.
+default	16:33:45.708774+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.711450+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.700489+0100	Zenmoney	Created background task <private>.
+default	16:33:45.708833+0100	Zenmoney	Created background task <private>.
+default	16:33:45.711601+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.710563+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.708853+0100	Zenmoney	Created background task <private>.
+default	16:33:45.710592+0100	Zenmoney	Created background task <private>.
+default	16:33:45.711654+0100	Zenmoney	Creating new background assertion
+default	16:33:45.707614+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 207
+default	16:33:45.711740+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.707653+0100	Zenmoney	Ending task with identifier 207 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b20960>
+default	16:33:45.709556+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 208
+default	16:33:45.707683+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 207: <private>)
+default	16:33:45.709609+0100	Zenmoney	Ending task with identifier 208 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.707722+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d33200> for task identifier: 207
+default	16:33:45.709528+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 208
+default	16:33:45.709639+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 208: <private>)
+default	16:33:45.709599+0100	Zenmoney	Ending task with identifier 208 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.709671+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 208
+default	16:33:45.709583+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 208
+default	16:33:45.710782+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 209
+default	16:33:45.709630+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 208: <private>)
+default	16:33:45.710851+0100	Zenmoney	Ending task with identifier 209 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.711961+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.709623+0100	Zenmoney	Ending task with identifier 208 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.711035+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 209: <private>)
+default	16:33:45.709661+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 208
+default	16:33:45.709652+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 208: <private>)
+default	16:33:45.711137+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 209
+default	16:33:45.709686+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 208
+default	16:33:45.709918+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.709909+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.709944+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.709938+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.708195+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.709969+0100	Zenmoney	Creating new background assertion
+default	16:33:45.709963+0100	Zenmoney	Creating new background assertion
+default	16:33:45.709995+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.709930+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.711446+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.708223+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.709986+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.709956+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.708247+0100	Zenmoney	Creating new background assertion
+default	16:33:45.711596+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.709980+0100	Zenmoney	Creating new background assertion
+default	16:33:45.708352+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.710006+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.711651+0100	Zenmoney	Creating new background assertion
+default	16:33:45.712938+0100	Zenmoney	Created background task <private>.
+default	16:33:45.712985+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 210
+default	16:33:45.710558+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.713035+0100	Zenmoney	Ending task with identifier 210 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.711733+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.710547+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.713066+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 210: <private>)
+default	16:33:45.710588+0100	Zenmoney	Created background task <private>.
+default	16:33:45.710578+0100	Zenmoney	Created background task <private>.
+default	16:33:45.713094+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 210
+default	16:33:45.713130+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.710572+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.710602+0100	Zenmoney	Created background task <private>.
+default	16:33:45.713155+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.713181+0100	Zenmoney	Creating new background assertion
+default	16:33:45.708758+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.710777+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 209
+default	16:33:45.711956+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.713207+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.710767+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 209
+default	16:33:45.710846+0100	Zenmoney	Ending task with identifier 209 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.710829+0100	Zenmoney	Ending task with identifier 209 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.711028+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 209: <private>)
+default	16:33:45.708837+0100	Zenmoney	Created background task <private>.
+default	16:33:45.710927+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 209: <private>)
+default	16:33:45.710789+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 209
+default	16:33:45.711131+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 209
+default	16:33:45.710913+0100	Zenmoney	Ending task with identifier 209 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.711122+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 209
+default	16:33:45.711046+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 209: <private>)
+default	16:33:45.713490+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.711147+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 209
+default	16:33:45.709546+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 208
+default	16:33:45.709604+0100	Zenmoney	Ending task with identifier 208 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22790>
+default	16:33:45.709635+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 208: <private>)
+default	16:33:45.709666+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 208
+default	16:33:45.711431+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.711441+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.711591+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.711584+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.712933+0100	Zenmoney	Created background task <private>.
+default	16:33:45.711639+0100	Zenmoney	Creating new background assertion
+default	16:33:45.711647+0100	Zenmoney	Creating new background assertion
+default	16:33:45.713838+0100	Zenmoney	Created background task <private>.
+default	16:33:45.712980+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 210
+default	16:33:45.711455+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.713872+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 211
+default	16:33:45.713031+0100	Zenmoney	Ending task with identifier 210 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.711604+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.711714+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.709914+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.711705+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.713062+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 210: <private>)
+default	16:33:45.709942+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.713090+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 210
+default	16:33:45.714062+0100	Zenmoney	Ending task with identifier 211 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.711658+0100	Zenmoney	Creating new background assertion
+default	16:33:45.709966+0100	Zenmoney	Creating new background assertion
+default	16:33:45.713126+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.709991+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.713152+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.711746+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.713176+0100	Zenmoney	Creating new background assertion
+default	16:33:45.711952+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.711945+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.713203+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.711963+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.710553+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.710583+0100	Zenmoney	Created background task <private>.
+default	16:33:45.713485+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.710772+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 209
+default	16:33:45.710839+0100	Zenmoney	Ending task with identifier 209 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.710998+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 209: <private>)
+default	16:33:45.712889+0100	Zenmoney	Created background task <private>.
+default	16:33:45.712925+0100	Zenmoney	Created background task <private>.
+default	16:33:45.712963+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 210
+default	16:33:45.711127+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 209
+default	16:33:45.712976+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 210
+default	16:33:45.712997+0100	Zenmoney	Ending task with identifier 210 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.713834+0100	Zenmoney	Created background task <private>.
+default	16:33:45.713047+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 210: <private>)
+default	16:33:45.713025+0100	Zenmoney	Ending task with identifier 210 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.713077+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 210
+default	16:33:45.713057+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 210: <private>)
+default	16:33:45.713869+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 211
+default	16:33:45.713114+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.712941+0100	Zenmoney	Created background task <private>.
+default	16:33:45.713085+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 210
+default	16:33:45.713140+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.712990+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 210
+default	16:33:45.713123+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.714029+0100	Zenmoney	Ending task with identifier 211 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.713165+0100	Zenmoney	Creating new background assertion
+default	16:33:45.713040+0100	Zenmoney	Ending task with identifier 210 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.713149+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.713191+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.713069+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 210: <private>)
+default	16:33:45.713172+0100	Zenmoney	Creating new background assertion
+default	16:33:45.711436+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.713099+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 210
+default	16:33:45.713200+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.711587+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.713135+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.713160+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.711642+0100	Zenmoney	Creating new background assertion
+default	16:33:45.713185+0100	Zenmoney	Creating new background assertion
+default	16:33:45.713212+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.711709+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.713480+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.713464+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.711949+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.713493+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.713829+0100	Zenmoney	Created background task <private>.
+default	16:33:45.713865+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 211
+default	16:33:45.713989+0100	Zenmoney	Ending task with identifier 211 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.714243+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 211: <private>)
+default	16:33:45.713840+0100	Zenmoney	Created background task <private>.
+default	16:33:45.713876+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 211
+default	16:33:45.714601+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 211
+default	16:33:45.713821+0100	Zenmoney	Created background task <private>.
+default	16:33:45.714107+0100	Zenmoney	Ending task with identifier 211 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.713856+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 211
+default	16:33:45.712912+0100	Zenmoney	Created background task <private>.
+default	16:33:45.715003+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.712971+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 210
+default	16:33:45.715051+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.715076+0100	Zenmoney	Creating new background assertion
+default	16:33:45.713016+0100	Zenmoney	Ending task with identifier 210 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.713911+0100	Zenmoney	Ending task with identifier 211 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715111+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.713052+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 210: <private>)
+default	16:33:45.713082+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 210
+default	16:33:45.714176+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 211: <private>)
+default	16:33:45.713119+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.713145+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.713170+0100	Zenmoney	Creating new background assertion
+default	16:33:45.714478+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 211
+default	16:33:45.713196+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.715370+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.715406+0100	Zenmoney	Created background task <private>.
+default	16:33:45.715434+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 212
+default	16:33:45.714869+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715465+0100	Zenmoney	Ending task with identifier 212 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715044+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.715543+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 212: <private>)
+default	16:33:45.715070+0100	Zenmoney	Creating new background assertion
+default	16:33:45.713476+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.715667+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 212
+default	16:33:45.715101+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.713825+0100	Zenmoney	Created background task <private>.
+default	16:33:45.715363+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.713860+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 211
+default	16:33:45.715399+0100	Zenmoney	Created background task <private>.
+default	16:33:45.716402+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715425+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 212
+default	16:33:45.713954+0100	Zenmoney	Ending task with identifier 211 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.716485+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.715452+0100	Zenmoney	Ending task with identifier 212 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.714181+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 211: <private>)
+default	16:33:45.714482+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 211
+default	16:33:45.715524+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 212: <private>)
+default	16:33:45.715647+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 212
+default	16:33:45.714931+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715048+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.715074+0100	Zenmoney	Creating new background assertion
+default	16:33:45.715106+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.715367+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.715403+0100	Zenmoney	Created background task <private>.
+default	16:33:45.715430+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 212
+default	16:33:45.715457+0100	Zenmoney	Ending task with identifier 212 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715533+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 212: <private>)
+default	16:33:45.716392+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715657+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 212
+default	16:33:45.716418+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.716398+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.714359+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 211: <private>)
+default	16:33:45.716464+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.714430+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 211: <private>)
+default	16:33:45.714437+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 211: <private>)
+default	16:33:45.716578+0100	Zenmoney	Creating new background assertion
+default	16:33:45.716583+0100	Zenmoney	Creating new background assertion
+default	16:33:45.716605+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.714621+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 211
+default	16:33:45.716588+0100	Zenmoney	Creating new background assertion
+default	16:33:45.716612+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.714648+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 211
+default	16:33:45.714642+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 211
+default	16:33:45.716615+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.715024+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715035+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715030+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715055+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.715059+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.715080+0100	Zenmoney	Creating new background assertion
+default	16:33:45.715064+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.715090+0100	Zenmoney	Creating new background assertion
+default	16:33:45.715095+0100	Zenmoney	Creating new background assertion
+default	16:33:45.715115+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.715117+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.715121+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.717144+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.717154+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.717384+0100	Zenmoney	Created background task <private>.
+default	16:33:45.717161+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.717511+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 213
+default	16:33:45.717397+0100	Zenmoney	Created background task <private>.
+default	16:33:45.715378+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.715392+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.717645+0100	Zenmoney	Ending task with identifier 213 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715374+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.717407+0100	Zenmoney	Created background task <private>.
+default	16:33:45.715414+0100	Zenmoney	Created background task <private>.
+default	16:33:45.717521+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 213
+default	16:33:45.715410+0100	Zenmoney	Created background task <private>.
+default	16:33:45.715418+0100	Zenmoney	Created background task <private>.
+default	16:33:45.717788+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 213: <private>)
+default	16:33:45.715441+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 212
+default	16:33:45.715437+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 212
+default	16:33:45.715445+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 212
+default	16:33:45.715473+0100	Zenmoney	Ending task with identifier 212 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.717530+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 213
+default	16:33:45.717911+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 213
+default	16:33:45.715470+0100	Zenmoney	Ending task with identifier 212 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.717658+0100	Zenmoney	Ending task with identifier 213 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715478+0100	Zenmoney	Ending task with identifier 212 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715560+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 212: <private>)
+default	16:33:45.717669+0100	Zenmoney	Ending task with identifier 213 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.715552+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 212: <private>)
+default	16:33:45.715569+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 212: <private>)
+default	16:33:45.717798+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 213: <private>)
+default	16:33:45.715684+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 212
+default	16:33:45.715693+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 212
+default	16:33:45.715677+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 212
+default	16:33:45.717808+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 213: <private>)
+default	16:33:45.717922+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 213
+default	16:33:45.717932+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 213
+default	16:33:45.718579+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.718700+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.718806+0100	Zenmoney	Creating new background assertion
+default	16:33:45.718589+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.718861+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.718597+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.716413+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.716408+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.716404+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.718709+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.716509+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.716552+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.716531+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.718718+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.716590+0100	Zenmoney	Creating new background assertion
+default	16:33:45.718816+0100	Zenmoney	Creating new background assertion
+default	16:33:45.716598+0100	Zenmoney	Creating new background assertion
+default	16:33:45.716594+0100	Zenmoney	Creating new background assertion
+default	16:33:45.716620+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.718822+0100	Zenmoney	Creating new background assertion
+default	16:33:45.718871+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.716624+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.716629+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.718878+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.719674+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.717170+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.717179+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.717416+0100	Zenmoney	Created background task <private>.
+default	16:33:45.719680+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.717236+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.719902+0100	Zenmoney	Created background task <private>.
+default	16:33:45.719686+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.717540+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 213
+default	16:33:45.717425+0100	Zenmoney	Created background task <private>.
+default	16:33:45.717433+0100	Zenmoney	Created background task <private>.
+default	16:33:45.717679+0100	Zenmoney	Ending task with identifier 213 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.719907+0100	Zenmoney	Created background task <private>.
+default	16:33:45.717547+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 213
+default	16:33:45.717556+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 213
+default	16:33:45.717818+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 213: <private>)
+default	16:33:45.719914+0100	Zenmoney	Created background task <private>.
+default	16:33:45.717688+0100	Zenmoney	Ending task with identifier 213 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.717941+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 213
+default	16:33:45.717698+0100	Zenmoney	Ending task with identifier 213 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.717827+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 213: <private>)
+default	16:33:45.717835+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 213: <private>)
+default	16:33:45.717951+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 213
+default	16:33:45.717961+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 213
+default	16:33:45.720417+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 214
+default	16:33:45.720463+0100	Zenmoney	Ending task with identifier 214 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.720508+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 214: <private>)
+default	16:33:45.720423+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 214
+default	16:33:45.720552+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 214
+default	16:33:45.718606+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.720469+0100	Zenmoney	Ending task with identifier 214 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.720431+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 214
+default	16:33:45.720514+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 214: <private>)
+default	16:33:45.720477+0100	Zenmoney	Ending task with identifier 214 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.718725+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.720520+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 214: <private>)
+default	16:33:45.720560+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 214
+default	16:33:45.718831+0100	Zenmoney	Creating new background assertion
+default	16:33:45.720566+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 214
+default	16:33:45.718888+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.718616+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.720853+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.718625+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.720896+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.720997+0100	Zenmoney	Creating new background assertion
+default	16:33:45.718734+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.720860+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.718741+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.720866+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.720901+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.721071+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.718839+0100	Zenmoney	Creating new background assertion
+default	16:33:45.718847+0100	Zenmoney	Creating new background assertion
+default	16:33:45.720907+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.721004+0100	Zenmoney	Creating new background assertion
+default	16:33:45.718898+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.718907+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.721009+0100	Zenmoney	Creating new background assertion
+default	16:33:45.721079+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.719691+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.721085+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.721324+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.719921+0100	Zenmoney	Created background task <private>.
+default	16:33:45.721577+0100	Zenmoney	Created background task <private>.
+default	16:33:45.721373+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.721662+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 215
+default	16:33:45.721405+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.719697+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.721585+0100	Zenmoney	Created background task <private>.
+default	16:33:45.719705+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.721590+0100	Zenmoney	Created background task <private>.
+default	16:33:45.721755+0100	Zenmoney	Ending task with identifier 215 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.721668+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 215
+default	16:33:45.721853+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 215: <private>)
+default	16:33:45.721674+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 215
+default	16:33:45.721762+0100	Zenmoney	Ending task with identifier 215 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.721937+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 215
+default	16:33:45.719932+0100	Zenmoney	Created background task <private>.
+default	16:33:45.721770+0100	Zenmoney	Ending task with identifier 215 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.720437+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 214
+default	16:33:45.721863+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 215: <private>)
+default	16:33:45.720484+0100	Zenmoney	Ending task with identifier 214 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.721945+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 215
+default	16:33:45.721869+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 215: <private>)
+default	16:33:45.719926+0100	Zenmoney	Created background task <private>.
+default	16:33:45.720526+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 214: <private>)
+default	16:33:45.720572+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 214
+default	16:33:45.721951+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 215
+default	16:33:45.720873+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.720913+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.722367+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.720448+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 214
+default	16:33:45.722372+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722429+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.721018+0100	Zenmoney	Creating new background assertion
+default	16:33:45.720498+0100	Zenmoney	Ending task with identifier 214 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.722376+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722433+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.720539+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 214: <private>)
+default	16:33:45.721091+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.722436+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.722508+0100	Zenmoney	Creating new background assertion
+default	16:33:45.720586+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 214
+default	16:33:45.722512+0100	Zenmoney	Creating new background assertion
+default	16:33:45.722516+0100	Zenmoney	Creating new background assertion
+default	16:33:45.722579+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.722574+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.722584+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.721436+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.721596+0100	Zenmoney	Created background task <private>.
+default	16:33:45.720443+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 214
+default	16:33:45.720886+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722769+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.722765+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.720925+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.721681+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 215
+default	16:33:45.720490+0100	Zenmoney	Ending task with identifier 214 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b225b0>
+default	16:33:45.722774+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.722820+0100	Zenmoney	Created background task <private>.
+default	16:33:45.722816+0100	Zenmoney	Created background task <private>.
+default	16:33:45.721029+0100	Zenmoney	Creating new background assertion
+default	16:33:45.721776+0100	Zenmoney	Ending task with identifier 215 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.720532+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 214: <private>)
+default	16:33:45.722824+0100	Zenmoney	Created background task <private>.
+default	16:33:45.721102+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.722878+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 216
+default	16:33:45.721877+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 215: <private>)
+default	16:33:45.722875+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 216
+default	16:33:45.722882+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 216
+default	16:33:45.721957+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 215
+default	16:33:45.720580+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 214
+default	16:33:45.722935+0100	Zenmoney	Ending task with identifier 216 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722930+0100	Zenmoney	Ending task with identifier 216 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722939+0100	Zenmoney	Ending task with identifier 216 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.721494+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.723046+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 216: <private>)
+default	16:33:45.723089+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 216: <private>)
+default	16:33:45.722995+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 216: <private>)
+default	16:33:45.723526+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 216
+default	16:33:45.721607+0100	Zenmoney	Created background task <private>.
+default	16:33:45.723531+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 216
+default	16:33:45.721693+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 215
+default	16:33:45.723520+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 216
+default	16:33:45.721790+0100	Zenmoney	Ending task with identifier 215 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722379+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.721889+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 215: <private>)
+default	16:33:45.720880+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722440+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.723901+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.721973+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 215
+default	16:33:45.723906+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.720918+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.723895+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722520+0100	Zenmoney	Creating new background assertion
+default	16:33:45.724042+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.724047+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.724037+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.722588+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.721024+0100	Zenmoney	Creating new background assertion
+default	16:33:45.724109+0100	Zenmoney	Creating new background assertion
+default	16:33:45.724113+0100	Zenmoney	Creating new background assertion
+default	16:33:45.724104+0100	Zenmoney	Creating new background assertion
+default	16:33:45.724167+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.724172+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.721096+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.724162+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.722388+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722778+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.722448+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.722827+0100	Zenmoney	Created background task <private>.
+default	16:33:45.722527+0100	Zenmoney	Creating new background assertion
+default	16:33:45.722887+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 216
+default	16:33:45.724517+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.724512+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.722596+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.722944+0100	Zenmoney	Ending task with identifier 216 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.724508+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.721466+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.724586+0100	Zenmoney	Created background task <private>.
+default	16:33:45.724582+0100	Zenmoney	Created background task <private>.
+default	16:33:45.723162+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 216: <private>)
+default	16:33:45.724577+0100	Zenmoney	Created background task <private>.
+default	16:33:45.724652+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 217
+default	16:33:45.724647+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 217
+default	16:33:45.723536+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 216
+default	16:33:45.724723+0100	Zenmoney	Ending task with identifier 217 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722784+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.721601+0100	Zenmoney	Created background task <private>.
+default	16:33:45.724642+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 217
+default	16:33:45.724716+0100	Zenmoney	Ending task with identifier 217 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.724802+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 217: <private>)
+default	16:33:45.722835+0100	Zenmoney	Created background task <private>.
+default	16:33:45.724710+0100	Zenmoney	Ending task with identifier 217 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.724796+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 217: <private>)
+default	16:33:45.721687+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 215
+default	16:33:45.724865+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 217
+default	16:33:45.724788+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 217: <private>)
+default	16:33:45.722894+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 216
+default	16:33:45.724860+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 217
+default	16:33:45.724853+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 217
+default	16:33:45.723912+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722954+0100	Zenmoney	Ending task with identifier 216 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.723359+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 216: <private>)
+default	16:33:45.721784+0100	Zenmoney	Ending task with identifier 215 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.724052+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.723546+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 216
+default	16:33:45.721883+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 215: <private>)
+default	16:33:45.724118+0100	Zenmoney	Creating new background assertion
+default	16:33:45.725524+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.724176+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.721963+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 215
+default	16:33:45.725519+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.725593+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.723932+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.725588+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.725655+0100	Zenmoney	Creating new background assertion
+default	16:33:45.725513+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.725686+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.725583+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.725651+0100	Zenmoney	Creating new background assertion
+default	16:33:45.724061+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.725681+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.724520+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.725646+0100	Zenmoney	Creating new background assertion
+default	16:33:45.724127+0100	Zenmoney	Creating new background assertion
+default	16:33:45.725676+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.724186+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.724591+0100	Zenmoney	Created background task <private>.
+default	16:33:45.722383+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.724657+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 217
+default	16:33:45.726046+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.722444+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.724729+0100	Zenmoney	Ending task with identifier 217 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.726042+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.724807+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 217: <private>)
+default	16:33:45.722522+0100	Zenmoney	Creating new background assertion
+default	16:33:45.724870+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 217
+default	16:33:45.724529+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.726037+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.722593+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.724600+0100	Zenmoney	Created background task <private>.
+default	16:33:45.724666+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 217
+default	16:33:45.724740+0100	Zenmoney	Ending task with identifier 217 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.725529+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.726615+0100	Zenmoney	Created background task <private>.
+default	16:33:45.724817+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 217: <private>)
+default	16:33:45.722780+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.726649+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 218
+default	16:33:45.724884+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 217
+default	16:33:45.725596+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.726696+0100	Zenmoney	Ending task with identifier 218 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.726732+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 218: <private>)
+default	16:33:45.722831+0100	Zenmoney	Created background task <private>.
+default	16:33:45.725660+0100	Zenmoney	Creating new background assertion
+default	16:33:45.726610+0100	Zenmoney	Created background task <private>.
+default	16:33:45.726768+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 218
+default	16:33:45.725691+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.726644+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 218
+default	16:33:45.726800+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.726691+0100	Zenmoney	Ending task with identifier 218 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.722891+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 216
+default	16:33:45.726914+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.726727+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 218: <private>)
+default	16:33:45.726605+0100	Zenmoney	Created background task <private>.
+default	16:33:45.726763+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 218
+default	16:33:45.727097+0100	Zenmoney	Creating new background assertion
+default	16:33:45.722949+0100	Zenmoney	Ending task with identifier 216 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.726635+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 218
+default	16:33:45.726795+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.725541+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.727154+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.726685+0100	Zenmoney	Ending task with identifier 218 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.726881+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.726721+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 218: <private>)
+default	16:33:45.725605+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.723231+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 216: <private>)
+default	16:33:45.726049+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.726757+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 218
+default	16:33:45.727092+0100	Zenmoney	Creating new background assertion
+default	16:33:45.725667+0100	Zenmoney	Creating new background assertion
+default	16:33:45.726790+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.725699+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.723541+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 216
+default	16:33:45.726834+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.727149+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.727087+0100	Zenmoney	Creating new background assertion
+default	16:33:45.727488+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.727144+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.727556+0100	Zenmoney	Created background task <private>.
+default	16:33:45.727623+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 219
+default	16:33:45.726058+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.723917+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.727483+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.727551+0100	Zenmoney	Created background task <private>.
+default	16:33:45.726619+0100	Zenmoney	Created background task <private>.
+default	16:33:45.727865+0100	Zenmoney	Ending task with identifier 219 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.724056+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.726664+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 218
+default	16:33:45.727479+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.727618+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 219
+default	16:33:45.726701+0100	Zenmoney	Ending task with identifier 218 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.727987+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 219: <private>)
+default	16:33:45.724123+0100	Zenmoney	Creating new background assertion
+default	16:33:45.726737+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 218: <private>)
+default	16:33:45.727544+0100	Zenmoney	Created background task <private>.
+default	16:33:45.726773+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 218
+default	16:33:45.724181+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.726805+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728081+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 219
+default	16:33:45.727613+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 219
+default	16:33:45.726948+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.727860+0100	Zenmoney	Ending task with identifier 219 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.726629+0100	Zenmoney	Created background task <private>.
+default	16:33:45.727102+0100	Zenmoney	Creating new background assertion
+default	16:33:45.728214+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.726672+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 218
+default	16:33:45.727159+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.727981+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 219: <private>)
+default	16:33:45.728285+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.727854+0100	Zenmoney	Ending task with identifier 219 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.726711+0100	Zenmoney	Ending task with identifier 218 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728342+0100	Zenmoney	Creating new background assertion
+default	16:33:45.726748+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 218: <private>)
+default	16:33:45.728075+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 219
+default	16:33:45.726783+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 218
+default	16:33:45.728373+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d333e0>
+default	16:33:45.727976+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 219: <private>)
+default	16:33:45.726815+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728199+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.727011+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.724525+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.728070+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 219
+default	16:33:45.727111+0100	Zenmoney	Creating new background assertion
+default	16:33:45.728280+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.724596+0100	Zenmoney	Created background task <private>.
+default	16:33:45.727493+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.728337+0100	Zenmoney	Creating new background assertion
+default	16:33:45.727169+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.728194+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.727561+0100	Zenmoney	Created background task <private>.
+default	16:33:45.728368+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d333e0>
+default	16:33:45.724661+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 217
+default	16:33:45.728276+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.727628+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 219
+default	16:33:45.728332+0100	Zenmoney	Creating new background assertion
+default	16:33:45.724734+0100	Zenmoney	Ending task with identifier 217 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728363+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d333e0>
+default	16:33:45.727870+0100	Zenmoney	Ending task with identifier 219 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.724812+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 217: <private>)
+default	16:33:45.727502+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.724879+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 217
+default	16:33:45.727992+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 219: <private>)
+default	16:33:45.727570+0100	Zenmoney	Created background task <private>.
+default	16:33:45.728086+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 219
+default	16:33:45.727638+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 219
+default	16:33:45.728219+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728290+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.727881+0100	Zenmoney	Ending task with identifier 219 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728347+0100	Zenmoney	Creating new background assertion
+default	16:33:45.728378+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d333e0>
+default	16:33:45.728003+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 219: <private>)
+default	16:33:45.725536+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.725600+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.728096+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 219
+default	16:33:45.725663+0100	Zenmoney	Creating new background assertion
+default	16:33:45.728229+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.725696+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.728298+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.728355+0100	Zenmoney	Creating new background assertion
+default	16:33:45.728388+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d333e0>
+default	16:33:45.726054+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.726624+0100	Zenmoney	Created background task <private>.
+default	16:33:45.726669+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 218
+default	16:33:45.726706+0100	Zenmoney	Ending task with identifier 218 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.726743+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 218: <private>)
+default	16:33:45.726778+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 218
+default	16:33:45.726810+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.726979+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.727107+0100	Zenmoney	Creating new background assertion
+default	16:33:45.727164+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d31db0>
+default	16:33:45.727498+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.727566+0100	Zenmoney	Created background task <private>.
+default	16:33:45.727633+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 219
+default	16:33:45.727876+0100	Zenmoney	Ending task with identifier 219 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.727997+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 219: <private>)
+default	16:33:45.728091+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d31db0> for task identifier: 219
+default	16:33:45.728224+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728293+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:33:45.728351+0100	Zenmoney	Creating new background assertion
+default	16:33:45.728383+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x140d333e0>
+default	16:33:45.728743+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.728750+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.728789+0100	Zenmoney	Created background task <private>.
+default	16:33:45.728784+0100	Zenmoney	Created background task <private>.
+default	16:33:45.728823+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 220
+default	16:33:45.728833+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 220
+default	16:33:45.728908+0100	Zenmoney	Ending task with identifier 220 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728913+0100	Zenmoney	Ending task with identifier 220 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728945+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 220: <private>)
+default	16:33:45.728952+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 220: <private>)
+default	16:33:45.729022+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d333e0> for task identifier: 220
+default	16:33:45.729027+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d333e0> for task identifier: 220
+default	16:33:45.728738+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.728755+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.728768+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.728775+0100	Zenmoney	Created background task <private>.
+default	16:33:45.728760+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:33:45.728792+0100	Zenmoney	Created background task <private>.
+default	16:33:45.728818+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 220
+default	16:33:45.728800+0100	Zenmoney	Created background task <private>.
+default	16:33:45.728805+0100	Zenmoney	Created background task <private>.
+default	16:33:45.728838+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 220
+default	16:33:45.728842+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 220
+default	16:33:45.728847+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 220
+default	16:33:45.728919+0100	Zenmoney	Ending task with identifier 220 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728902+0100	Zenmoney	Ending task with identifier 220 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728940+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 220: <private>)
+default	16:33:45.728929+0100	Zenmoney	Ending task with identifier 220 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728924+0100	Zenmoney	Ending task with identifier 220 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x142b22a90>
+default	16:33:45.728959+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 220: <private>)
+default	16:33:45.728971+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 220: <private>)
+default	16:33:45.728964+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 220: <private>)
+default	16:33:45.729032+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d333e0> for task identifier: 220
+default	16:33:45.729017+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d333e0> for task identifier: 220
+default	16:33:45.729037+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d333e0> for task identifier: 220
+default	16:33:45.729043+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x140d333e0> for task identifier: 220

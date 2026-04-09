@@ -1,0 +1,437 @@
+default	16:40:14.665256+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x10a507900; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:40:14.665277+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:40:14.665291+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x10791c400>; contextId: 0xB39DC053
+default	16:40:14.666899+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x10a507900; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:40:14.692013+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x10a507900; type: 0; subtype: 0; backing type: 11; shouldSend: 1; ignoreInteractionEvents: 0, systemGestureStateChange: 0
+default	16:40:14.692059+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to windows: 1
+default	16:40:14.692089+0100	Zenmoney	Sending UIEvent type: 0; subtype: 0; to window: <AppWindow: 0x10791c400>; contextId: 0xB39DC053
+default	16:40:14.693694+0100	Zenmoney	Task <D738C0D9-073D-4C14-83DC-86381877538E>.<2> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:40:14.694601+0100	Zenmoney	Connection 0: creating secure tcp or quic connection
+default	16:40:14.695128+0100	Zenmoney	Connection 18: enabling TLS
+default	16:40:14.695135+0100	Zenmoney	Connection 18: starting, TC(0x0)
+default	16:40:14.695194+0100	Zenmoney	[C18 9C8D9FEC-7722-4043-B45A-9D485025E49B Hostname#8acdf5f7:443 quic-connection, url hash: dfc4125c, definite, attribution: developer, context: com.apple.CFNetwork.NSURLSession.{C865F37F-DBE1-484E-84F0-0EC1ED5BC455}{(null)}{Y}{2}{0x0} (private), proc: 210330B6-8833-3669-A092-AA25DBFCE4F5, delegated upid: 0] start
+default	16:40:14.695223+0100	Zenmoney	[C18 Hostname#8acdf5f7:443 initial parent-flow ((null))] event: path:start @0.000s
+default	16:40:14.696137+0100	Zenmoney	[C18 Hostname#8acdf5f7:443 waiting parent-flow (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: path:satisfied @0.000s, uuid: 3BED3F22-BCDD-4181-87E0-EFE2730113FE
+default	16:40:14.696495+0100	Zenmoney	[C18 Hostname#8acdf5f7:443 in_progress parent-flow (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: flow:start_connect @0.000s
+default	16:40:14.696502+0100	Zenmoney	nw_connection_report_state_with_handler_on_nw_queue [C18] reporting state preparing
+default	16:40:14.696526+0100	Zenmoney	[C18 Hostname#8acdf5f7:443 in_progress parent-flow (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: flow:start_child @0.001s
+default	16:40:14.696553+0100	Zenmoney	[C18.1 Hostname#8acdf5f7:443 initial path ((null))] event: path:start @0.001s
+default	16:40:14.696841+0100	Zenmoney	[C18.1 Hostname#8acdf5f7:443 waiting path (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: path:satisfied @0.001s, uuid: 3BED3F22-BCDD-4181-87E0-EFE2730113FE
+default	16:40:14.699012+0100	Zenmoney	[C18.1 Hostname#8acdf5f7:443 in_progress transform (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: transform:start @0.001s
+default	16:40:14.699106+0100	Zenmoney	[C18.1.1 Hostname#8acdf5f7:443 initial path ((null))] event: path:start @0.001s
+default	16:40:14.699531+0100	Zenmoney	[C18.1.1 Hostname#8acdf5f7:443 waiting path (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: path:satisfied @0.004s, uuid: D8128D19-6364-4E39-A116-8D4085DC55AD
+default	16:40:14.699690+0100	Zenmoney	[C18.1.1 Hostname#8acdf5f7:443 in_progress resolver (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: resolver:start_dns @0.004s
+default	16:40:14.700057+0100	Zenmoney	Task <D738C0D9-073D-4C14-83DC-86381877538E>.<2> setting up Connection 18
+default	16:40:14.704776+0100	Zenmoney	Evaluating dispatch of UIEvent: 0x10a507900; type: 0; subtype: 0; backing type: 11; shouldSend: 0; ignoreInteractionEvents: 0, systemGestureStateChange: 1
+default	16:40:14.721039+0100	Zenmoney	nw_endpoint_resolver_update [C18.1.1 Hostname#8acdf5f7:443 in_progress resolver (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] Adding endpoint handler for IPv4#514607ec:443
+default	16:40:14.721092+0100	Zenmoney	[C18.1.1 Hostname#8acdf5f7:443 in_progress resolver (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: resolver:receive_dns @0.025s
+default	16:40:14.721246+0100	Zenmoney	[C18.1.1.1 IPv4#514607ec:443 initial path ((null))] event: path:start @0.025s
+default	16:40:14.722804+0100	Zenmoney	[C18.1.1.1 IPv4#514607ec:443 waiting path (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: path:satisfied @0.026s, uuid: D2CBD1FE-C878-4998-B79A-B7BF933974CB
+default	16:40:14.723345+0100	Zenmoney	[C18.1.1.1 IPv4#514607ec:443 in_progress channel-flow (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: flow:start_nexus @0.027s
+default	16:40:14.723663+0100	Zenmoney	[C18.1.1.1 IPv4#514607ec:443 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: flow:receive_nexus @0.028s
+default	16:40:14.724451+0100	Zenmoney	[C18.1.1.1 IPv4#514607ec:443 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: flow:start_connect @0.029s
+default	16:40:14.724848+0100	Zenmoney	Connection 18: will be coalesced
+default	16:40:14.725095+0100	Zenmoney	TIC Coalescing TCP Conn [18] may go into <private>
+default	16:40:14.725333+0100	Zenmoney	nw_protocol_tcp_log_summary [C18.1.1.1:3] 
+	[56BDC47B-5698-4260-97AB-4709416A7F26 <private>:57036<-><private>:443]
+	Init: 1, Conn_Time: 0.000ms, SYNs: 0, WR_T: 0/0, RD_T: 0/0, TFO: 0/0/0, ECN: 0/0/0, Accurate ECN (client/server): Disabled/Disabled, TS: 0, TSO: 0
+	rtt_cache: invalid, rtt_upd: 0, rtt: 0.000ms, rtt_var: 250.000ms rtt_nc: 0.000ms, rtt_var_nc: 250.000ms base rtt: 0ms
+	ACKs-compressed: 0, ACKs delayed: 0 delayed ACKs sent: 0
+error	16:40:14.725366+0100	Zenmoney	nw_endpoint_flow_failed_with_error [C18.1.1.1 IPv4#514607ec:443 in_progress channel-flow (satisfied (Path is satisfied), viable, interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] already failing, returning
+default	16:40:14.725505+0100	Zenmoney	[C18.1.1.1 IPv4#514607ec:443 failed channel-flow (satisfied (Path is satisfied), viable, interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: flow:failed_connect @0.030s, error Operation canceled
+default	16:40:14.725653+0100	Zenmoney	[0x12c125680] activating connection: mach=true listener=false peer=false name=com.apple.usymptomsd
+default	16:40:14.725682+0100	Zenmoney	[C18.1.1 Hostname#8acdf5f7:443 failed resolver (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: resolver:children_failed @0.030s
+default	16:40:14.725718+0100	Zenmoney	[C18.1 Hostname#8acdf5f7:443 failed transform (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: transform:children_failed @0.030s
+error	16:40:14.726257+0100	Zenmoney	nw_endpoint_flow_failed_with_error [C18.1.1.1 IPv4#514607ec:443 cancelled channel-flow ((null))] already failing, returning
+default	16:40:14.726285+0100	Zenmoney	[C18 Hostname#8acdf5f7:443 failed parent-flow (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] event: flow:child_failed @0.030s
+default	16:40:14.726293+0100	Zenmoney	nw_connection_report_state_with_handler_on_nw_queue [C18] reporting state failed error Operation canceled
+default	16:40:14.726433+0100	Zenmoney	Task <D738C0D9-073D-4C14-83DC-86381877538E>.<2> auth completion disp=1 cred=0x0
+default	16:40:14.726448+0100	Zenmoney	(Trust 0x118f18cc0) No pending evals, starting
+default	16:40:14.726778+0100	Zenmoney	[0x12c1261c0] activating connection: mach=true listener=false peer=false name=com.apple.trustd
+default	16:40:14.726919+0100	Zenmoney	(Trust 0x118f18cc0) Completed async eval kickoff
+default	16:40:14.741275+0100	Zenmoney	(Trust 0x118f18cc0) trustd returned 4
+default	16:40:14.741384+0100	Zenmoney	Connection 18: TLS Trust result 0
+default	16:40:14.741612+0100	Zenmoney	Connection 18: coalesced with <private>
+default	16:40:14.741621+0100	Zenmoney	Connection 18: TLS handshake complete
+error	16:40:14.741628+0100	Zenmoney	nw_connection_copy_protocol_metadata_internal_block_invoke [C18] Client called nw_connection_copy_protocol_metadata_internal on unconnected nw_connection
+error	16:40:14.741750+0100	Zenmoney	nw_connection_copy_protocol_metadata_internal_block_invoke [C18] Client called nw_connection_copy_protocol_metadata_internal on unconnected nw_connection
+error	16:40:14.741786+0100	Zenmoney	nw_connection_copy_protocol_metadata_internal_block_invoke [C18] Client called nw_connection_copy_protocol_metadata_internal on unconnected nw_connection
+error	16:40:14.741805+0100	Zenmoney	nw_connection_copy_protocol_metadata_internal_block_invoke [C18] Client called nw_connection_copy_protocol_metadata_internal on unconnected nw_connection
+error	16:40:14.741813+0100	Zenmoney	nw_connection_copy_connected_local_endpoint_block_invoke [C18] Client called nw_connection_copy_connected_local_endpoint on unconnected nw_connection
+error	16:40:14.741841+0100	Zenmoney	nw_connection_copy_connected_path_block_invoke [C18] Client called nw_connection_copy_connected_path on unconnected nw_connection
+error	16:40:14.741874+0100	Zenmoney	nw_connection_copy_connected_remote_endpoint_block_invoke [C18] Client called nw_connection_copy_connected_remote_endpoint on unconnected nw_connection
+default	16:40:14.741910+0100	Zenmoney	Connection 18: ready C(N) E(N)
+error	16:40:14.742307+0100	Zenmoney	nw_connection_copy_protocol_metadata_internal_block_invoke [C18] Client called nw_connection_copy_protocol_metadata_internal on unconnected nw_connection
+default	16:40:14.742336+0100	Zenmoney	Task <D738C0D9-073D-4C14-83DC-86381877538E>.<2> can retry(Y) with reason(9) for error [4:-2200]
+default	16:40:14.742350+0100	Zenmoney	[0x12c1261c0] invalidated because the current process cancelled the connection by calling xpc_connection_cancel()
+error	16:40:14.742357+0100	Zenmoney	nw_connection_copy_protocol_metadata_internal_block_invoke [C18] Client called nw_connection_copy_protocol_metadata_internal on unconnected nw_connection
+error	16:40:14.742369+0100	Zenmoney	nw_flow_add_write_request [C18 Hostname#8acdf5f7:443 failed parent-flow (satisfied (Path is satisfied), interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good)] cannot accept write requests
+error	16:40:14.742383+0100	Zenmoney	nw_write_request_report [C18] Send failed with error "Socket is not connected"
+error	16:40:14.742391+0100	Zenmoney	nw_connection_copy_metadata_block_invoke [C18] Client called nw_connection_copy_metadata on unconnected nw_connection
+default	16:40:14.742403+0100	Zenmoney	Connection 18: cleaning up
+default	16:40:14.742495+0100	Zenmoney	[C18 9C8D9FEC-7722-4043-B45A-9D485025E49B Hostname#8acdf5f7:443 quic-connection, url hash: dfc4125c, definite, attribution: developer] cancel
+default	16:40:14.742503+0100	Zenmoney	[C18 Hostname#8acdf5f7:443 quic-connection, url hash: dfc4125c, definite, attribution: developer] cancelled
+default	16:40:14.742569+0100	Zenmoney	nw_connection_report_state_with_handler_on_nw_queue [C18] reporting state cancelled error Operation canceled
+default	16:40:14.742991+0100	Zenmoney	[C4] event: client:connection_reused @39.309s
+default	16:40:14.743093+0100	Zenmoney	nw_protocol_tcp_notify [C4.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:40:14.743102+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C4.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:40:14.743304+0100	Zenmoney	Task <D738C0D9-073D-4C14-83DC-86381877538E>.<2> now using Connection 4
+default	16:40:14.743581+0100	Zenmoney	Task <D738C0D9-073D-4C14-83DC-86381877538E>.<2> sent request, body S 263
+default	16:40:14.970611+0100	Zenmoney	Reloading input views for key-window scene responder: <(null): 0x0; > force:N
+default	16:40:14.970633+0100	Zenmoney	_reloadInputViewsForKeyWindowSceneResponder: 0 force: 0, fromBecomeFirstResponder: 0 (automaticKeyboard: 0, reloadIdentifier: E0F563B3-433C-4E4C-BC55-98490C44E951)
+default	16:40:14.970662+0100	Zenmoney	_inputViewsForResponder: <(null): 0x0; >, automaticKeyboard: 0, force: 0
+default	16:40:14.970669+0100	Zenmoney	_inputViewsForResponder, found custom inputView: <(null): 0x0>, customInputViewController: <(null): 0x0>
+default	16:40:14.970674+0100	Zenmoney	_inputViewsForResponder, found inputAccessoryView: <(null): 0x0>
+default	16:40:14.970681+0100	Zenmoney	_inputViewsForResponder, responderRequiresKeyboard 0 (automaticKeyboardEnabled: 0, activeInstance: <UIKeyboardAutomatic: 0x12a069680; frame = {{0, 0}, {393, 233}}; alpha = 1.000000; isHidden = 0; tAMIC = 0>, self.isOnScreen: 1, requiresKBWhenFirstResponder: 0)
+default	16:40:14.970694+0100	Zenmoney	_inputViewsForResponder, useKeyboard 0 (allowsSystemInputView: 1, !inputView <(null): 0x0>, responderRequiresKeyboard 0)
+default	16:40:14.970700+0100	Zenmoney	_inputViewsForResponder, configuring _responderWithoutAutomaticAppearanceEnabled: <(null): 0x0> (_automaticAppearEnabled: 1)
+default	16:40:14.970731+0100	Zenmoney	_inputViewsForResponder returning: <<UIInputViewSet: 0x12c0f3180>; (empty)>
+default	16:40:14.970757+0100	Zenmoney	currently observing: YES
+default	16:40:14.970880+0100	Zenmoney	currently observing: NO
+default	16:40:14.971021+0100	Zenmoney	-_teardownExistingDelegate:<ZMandroidx.compose.ui.window.IntermediateTextInputUIView20: 0x12a1dd680> forSetDelegate:(nil) force:NO delayEndInputSession:NO
+default	16:40:14.972155+0100	Zenmoney	-[RTIInputSystemClient endRemoteTextInputSessionWithID:options:completion:]  Ending text input session. sessionID = <private>, options = <private>
+default	16:40:14.972157+0100	Zenmoney	-[RTIInputSystemClient _endSessionWithID:forServices:options:completion:]  End input session: <private>
+default	16:40:14.973591+0100	Zenmoney	-[RTIInputSystemClient endAllowingRemoteTextInput:completion:]  End allowing remote text input: <private>
+default	16:40:14.973608+0100	Zenmoney	-[RTIInputSystemClient _modifyTextEditingAllowedForReason:notify:animated:modifyAllowancesBlock:completion:]  Text editing allowed did change (editingAllowedAfter = NO)
+default	16:40:14.975289+0100	Zenmoney	Handling responseContextDidChange - existing: <private>, new: <private>
+default	16:40:14.975884+0100	Zenmoney	Requesting scene for autofill UI
+default	16:40:14.976118+0100	Zenmoney	Reloading input views for key-window scene responder: <ZMandroidx.compose.ui.window.ComposeView5: 0x10a7e56c0; frame = (0 0; 393 852); > force:N
+default	16:40:14.976172+0100	Zenmoney	_reloadInputViewsForKeyWindowSceneResponder: 1 force: 0, fromBecomeFirstResponder: 1 (automaticKeyboard: 1, reloadIdentifier: 7A6D3591-CA5D-4D43-9ADD-F2189233CB2B)
+default	16:40:14.976186+0100	Zenmoney	_inputViewsForResponder: <ZMandroidx.compose.ui.window.ComposeView5: 0x10a7e56c0; frame = (0 0; 393 852); >, automaticKeyboard: 1, force: 0
+default	16:40:14.976217+0100	Zenmoney	_inputViewsForResponder, found custom inputView: <(null): 0x0>, customInputViewController: <(null): 0x0>
+default	16:40:14.976223+0100	Zenmoney	_inputViewsForResponder, found inputAccessoryView: <(null): 0x0>
+default	16:40:14.976242+0100	Zenmoney	_inputViewsForResponder, responderRequiresKeyboard 0 (automaticKeyboardEnabled: 1, activeInstance: <UIKeyboardAutomatic: 0x12a069680; frame = {{0, 0}, {393, 233}}; alpha = 1.000000; isHidden = 0; tAMIC = 0>, self.isOnScreen: 1, requiresKBWhenFirstResponder: 0)
+default	16:40:14.976413+0100	Zenmoney	_inputViewsForResponder, useKeyboard 0 (allowsSystemInputView: 1, !inputView <(null): 0x0>, responderRequiresKeyboard 0)
+default	16:40:14.976444+0100	Zenmoney	_inputViewsForResponder, configuring _responderWithoutAutomaticAppearanceEnabled: <(null): 0x0> (_automaticAppearEnabled: 1)
+default	16:40:14.976527+0100	Zenmoney	_inputViewsForResponder returning: <<UIInputViewSet: 0x12c0f3180>; (empty)>
+default	16:40:14.976577+0100	Zenmoney	currently observing: YES
+default	16:40:14.976591+0100	Zenmoney	currently observing: NO
+error	16:40:14.976607+0100	Zenmoney	-[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+default	16:40:14.976639+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c0f3180>; (empty)> windowScene: <UIWindowScene: 0x102defea0; role: UIWindowSceneSessionRoleApplication; persistentIdentifier: C9322E4D-1220-4984-A77E-C167357CE130; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.976691+0100	Zenmoney	-[_UIRemoteKeyboards prepareToMoveKeyboard:withIAV:isIAVRelevant:showing:notifyRemote:forScene:] position: {{0, 0}, {0, 0}} visible: 0; notifyRemote: 1; isMinimized: NO
+default	16:40:14.976860+0100	Zenmoney	prepareToMoveKeyboard: set currentKeyboard:N
+default	16:40:14.976919+0100	Zenmoney	TX signalKeyboardChanged
+default	16:40:14.977519+0100	Zenmoney	-[_UIRemoteKeyboards signalToProxyKeyboardChanged:onCompletion:]  Signaling keyboard changed <<<_UIKeyboardChangedInformation: 0x12c1a1200>; appId (null) bundleId (null) animation fence <BKSAnimationFenceHandle:0x12c00cd40 -> <CAFenceHandle:0x10a42f640 name=33 fence=4700000022 usable=YES>>; position {{0, 0}, {0, 0}}; animated YES; on screen NO; tracking NO; resizing NO; local NO, dock state: Unknown, hasValidNotif: NO>; source canvas com.apple.frontboard.systemappservices/FBSceneManager:sceneID%3Aru.zenmoney.ZenMoneyNative-default; source display Main; source bundle ru.zenmoney.ZenMoneyNative; host bundle (null); animation fence <BKSAnimationFenceHandle:0x12c00cd40 -> <CAFenceHandle:0x10a42f640 name=33 fence=4700000022 usable=YES>>; position {{0, 0}, {0, 0}} (with IAV same); floating 0; on screen NO;  intersectable YES; snapshot YES>
+default	16:40:14.977571+0100	Zenmoney	Show keyboard with visual mode windowed (0)
+default	16:40:14.977595+0100	Zenmoney	Setting input views: <<UIInputViewSet: 0x12c0f3840>; (empty)>
+default	16:40:14.977732+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.977900+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.982327+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.982357+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.982758+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.982764+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.983038+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.983163+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.983278+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c0f3840>; (empty)> windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.983364+0100	Zenmoney	Moving from placement: <UIInputViewSetPlacementOnScreen> to placement: <UIInputViewSetPlacementOffScreenDown> (currentPlacement: <UIInputViewSetPlacementOnScreen>)
+default	16:40:14.984544+0100	Zenmoney	chainPlacementsIfNecessaryFrom, from: <UIInputViewSetPlacementOnScreen>, to: <UIInputViewSetPlacementOffScreenDown> transition: <UIInputViewPlacementTransition: 0x12c12fcf0>
+default	16:40:14.984612+0100	Zenmoney	updatePlacementWithPlacement: <UIInputViewSetPlacementOffScreenDown>
+default	16:40:14.984806+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.984838+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.985074+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.985089+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.985678+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.985709+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.986025+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.986057+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.986150+0100	Zenmoney	Tracking provider: moveFromPlacement: <UIInputViewSetPlacementOnScreen> toPlacement: <UIInputViewSetPlacementOffScreenDown> update to: {{0, 852}, {393, 336}}
+default	16:40:14.986203+0100	Zenmoney	Updating tracking clients for start <TUIKeyboardTrackingCoordinator:0x12a21e940 state=<private>; frame=<private>; animation=<private>>
+default	16:40:14.986227+0100	Zenmoney	changeSizingConstants: size is changing [not transitioning] to {393, 0} [previous size: {393, 336}]
+default	16:40:14.986418+0100	Zenmoney	Setting tracking element input views: <<UIInputViewSet: 0x12c0f3780>; (empty)>
+default	16:40:14.986452+0100	Zenmoney	-[_UIRemoteKeyboardPlaceholderView refreshPlaceholder]  refreshPlaceholder: size={393, 0} [previous size={393, 336}]
+default	16:40:14.986479+0100	Zenmoney	Placeholder height changed from 336.0 to 0.0
+default	16:40:14.986505+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c0f3780>; (empty)> windowScene: <UIWindowScene: 0x102defea0; role: UIWindowSceneSessionRoleApplication; persistentIdentifier: C9322E4D-1220-4984-A77E-C167357CE130; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.986525+0100	Zenmoney	Moving from placement: <UIInputViewSetPlacementOnScreen> to placement: <UIInputViewSetPlacementOffScreenDown> (currentPlacement: <UIInputViewSetPlacementOnScreen>)
+default	16:40:14.986682+0100	Zenmoney	updatePlacementWithPlacement: <UIInputViewSetPlacementOffScreenDown>
+default	16:40:14.986747+0100	Zenmoney	Received state update for 449 (app<ru.zenmoney.ZenMoneyNative(E3488001-76B8-49C2-8AFF-B6CDF73874AB)>, running-active-NotVisible
+default	16:40:14.986924+0100	Zenmoney	Posted notification willHide with <private> (null)
+default	16:40:14.986987+0100	Zenmoney	Reloading input views for key-window scene responder: <(null): 0x0; > force:N
+default	16:40:14.987046+0100	Zenmoney	_reloadInputViewsForKeyWindowSceneResponder: 0 force: 0, fromBecomeFirstResponder: 1 (automaticKeyboard: 0, reloadIdentifier: DE7ECBA0-E72A-490D-809D-C5DF7DC811A3)
+default	16:40:14.987092+0100	Zenmoney	_inputViewsForResponder: <(null): 0x0; >, automaticKeyboard: 0, force: 0
+default	16:40:14.987112+0100	Zenmoney	_inputViewsForResponder, found custom inputView: <(null): 0x0>, customInputViewController: <(null): 0x0>
+default	16:40:14.987121+0100	Zenmoney	_inputViewsForResponder, found inputAccessoryView: <(null): 0x0>
+default	16:40:14.987133+0100	Zenmoney	_inputViewsForResponder, responderRequiresKeyboard 0 (automaticKeyboardEnabled: 0, activeInstance: <UIKeyboardAutomatic: 0x12a069680; frame = {{0, 0}, {393, 233}}; alpha = 1.000000; isHidden = 0; tAMIC = 0>, self.isOnScreen: 0, requiresKBWhenFirstResponder: 0)
+default	16:40:14.987140+0100	Zenmoney	_inputViewsForResponder, useKeyboard 0 (allowsSystemInputView: 1, !inputView <(null): 0x0>, responderRequiresKeyboard 0)
+default	16:40:14.987152+0100	Zenmoney	_inputViewsForResponder, configuring _responderWithoutAutomaticAppearanceEnabled: <(null): 0x0> (_automaticAppearEnabled: 1)
+default	16:40:14.987157+0100	Zenmoney	_inputViewsForResponder, needsIVPlaceholder: 0, needsIAVPlaceholder: 0, needsInputSetWithPlaceholder: 0
+default	16:40:14.987196+0100	Zenmoney	_inputViewsForResponder returning: <<UIInputViewSet: 0x12c004b40>; (empty)>
+default	16:40:14.987205+0100	Zenmoney	currently observing: YES
+default	16:40:14.987210+0100	Zenmoney	currently observing: NO
+error	16:40:14.987231+0100	Zenmoney	-[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+default	16:40:14.987309+0100	Zenmoney	Reloading input views for key-window scene responder: <ZMandroidx.compose.ui.window.UserInputView11: 0x10a7e64c0; frame = (0 0; 393 852); > force:N
+default	16:40:14.987379+0100	Zenmoney	_reloadInputViewsForKeyWindowSceneResponder: 1 force: 0, fromBecomeFirstResponder: 1 (automaticKeyboard: 1, reloadIdentifier: 7F982951-4FB2-4D69-9808-C3B6422F1D79)
+default	16:40:14.987428+0100	Zenmoney	_inputViewsForResponder: <ZMandroidx.compose.ui.window.UserInputView11: 0x10a7e64c0; frame = (0 0; 393 852); >, automaticKeyboard: 1, force: 0
+default	16:40:14.987437+0100	Zenmoney	_inputViewsForResponder, found custom inputView: <(null): 0x0>, customInputViewController: <(null): 0x0>
+default	16:40:14.987445+0100	Zenmoney	_inputViewsForResponder, found inputAccessoryView: <(null): 0x0>
+default	16:40:14.987520+0100	Zenmoney	_inputViewsForResponder, responderRequiresKeyboard 0 (automaticKeyboardEnabled: 1, activeInstance: <UIKeyboardAutomatic: 0x12a069680; frame = {{0, 0}, {393, 233}}; alpha = 1.000000; isHidden = 0; tAMIC = 0>, self.isOnScreen: 0, requiresKBWhenFirstResponder: 0)
+default	16:40:14.987529+0100	Zenmoney	_inputViewsForResponder, useKeyboard 0 (allowsSystemInputView: 1, !inputView <(null): 0x0>, responderRequiresKeyboard 0)
+default	16:40:14.987535+0100	Zenmoney	_inputViewsForResponder, configuring _responderWithoutAutomaticAppearanceEnabled: <(null): 0x0> (_automaticAppearEnabled: 1)
+default	16:40:14.987546+0100	Zenmoney	_inputViewsForResponder, needsIVPlaceholder: 0, needsIAVPlaceholder: 0, needsInputSetWithPlaceholder: 0
+default	16:40:14.987564+0100	Zenmoney	_inputViewsForResponder returning: <<UIInputViewSet: 0x12c004b40>; (empty)>
+default	16:40:14.987579+0100	Zenmoney	currently observing: YES
+default	16:40:14.987590+0100	Zenmoney	currently observing: NO
+error	16:40:14.987601+0100	Zenmoney	-[RTIInputSystemClient remoteTextInputSessionWithID:performInputOperation:]  perform input operation requires a valid sessionID. inputModality = Keyboard, inputOperation = <null selector>, customInfoType = UIEmojiSearchOperations
+default	16:40:14.987658+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004b40>; (empty)> windowScene: <UIWindowScene: 0x102defea0; role: UIWindowSceneSessionRoleApplication; persistentIdentifier: C9322E4D-1220-4984-A77E-C167357CE130; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.987704+0100	Zenmoney	-[_UIRemoteKeyboards prepareToMoveKeyboard:withIAV:isIAVRelevant:showing:notifyRemote:forScene:] position: {{0, 0}, {0, 0}} visible: 0; notifyRemote: 1; isMinimized: NO
+default	16:40:14.987759+0100	Zenmoney	Show keyboard with visual mode windowed (0)
+default	16:40:14.987766+0100	Zenmoney	Setting input views: <<UIInputViewSet: 0x12c005b00>; (empty)>
+default	16:40:14.987811+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.987819+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.987924+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.987936+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.987993+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.987998+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.988085+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  > windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.988096+0100	Zenmoney	endPlacementForInputViewSet, returning -> <UIInputViewSetPlacementOnScreen>
+default	16:40:14.988128+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c005b00>; (empty)> windowScene: <_UIKeyboardWindowScene: 0x12a248c80; role: _UIScreenBasedSceneSession; persistentIdentifier: 36C602E8-E01D-49ED-BB96-E2DF3401A069; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.988135+0100	Zenmoney	Moving from placement: <UIInputViewSetPlacementOffScreenDown> to placement: <UIInputViewSetPlacementOffScreenDown> (currentPlacement: <UIInputViewSetPlacementOffScreenDown>)
+default	16:40:14.988142+0100	Zenmoney	Setting tracking element input views: <<UIInputViewSet: 0x12c005d40>; (empty)>
+default	16:40:14.988153+0100	Zenmoney	-[_UIRemoteKeyboardPlaceholderView refreshPlaceholder]  refreshPlaceholder: size={393, 0} [previous size={393, 0}]
+default	16:40:14.988162+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c005d40>; (empty)> windowScene: <UIWindowScene: 0x102defea0; role: UIWindowSceneSessionRoleApplication; persistentIdentifier: C9322E4D-1220-4984-A77E-C167357CE130; activationState: UISceneActivationStateForegroundActive>
+default	16:40:14.988184+0100	Zenmoney	Moving from placement: <UIInputViewSetPlacementOffScreenDown> to placement: <UIInputViewSetPlacementOffScreenDown> (currentPlacement: <UIInputViewSetPlacementOffScreenDown>)
+default	16:40:14.988492+0100	Zenmoney	[0x12c125180] invalidated because the current process cancelled the connection by calling xpc_connection_cancel()
+default	16:40:15.087630+0100	Zenmoney	Received state update for 449 (app<ru.zenmoney.ZenMoneyNative(E3488001-76B8-49C2-8AFF-B6CDF73874AB)>, running-active-NotVisible
+default	16:40:15.385798+0100	Zenmoney	TX setWindowContextID:2579265706 windowState:Disabled level:5.0
+    focusContext:<private>
+default	16:40:15.391338+0100	Zenmoney	Change from input view set: <<UIInputViewSet: 0x12c004900>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; usesKeyClicks = NO;  >
+default	16:40:15.391357+0100	Zenmoney	Change to input view set: <<UIInputViewSet: 0x12c0f3780>; (empty)>
+default	16:40:15.393985+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c0f3780>; (empty)> windowScene: <UIWindowScene: 0x102defea0; role: UIWindowSceneSessionRoleApplication; persistentIdentifier: C9322E4D-1220-4984-A77E-C167357CE130; activationState: UISceneActivationStateForegroundActive>
+default	16:40:15.394131+0100	Zenmoney	Change from input view set: <<UIInputViewSet: 0x12c0f3780>; (empty)>
+default	16:40:15.394154+0100	Zenmoney	Change to input view set: <<UIInputViewSet: 0x12c005d40>; (empty)>
+default	16:40:15.397233+0100	Zenmoney	endPlacementForInputViewSet: <<UIInputViewSet: 0x12c005d40>; (empty)> windowScene: <UIWindowScene: 0x102defea0; role: UIWindowSceneSessionRoleApplication; persistentIdentifier: C9322E4D-1220-4984-A77E-C167357CE130; activationState: UISceneActivationStateForegroundActive>
+default	16:40:15.399302+0100	Zenmoney	-[UIDictationController setIgnoreFinalizePhrases:] Setting ignoreFinalizePhrases flag 1
+default	16:40:15.399317+0100	Zenmoney	Posted notification didHide with <private> (null)
+default	16:40:15.399766+0100	Zenmoney	Change from input view set: <<UIInputViewSet: 0x12c004780>; keyboard = <UIKeyboardAutomatic: 0x12a069680; frame = (0 0; 393 233); opaque = NO; layer = <CALayer: 0x12a0c1bf0>>%; assistant = <TUISystemInputAssistantView: 0x107913900; frame = (0 0; 393 45); >; usesKeyClicks = NO;  >
+default	16:40:15.399804+0100	Zenmoney	Change to input view set: <<UIInputViewSet: 0x12c0f3840>; (empty)>
+default	16:40:15.403788+0100	Zenmoney	Change from input view set: <<UIInputViewSet: 0x12c0f3840>; (empty)>
+default	16:40:15.403804+0100	Zenmoney	Change to input view set: <<UIInputViewSet: 0x12c005b00>; (empty)>
+default	16:40:15.496490+0100	Zenmoney	Received state update for 449 (app<ru.zenmoney.ZenMoneyNative(E3488001-76B8-49C2-8AFF-B6CDF73874AB)>, running-active-NotVisible
+default	16:40:17.488095+0100	Zenmoney	Task <D738C0D9-073D-4C14-83DC-86381877538E>.<2> received response, status 200 content K
+default	16:40:17.488172+0100	Zenmoney	Task <D738C0D9-073D-4C14-83DC-86381877538E>.<2> done using Connection 4
+default	16:40:17.488218+0100	Zenmoney	[C4] event: client:connection_idle @42.054s
+default	16:40:17.488296+0100	Zenmoney	nw_protocol_tcp_notify [C4.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:40:17.488343+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C4.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:40:17.488782+0100	Zenmoney	Task <D738C0D9-073D-4C14-83DC-86381877538E>.<2> response ended
+default	16:40:17.489149+0100	Zenmoney	Task <D738C0D9-073D-4C14-83DC-86381877538E>.<2> summary for task success {transaction_duration_ms=2796, response_status=200, connection=4, reused=1, reused_after_ms=39027, request_start_ms=51, request_duration_ms=0, response_start_ms=2795, response_duration_ms=0, request_bytes=334, request_throughput_kbps=11772, response_bytes=262, response_throughput_kbps=2743, cache_hit=false}
+default	16:40:17.489218+0100	Zenmoney	Task <D738C0D9-073D-4C14-83DC-86381877538E>.<2> finished successfully
+default	16:40:17.544879+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x12d1844b0>
+default	16:40:17.544923+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:17.544935+0100	Zenmoney	Creating new background assertion
+default	16:40:17.545001+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12d630>
+default	16:40:17.551429+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:17.551641+0100	Zenmoney	Created background task <private>.
+default	16:40:17.560451+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 24
+default	16:40:17.560514+0100	Zenmoney	Ending task with identifier 24 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x12d184570>
+default	16:40:17.560621+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 24: <private>)
+default	16:40:17.560662+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12d630> for task identifier: 24
+error	16:40:17.577864+0100	Zenmoney	Missing user details, aborting makePollerRequest
+default	16:40:17.579736+0100	Zenmoney	Task <4BBF5F62-340F-47EA-A4E0-0396A7FB43F8>.<3> resuming, timeouts(60.0, 604800.0) qos(0x15) voucher((null)) activity(00000000-0000-0000-0000-000000000000)
+default	16:40:17.580765+0100	Zenmoney	[C4] event: client:connection_reused @42.147s
+default	16:40:17.580811+0100	Zenmoney	nw_protocol_tcp_notify [C4.1.1.1:3] nw_protocol_notification_type_connection_idle is false
+default	16:40:17.580851+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C4.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:40:17.581063+0100	Zenmoney	Task <4BBF5F62-340F-47EA-A4E0-0396A7FB43F8>.<3> now using Connection 4
+default	16:40:17.583735+0100	Zenmoney	Task <4BBF5F62-340F-47EA-A4E0-0396A7FB43F8>.<3> sent request, body S 90
+default	16:40:20.823124+0100	Zenmoney	[C4] event: client:data_stall @45.389s
+default	16:40:21.720103+0100	Zenmoney	Task <4BBF5F62-340F-47EA-A4E0-0396A7FB43F8>.<3> received response, status 200 content U
+default	16:40:22.062628+0100	Zenmoney	Task <4BBF5F62-340F-47EA-A4E0-0396A7FB43F8>.<3> done using Connection 4
+default	16:40:22.062671+0100	Zenmoney	[C4] event: client:connection_idle @46.629s
+default	16:40:22.062753+0100	Zenmoney	nw_protocol_tcp_notify [C4.1.1.1:3] nw_protocol_notification_type_connection_idle is true
+default	16:40:22.062797+0100	Zenmoney	nw_protocol_tcp_set_connection_idle [C4.1.1.1:3] os_nexus_flow_set_connection_idle returned 0
+default	16:40:22.063568+0100	Zenmoney	Task <4BBF5F62-340F-47EA-A4E0-0396A7FB43F8>.<3> response ended
+default	16:40:22.063644+0100	Zenmoney	Task <4BBF5F62-340F-47EA-A4E0-0396A7FB43F8>.<3> summary for task success {transaction_duration_ms=4483, response_status=200, connection=4, reused=1, reused_after_ms=92, request_start_ms=0, request_duration_ms=1, response_start_ms=4139, response_duration_ms=343, request_bytes=164, request_throughput_kbps=919, response_bytes=1527835, response_throughput_kbps=35581, cache_hit=false}
+default	16:40:22.063740+0100	Zenmoney	Task <4BBF5F62-340F-47EA-A4E0-0396A7FB43F8>.<3> finished successfully
+error	16:40:47.103813+0100	Zenmoney	tcp_input [C5.1.1.1:3] flags=[R.] seq=447652680, ack=3210885567, win=166 state=ESTABLISHED rcv_nxt=447652680, snd_una=3210885567
+default	16:40:47.103864+0100	Zenmoney	nw_protocol_tcp_log_summary [C5.1.1.1:3] 
+	[48B66AB9-2935-4120-B727-4B6DC1C49B9D <private>:57000<-><private>:443]
+	Init: 1, Conn_Time: 108.451ms, SYNs: 1, WR_T: 0/0, RD_T: 0/0, TFO: 0/0/0, ECN: 0/1/1, Accurate ECN (client/server): Disabled/Disabled, TS: 1, TSO: 0
+	rtt_cache: none, rtt_upd: 4, rtt: 108.500ms, rtt_var: 31.062ms rtt_nc: 108.500ms, rtt_var_nc: 31.062ms base rtt: 96ms
+	ACKs-compressed: 1, ACKs delayed: 0 delayed ACKs sent: 0
+default	16:40:47.103908+0100	Zenmoney	nw_protocol_boringssl_error(2283) [C5.1.1.1:2][0x118d7ad60] Lower protocol stack error post TLS handshake. [54: <private>]
+default	16:40:47.103913+0100	Zenmoney	nw_protocol_boringssl_error(2301) [C5.1.1.1:2][0x118d7ad60] Propagating error up the stack
+error	16:40:47.103990+0100	Zenmoney	nw_read_request_report [C5] Receive failed with error "Connection reset by peer"
+default	16:40:47.104018+0100	Zenmoney	Connection 5: final read 1:54, complete[Y], final[N]
+default	16:40:47.104044+0100	Zenmoney	Connection 5: cleaning up
+default	16:40:47.104055+0100	Zenmoney	[C5 D24B90E5-468B-4CC6-972E-0477F1C5E116 Hostname#99c9ba99:443 quic-connection, url hash: e902143a, definite, attribution: developer] cancel
+default	16:40:47.104110+0100	Zenmoney	[C5 D24B90E5-468B-4CC6-972E-0477F1C5E116 Hostname#99c9ba99:443 quic-connection, url hash: e902143a, definite, attribution: developer] cancelled
+	[C5.1.1.1 AD203C93-865B-461A-B6DA-EA2086E80644 192.168.68.56:57000<->IPv4#d770a7ae:443]
+	Connected Path: satisfied (Path is satisfied), viable, interface: en0[802.11], ipv4, ipv6, dns, uses wifi, LQM: good
+	Privacy Stance: Not Eligible
+	Duration: 71.182s, DNS @0.001s took 0.022s, TCP @0.027s took 0.108s,  took 0.206s
+	bytes in/out: 6397/2353, packets in/out: 10/12, rtt: 0.108s, retransmitted bytes: 0, out-of-order bytes: 0
+	ecn packets sent/acked/marked/lost: 5/3/0/0
+default	16:40:47.104500+0100	Zenmoney	nw_connection_report_state_with_handler_on_nw_queue [C5] reporting state cancelled
+default	16:40:47.104506+0100	Zenmoney	Connection 5: done
+default	16:40:53.275614+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x12c0bfde0>
+default	16:40:53.275635+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.275646+0100	Zenmoney	Creating new background assertion
+default	16:40:53.275655+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12d950>
+default	16:40:53.275923+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.275938+0100	Zenmoney	Created background task <private>.
+default	16:40:53.276048+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 25
+default	16:40:53.276056+0100	Zenmoney	Ending task with identifier 25 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x12a253540>
+default	16:40:53.276062+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 25: <private>)
+default	16:40:53.276088+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12d950> for task identifier: 25
+error	16:40:53.276463+0100	Zenmoney	Missing user details, aborting makePollerRequest
+error	16:40:53.276710+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/DF974DB8-9A3C-424F-A565-69C555B1B76C/Library/zenmoney.sqlite
+error	16:40:53.276715+0100	Zenmoney	invalidated open fd: 13 (0x11)
+error	16:40:53.276823+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/DF974DB8-9A3C-424F-A565-69C555B1B76C/Library/zenmoney.sqlite-shm
+error	16:40:53.276827+0100	Zenmoney	invalidated open fd: 16 (0x11)
+error	16:40:53.276978+0100	Zenmoney	BUG IN CLIENT OF libsqlite3.dylib: database integrity compromised by API violation: vnode unlinked while in use: /private/var/mobile/Containers/Data/Application/DF974DB8-9A3C-424F-A565-69C555B1B76C/Library/zenmoney.sqlite-wal
+error	16:40:53.276990+0100	Zenmoney	invalidated open fd: 15 (0x11)
+default	16:40:53.278886+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x13414dbf0>
+default	16:40:53.278898+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.278904+0100	Zenmoney	Creating new background assertion
+default	16:40:53.278911+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12d9a0>
+default	16:40:53.278918+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x13414c4b0>
+default	16:40:53.279122+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.279134+0100	Zenmoney	Created background task <private>.
+default	16:40:53.279145+0100	Zenmoney	Reusing background assertion <BKSProcessAssertion: 0x12c12d9a0>
+default	16:40:53.279238+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.279251+0100	Zenmoney	Created background task <private>.
+default	16:40:53.279257+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 26
+default	16:40:53.279268+0100	Zenmoney	Ending task with identifier 26 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x13414c4b0>
+default	16:40:53.279273+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 26: <private>)
+default	16:40:53.279279+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 27
+default	16:40:53.279284+0100	Zenmoney	Ending task with identifier 27 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x13414f030>
+default	16:40:53.279403+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 27: <private>)
+default	16:40:53.279433+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12d9a0> for task identifier: 27
+default	16:40:53.280828+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x12a251e00>
+default	16:40:53.280837+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.280843+0100	Zenmoney	Creating new background assertion
+default	16:40:53.280852+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12f7a0>
+default	16:40:53.280886+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.280957+0100	Zenmoney	Created background task <private>.
+default	16:40:53.291016+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 28
+default	16:40:53.291038+0100	Zenmoney	Ending task with identifier 28 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x12a252490>
+default	16:40:53.291054+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 28: <private>)
+default	16:40:53.291070+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12f7a0> for task identifier: 28
+default	16:40:53.291253+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x1299f7ed0>
+default	16:40:53.291292+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.291299+0100	Zenmoney	Creating new background assertion
+default	16:40:53.291306+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12f750>
+default	16:40:53.291471+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.291481+0100	Zenmoney	Created background task <private>.
+default	16:40:53.293250+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 29
+default	16:40:53.293275+0100	Zenmoney	Ending task with identifier 29 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x12c273720>
+default	16:40:53.293291+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 29: <private>)
+default	16:40:53.293307+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12f750> for task identifier: 29
+default	16:40:53.293515+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b21140>
+default	16:40:53.293566+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.293802+0100	Zenmoney	Creating new background assertion
+default	16:40:53.293816+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12f750>
+default	16:40:53.293873+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.293879+0100	Zenmoney	Created background task <private>.
+default	16:40:53.293884+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 30
+default	16:40:53.293889+0100	Zenmoney	Ending task with identifier 30 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b20570>
+default	16:40:53.293900+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 30: <private>)
+default	16:40:53.293911+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12f750> for task identifier: 30
+default	16:40:53.294008+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b20570>
+default	16:40:53.294042+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.294123+0100	Zenmoney	Creating new background assertion
+default	16:40:53.294209+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12f750>
+default	16:40:53.294347+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.294353+0100	Zenmoney	Created background task <private>.
+default	16:40:53.294358+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 31
+default	16:40:53.294364+0100	Zenmoney	Ending task with identifier 31 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b21140>
+default	16:40:53.294370+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 31: <private>)
+default	16:40:53.294378+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12f750> for task identifier: 31
+default	16:40:53.294471+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b21140>
+default	16:40:53.294476+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.294481+0100	Zenmoney	Creating new background assertion
+default	16:40:53.294498+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12f750>
+default	16:40:53.294826+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.294836+0100	Zenmoney	Created background task <private>.
+default	16:40:53.294848+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 32
+default	16:40:53.294853+0100	Zenmoney	Ending task with identifier 32 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b20570>
+default	16:40:53.294859+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 32: <private>)
+default	16:40:53.294864+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12f750> for task identifier: 32
+default	16:40:53.294871+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b20570>
+default	16:40:53.294876+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.294879+0100	Zenmoney	Creating new background assertion
+default	16:40:53.294886+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12f750>
+default	16:40:53.295018+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.295067+0100	Zenmoney	Created background task <private>.
+default	16:40:53.295085+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 33
+default	16:40:53.295100+0100	Zenmoney	Ending task with identifier 33 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b21140>
+default	16:40:53.295151+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 33: <private>)
+default	16:40:53.295166+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12f750> for task identifier: 33
+default	16:40:53.295257+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b21140>
+default	16:40:53.295264+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.295269+0100	Zenmoney	Creating new background assertion
+default	16:40:53.295274+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12f750>
+default	16:40:53.295363+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.295370+0100	Zenmoney	Created background task <private>.
+default	16:40:53.295403+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 34
+default	16:40:53.295412+0100	Zenmoney	Ending task with identifier 34 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b20570>
+default	16:40:53.295423+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 34: <private>)
+default	16:40:53.295433+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12f750> for task identifier: 34
+default	16:40:53.295603+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b20570>
+default	16:40:53.295613+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.295630+0100	Zenmoney	Creating new background assertion
+default	16:40:53.295643+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12f750>
+default	16:40:53.295804+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.295839+0100	Zenmoney	Created background task <private>.
+default	16:40:53.295867+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 35
+default	16:40:53.295880+0100	Zenmoney	Ending task with identifier 35 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b21140>
+default	16:40:53.295917+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 35: <private>)
+default	16:40:53.295933+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12f750> for task identifier: 35
+default	16:40:53.296197+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b21d40>
+default	16:40:53.296204+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.296209+0100	Zenmoney	Creating new background assertion
+default	16:40:53.296215+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12f750>
+default	16:40:53.296369+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.296381+0100	Zenmoney	Created background task <private>.
+default	16:40:53.296602+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 36
+default	16:40:53.296736+0100	Zenmoney	Ending task with identifier 36 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b21b90>
+default	16:40:53.296742+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 36: <private>)
+default	16:40:53.296752+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12f750> for task identifier: 36
+default	16:40:53.296758+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b21b90>
+default	16:40:53.296763+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.296987+0100	Zenmoney	Creating new background assertion
+default	16:40:53.296999+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12f750>
+default	16:40:53.297069+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.297122+0100	Zenmoney	Created background task <private>.
+default	16:40:53.297131+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 37
+default	16:40:53.297137+0100	Zenmoney	Ending task with identifier 37 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b21d40>
+default	16:40:53.297142+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 37: <private>)
+default	16:40:53.297147+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12f750> for task identifier: 37
+default	16:40:53.297286+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b21d40>
+default	16:40:53.297291+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.297323+0100	Zenmoney	Creating new background assertion
+default	16:40:53.297420+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12cc30>
+default	16:40:53.297477+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.297537+0100	Zenmoney	Created background task <private>.
+default	16:40:53.297544+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 38
+default	16:40:53.297549+0100	Zenmoney	Ending task with identifier 38 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b21b90>
+default	16:40:53.297555+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 38: <private>)
+default	16:40:53.297566+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12cc30> for task identifier: 38
+default	16:40:53.297657+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b21b90>
+default	16:40:53.297662+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.297668+0100	Zenmoney	Creating new background assertion
+default	16:40:53.297674+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12cc30>
+default	16:40:53.297873+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.297899+0100	Zenmoney	Created background task <private>.
+default	16:40:53.297904+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 39
+default	16:40:53.297913+0100	Zenmoney	Ending task with identifier 39 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b21d40>
+default	16:40:53.297919+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 39: <private>)
+default	16:40:53.297925+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12cc30> for task identifier: 39
+default	16:40:53.298109+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b21d40>
+default	16:40:53.298115+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.298131+0100	Zenmoney	Creating new background assertion
+default	16:40:53.298139+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12cc30>
+default	16:40:53.298356+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.298407+0100	Zenmoney	Created background task <private>.
+default	16:40:53.298476+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 40
+default	16:40:53.298485+0100	Zenmoney	Ending task with identifier 40 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b21b90>
+default	16:40:53.298496+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 40: <private>)
+default	16:40:53.298507+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12cc30> for task identifier: 40
+default	16:40:53.298603+0100	Zenmoney	Will add backgroundTask with taskName: <private>, expirationHandler: <__NSMallocBlock__: 0x129b21b90>
+default	16:40:53.298608+0100	Zenmoney	Creating new assertion because there is no existing background assertion.
+default	16:40:53.298651+0100	Zenmoney	Creating new background assertion
+default	16:40:53.298660+0100	Zenmoney	Created new background assertion <BKSProcessAssertion: 0x12c12cc30>
+default	16:40:53.298882+0100	Zenmoney	Incrementing reference count for background assertion <private>
+default	16:40:53.298891+0100	Zenmoney	Created background task <private>.
+default	16:40:53.298933+0100	Zenmoney	Ending background task with UIBackgroundTaskIdentifier: 41
+default	16:40:53.298948+0100	Zenmoney	Ending task with identifier 41 and description: <private>, _expireHandler: <__NSMallocBlock__: 0x129b21d40>
+default	16:40:53.299042+0100	Zenmoney	Decrementing reference count for assertion <private> (used by background task with identifier 41: <private>)
+default	16:40:53.299092+0100	Zenmoney	Will invalidate assertion: <BKSProcessAssertion: 0x12c12cc30> for task identifier: 41
