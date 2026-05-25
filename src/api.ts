@@ -1,4 +1,10 @@
-import type { ZenMoneyAccount, ZenMoneyCategory, ZenMoneyTransaction } from "./types";
+import { validateTransactions } from "./validate";
+import type {
+  ParsedTransaction,
+  ZenMoneyAccount,
+  ZenMoneyCategory,
+  ZenMoneyTransaction,
+} from "./types";
 
 const BASE_URL = "https://zenmoney.ru/api";
 
@@ -10,7 +16,7 @@ function headers(cookie: string) {
 }
 
 export async function fetchAccounts(
-  cookie: string
+  cookie: string,
 ): Promise<Record<string, ZenMoneyAccount>> {
   const res = await fetch(`${BASE_URL}/v1/account/`, {
     headers: headers(cookie),
@@ -20,7 +26,7 @@ export async function fetchAccounts(
 }
 
 export async function fetchCategories(
-  cookie: string
+  cookie: string,
 ): Promise<Record<string, ZenMoneyCategory>> {
   const res = await fetch(`${BASE_URL}/v1/category/`, {
     headers: headers(cookie),
@@ -31,7 +37,7 @@ export async function fetchCategories(
 
 /** Fetch full tag_groups hierarchy (with subcategories) from /api/s1/profile/ */
 export async function fetchTagGroups(
-  cookie: string
+  cookie: string,
 ): Promise<{ id: number; label: string; type: string }[]> {
   const res = await fetch(`${BASE_URL}/s1/profile/`, {
     headers: headers(cookie),
@@ -49,24 +55,64 @@ export async function fetchTagGroups(
     if (g.tag1) parts.push(tags[g.tag1] ?? String(g.tag1));
     if (g.tag2) parts.push(tags[g.tag2] ?? String(g.tag2));
     const label = parts.join(" / ");
-    const type = g.show_outcome ? "expense" : g.show_income ? "income" : "hidden";
+    const type = g.show_outcome
+      ? "expense"
+      : g.show_income
+      ? "income"
+      : "hidden";
     results.push({ id: g.id, label, type });
   }
   results.sort((a, b) => a.label.localeCompare(b.label, "ru"));
   return results;
 }
 
+function toZenMoney(
+  parsed: ParsedTransaction[],
+  accountId: string,
+): ZenMoneyTransaction[] {
+  return parsed.map((t) => ({
+    category: "0",
+    tag_groups: (t.categoryIds || []).map(String),
+    income: t.isIncome ? t.amount : 0,
+    outcome: t.isIncome ? 0 : t.amount,
+    date: t.date,
+    comment: t.comment,
+    payee: t.payee,
+    account_income: accountId,
+    account_outcome: accountId,
+  }));
+}
+
+/**
+ * Submits parsed transactions for the given account. ALWAYS validates first
+ * against the live accounts + tag_groups for the session — there is no flag,
+ * no parameter, and no caller path that bypasses this check.
+ *
+ * Throws ValidationError (with .issues) if any transaction is invalid.
+ */
 export async function submitTransactions(
   cookie: string,
-  transactions: ZenMoneyTransaction[]
+  transactions: ParsedTransaction[],
+  accountId: string,
 ): Promise<unknown> {
+  const accounts = await fetchAccounts(cookie);
+  const tagGroups = await fetchTagGroups(cookie);
+
+  validateTransactions(
+    transactions,
+    accountId,
+    new Set(Object.keys(accounts)),
+    new Set(tagGroups.map((g) => g.id)),
+  );
+
+  const body = toZenMoney(transactions, accountId);
   const res = await fetch(`${BASE_URL}/v2/transaction/`, {
     method: "POST",
     headers: {
       ...headers(cookie),
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: JSON.stringify(transactions),
+    body: JSON.stringify(body),
   });
   if (!res.ok) {
     const text = await res.text();

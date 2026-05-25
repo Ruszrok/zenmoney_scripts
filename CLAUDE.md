@@ -36,6 +36,8 @@ This fetches the full tag_groups hierarchy from `/api/s1/profile/`, including su
 
 Map each transaction to one or more ZenMoney tag_group IDs using reasoning. Transactions use `categoryIds` (array of numbers) — multiple tag_groups can be applied to a single transaction.
 
+**Important:** ZenMoney `tag_group` IDs are per-user. The hints table below is a *cache* — every run of `--prepare` and `--submit-review` validates `categoryIds` against the live tag_groups for the session and **hard-fails** if any ID doesn't belong. If you see a `ValidationError` listing foreign IDs, the table is stale for the current `PHPSESSID`; rebuild your category choices from the `categories` array in the freshly-written `data/review.json` and update the table afterwards.
+
 **Category mapping hints** (payee substring → tag_group):
 | Payee contains | Category | tag_group ID |
 |---|---|---|
@@ -86,6 +88,8 @@ bun run src/submit.ts --submit-review --cookie "PHPSESSID=xxx"
 ```
 
 This reads `data/review.json` and submits all transactions in it.
+
+The submit path validates a second time inside `submitTransactions` (`src/api.ts`) using a fresh fetch of accounts + tag_groups, so any post-`--prepare` edits you made to `data/review.json` are still checked. There is no flag to disable this. On any validation failure the CLI prints all issues and exits with code 2.
 
 ## Other commands
 

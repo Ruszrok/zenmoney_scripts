@@ -1,9 +1,11 @@
-import { fetchAccounts, fetchCategories, fetchTagGroups, submitTransactions } from "./api";
-import type {
-  ParsedTransaction,
-  ReviewFile,
-  ZenMoneyTransaction,
-} from "./types";
+import {
+  fetchAccounts,
+  fetchCategories,
+  fetchTagGroups,
+  submitTransactions,
+} from "./api";
+import { ValidationError, validateTransactions } from "./validate";
+import type { ParsedTransaction, ReviewFile } from "./types";
 import { mkdirSync } from "fs";
 import { join } from "path";
 
@@ -58,29 +60,22 @@ function parseArgs(args: string[]) {
   return flags;
 }
 
-function toZenMoney(
-  parsed: ParsedTransaction[],
-  accountId: string
-): ZenMoneyTransaction[] {
-  return parsed.map((t) => ({
-    category: "0",
-    tag_groups: (t.categoryIds || []).map(String),
-    income: t.isIncome ? t.amount : 0,
-    outcome: t.isIncome ? 0 : t.amount,
-    date: t.date,
-    comment: t.comment,
-    payee: t.payee,
-    account_income: accountId,
-    account_outcome: accountId,
-  }));
-}
-
 async function readStdin(): Promise<string> {
   const chunks: Buffer[] = [];
   for await (const chunk of Bun.stdin.stream()) {
     chunks.push(Buffer.from(chunk));
   }
   return Buffer.concat(chunks).toString("utf-8");
+}
+
+function printValidationError(err: ValidationError): void {
+  console.error(err.message);
+  for (const issue of err.issues) {
+    const where = issue.txnIndex === null ? "batch" : `txn[${issue.txnIndex}]`;
+    console.error(
+      `  ${where} ${issue.field}=${JSON.stringify(issue.value)}: ${issue.reason}`,
+    );
+  }
 }
 
 async function main() {
@@ -104,7 +99,7 @@ async function main() {
     return;
   }
 
-  // --prepare: fetch categories, merge with parsed transactions, write review JSON
+  // --prepare: fetch live accounts + categories, validate, write review JSON.
   if (flags.prepare) {
     if (!flags.account) {
       console.error("Error: --account is required for --prepare");
@@ -125,11 +120,19 @@ async function main() {
       process.exit(1);
     }
 
-    const categories = await fetchTagGroups(flags.cookie);
+    const accounts = await fetchAccounts(flags.cookie);
+    const tagGroups = await fetchTagGroups(flags.cookie);
+
+    validateTransactions(
+      parsed,
+      flags.account,
+      new Set(Object.keys(accounts)),
+      new Set(tagGroups.map((g) => g.id)),
+    );
 
     const review: ReviewFile = {
       account: flags.account,
-      categories,
+      categories: tagGroups,
       transactions: parsed,
     };
 
@@ -137,12 +140,13 @@ async function main() {
     await Bun.write(REVIEW_FILE, JSON.stringify(review, null, 2) + "\n");
     console.log(`Review file written to ${REVIEW_FILE}`);
     console.log(
-      `${parsed.length} transaction(s), ${categories.length} categories`
+      `${parsed.length} transaction(s), ${tagGroups.length} categories`,
     );
     return;
   }
 
-  // --submit-review: read review JSON and submit
+  // --submit-review: read review JSON and submit (validator runs again inside
+  // submitTransactions with a fresh fetch — covers post-prepare edits).
   if (flags.submitReview) {
     const file = Bun.file(REVIEW_FILE);
     if (!(await file.exists())) {
@@ -152,15 +156,18 @@ async function main() {
     }
 
     const review: ReviewFile = await file.json();
-    const transactions = toZenMoney(review.transactions, review.account);
 
-    console.log(`Submitting ${transactions.length} transaction(s)...`);
-    const result = await submitTransactions(flags.cookie, transactions);
+    console.log(`Submitting ${review.transactions.length} transaction(s)...`);
+    const result = await submitTransactions(
+      flags.cookie,
+      review.transactions,
+      review.account,
+    );
     console.log("Success:", JSON.stringify(result, null, 2));
     return;
   }
 
-  // Direct submit from stdin (legacy)
+  // Direct submit from stdin (legacy).
   if (!flags.account) {
     console.error("Error: --account is required for submitting transactions");
     usage();
@@ -180,20 +187,31 @@ async function main() {
     process.exit(1);
   }
 
-  const transactions = toZenMoney(parsed, flags.account);
-
   if (flags.dryRun) {
-    console.log("=== DRY RUN — would submit: ===");
-    console.log(JSON.stringify(transactions, null, 2));
+    // Dry-run still validates so the user sees the same errors they would on submit.
+    const accounts = await fetchAccounts(flags.cookie);
+    const tagGroups = await fetchTagGroups(flags.cookie);
+    validateTransactions(
+      parsed,
+      flags.account,
+      new Set(Object.keys(accounts)),
+      new Set(tagGroups.map((g) => g.id)),
+    );
+    console.log("=== DRY RUN — validated, not submitting ===");
+    console.log(JSON.stringify(parsed, null, 2));
     return;
   }
 
-  console.log(`Submitting ${transactions.length} transaction(s)...`);
-  const result = await submitTransactions(flags.cookie, transactions);
+  console.log(`Submitting ${parsed.length} transaction(s)...`);
+  const result = await submitTransactions(flags.cookie, parsed, flags.account);
   console.log("Success:", JSON.stringify(result, null, 2));
 }
 
 main().catch((err) => {
+  if (err instanceof ValidationError) {
+    printValidationError(err);
+    process.exit(2);
+  }
   console.error("Error:", err.message);
   process.exit(1);
 });
