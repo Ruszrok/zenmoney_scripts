@@ -1,8 +1,8 @@
 import { describe, expect, test } from "bun:test";
-import { readFileSync, existsSync } from "fs";
-import { join } from "path";
-import { validateTransactions } from "./validate";
+import { existsSync, readFileSync } from "node:fs";
+import { join } from "node:path";
 import type { ReviewFile } from "./types";
+import { validateTransactions } from "./validate";
 
 const REVIEW_PATH = join(import.meta.dir, "..", "data", "review.json");
 

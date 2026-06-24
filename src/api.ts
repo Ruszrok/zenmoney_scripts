@@ -1,10 +1,10 @@
-import { validateTransactions } from "./validate";
 import type {
   ParsedTransaction,
   ZenMoneyAccount,
   ZenMoneyCategory,
   ZenMoneyTransaction,
 } from "./types";
+import { validateTransactions } from "./validate";
 
 const BASE_URL = "https://zenmoney.ru/api";
 
@@ -58,8 +58,8 @@ export async function fetchTagGroups(
     const type = g.show_outcome
       ? "expense"
       : g.show_income
-      ? "income"
-      : "hidden";
+        ? "income"
+        : "hidden";
     results.push({ id: g.id, label, type });
   }
   results.sort((a, b) => a.label.localeCompare(b.label, "ru"));

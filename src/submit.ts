@@ -1,13 +1,13 @@
+import { mkdirSync } from "node:fs";
+import { join } from "node:path";
 import { fetchAccounts, fetchTagGroups, submitTransactions } from "./api";
 import {
   fetchAccountsDiff,
   fetchTagsDiff,
   submitTransactionsDiff,
 } from "./diff-api";
-import { ValidationError, validateTransactions } from "./validate";
 import type { ParsedTransaction, ReviewFile } from "./types";
-import { mkdirSync } from "fs";
-import { join } from "path";
+import { ValidationError, validateTransactions } from "./validate";
 
 const DATA_DIR = join(import.meta.dir, "..", "data");
 const REVIEW_FILE = join(DATA_DIR, "review.json");
@@ -132,7 +132,9 @@ async function main() {
 
   if (flags.listAccounts) {
     for (const acc of await loadAccounts()) {
-      console.log(`${acc.id}\t${acc.title}\t${acc.type}\tbalance: ${acc.balance}`);
+      console.log(
+        `${acc.id}\t${acc.title}\t${acc.type}\tbalance: ${acc.balance}`,
+      );
     }
     return;
   }
@@ -182,7 +184,7 @@ async function main() {
     };
 
     mkdirSync(DATA_DIR, { recursive: true });
-    await Bun.write(REVIEW_FILE, JSON.stringify(review, null, 2) + "\n");
+    await Bun.write(REVIEW_FILE, `${JSON.stringify(review, null, 2)}\n`);
     console.log(`Review file written to ${REVIEW_FILE}`);
     console.log(
       `${parsed.length} transaction(s), ${categories.length} categories`,

@@ -1,13 +1,7 @@
-import {
-  afterEach,
-  beforeEach,
-  describe,
-  expect,
-  test,
-} from "bun:test";
+import { afterEach, beforeEach, describe, expect, test } from "bun:test";
 import { submitTransactions } from "./api";
-import { ValidationError } from "./validate";
 import type { ParsedTransaction } from "./types";
+import { ValidationError } from "./validate";
 
 interface FetchCall {
   url: string;
@@ -53,8 +47,8 @@ beforeEach(() => {
       typeof init?.body === "string"
         ? init.body
         : init?.body == null
-        ? null
-        : String(init.body);
+          ? null
+          : String(init.body);
     calls.push({ url, method, headers, body });
     const next = queue.shift();
     if (!next) {
@@ -72,8 +66,20 @@ const COOKIE = "PHPSESSID=abc";
 const ACCOUNT = "11025256";
 
 const accountsBody = {
-  [ACCOUNT]: { id: Number(ACCOUNT), title: "Bunq", type: "ccard", balance: 0, currency_id: 1 },
-  "11025255": { id: 11025255, title: "Caixa", type: "ccard", balance: 0, currency_id: 1 },
+  [ACCOUNT]: {
+    id: Number(ACCOUNT),
+    title: "Bunq",
+    type: "ccard",
+    balance: 0,
+    currency_id: 1,
+  },
+  "11025255": {
+    id: 11025255,
+    title: "Caixa",
+    type: "ccard",
+    balance: 0,
+    currency_id: 1,
+  },
 };
 
 const profileBody = {
@@ -119,7 +125,7 @@ describe("submitTransactions", () => {
       "POST https://zenmoney.ru/api/v2/transaction/",
     ]);
 
-    expect(calls[2].headers["cookie"]).toBe(COOKIE);
+    expect(calls[2].headers.cookie).toBe(COOKIE);
     expect(calls[2].headers["content-type"]).toBe(
       "application/x-www-form-urlencoded",
     );
@@ -143,7 +149,11 @@ describe("submitTransactions", () => {
 
     let err: unknown;
     try {
-      await submitTransactions(COOKIE, [txn({ categoryIds: [999999] })], ACCOUNT);
+      await submitTransactions(
+        COOKIE,
+        [txn({ categoryIds: [999999] })],
+        ACCOUNT,
+      );
     } catch (e) {
       err = e;
     }

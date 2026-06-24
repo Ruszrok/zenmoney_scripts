@@ -1,4 +1,3 @@
-import { validateTransactions } from "./validate";
 import type {
   DiffAccount,
   DiffInstrument,
@@ -8,6 +7,7 @@ import type {
   DiffTransaction,
   ParsedTransaction,
 } from "./types";
+import { validateTransactions } from "./validate";
 
 const BASE_URL = "https://api.zenmoney.ru";
 

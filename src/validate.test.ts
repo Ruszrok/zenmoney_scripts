@@ -1,6 +1,6 @@
 import { describe, expect, test } from "bun:test";
-import { validateTransactions, ValidationError } from "./validate";
 import type { ParsedTransaction } from "./types";
+import { ValidationError, validateTransactions } from "./validate";
 
 const ACCOUNT = "11025256";
 const VALID_ACCOUNTS = new Set([ACCOUNT, "11025255"]);
@@ -9,7 +9,9 @@ const VALID_ACCOUNTS = new Set([ACCOUNT, "11025255"]);
 const VALID_TAGS = new Set<string>(["650871", "650876", "30850494"]);
 const UUID_TAG = "9f8b1c2d-3e4f-5061-7283-94a5b6c7d8e9";
 
-function makeTxn(overrides: Partial<ParsedTransaction> = {}): ParsedTransaction {
+function makeTxn(
+  overrides: Partial<ParsedTransaction> = {},
+): ParsedTransaction {
   return {
     date: "08.05.2026",
     amount: 12.5,
@@ -192,7 +194,12 @@ describe("validateTransactions", () => {
   });
 
   test("fails when date is not a real calendar date", () => {
-    for (const bad of ["32.05.2026", "30.02.2026", "00.01.2026", "01.13.2026"]) {
+    for (const bad of [
+      "32.05.2026",
+      "30.02.2026",
+      "00.01.2026",
+      "01.13.2026",
+    ]) {
       let err: unknown;
       try {
         validateTransactions(

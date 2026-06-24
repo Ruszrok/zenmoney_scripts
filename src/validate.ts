@@ -4,13 +4,7 @@ export interface ValidationIssue {
   /** 0-based index in the input array, or null for batch-level issues. */
   txnIndex: number | null;
   /** Which field failed. */
-  field:
-    | "account"
-    | "categoryIds"
-    | "date"
-    | "amount"
-    | "payee"
-    | "isIncome";
+  field: "account" | "categoryIds" | "date" | "amount" | "payee" | "isIncome";
   /** The actual offending value, exactly as supplied. */
   value: unknown;
   /** Human-readable reason for the failure. */
