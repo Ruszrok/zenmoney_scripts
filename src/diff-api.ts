@@ -126,7 +126,7 @@ export async function fetchTagsDiff(token: string): Promise<CategorySummary[]> {
 }
 
 /** Build Diff-API transaction objects from parsed transactions. */
-function toDiffTransactions(
+export function toDiffTransactions(
   parsed: ParsedTransaction[],
   account: DiffAccount,
 ): DiffTransaction[] {
@@ -142,7 +142,9 @@ function toDiffTransactions(
     // The Diff API validates the FULL object — every property below must be
     // present (nulls allowed). Key set mirrors what the server returns.
     return {
-      id: crypto.randomUUID(),
+      // Reuse a stable client id when present so re-submits upsert instead of
+      // duplicating; fall back to a fresh UUID for the direct-stdin path.
+      id: t.id ?? crypto.randomUUID(),
       changed: ts,
       created: ts,
       user: account.user,

@@ -113,9 +113,10 @@ bun run src/submit.ts --dry-run --account ID <<< '[json]'   # validate without s
 
 ## Notes
 
-- **Token mode (primary):** single endpoint `POST /v8/diff/`, `Authorization: Bearer <token>`. Transactions are created by POSTing full transaction objects in the diff body — the server requires the **complete** object shape (all nullable props present), built in `toDiffTransactions` (`src/diff-api.ts`). Dates are converted DD.MM.YYYY → `yyyy-MM-dd`. IDs are client-generated UUIDs.
+- **Token mode (primary):** single endpoint `POST /v8/diff/`, `Authorization: Bearer <token>`. Transactions are created by POSTing full transaction objects in the diff body — the server requires the **complete** object shape (all nullable props present), built in `toDiffTransactions` (`src/diff-api.ts`). Dates are converted DD.MM.YYYY → `yyyy-MM-dd`. IDs are client-generated **v4 UUIDs** (the server rejects non-UUID ids with a `validationError`).
+- **Idempotent submit:** each transaction gets a stable `id` (UUID) assigned at `--prepare` and persisted in `review.json` (`ensureIds`, `src/idempotency.ts`). Because the Diff API **upserts by transaction id**, re-running `--submit-review` updates the same rows instead of creating duplicates. So submitting the same `review.json` twice is safe. (Caveat: the legacy cookie path is still NOT idempotent — the server assigns ids there.)
 - **Cookie mode (legacy):** `category: "0"` + `tag_groups: ["id1","id2"]` (array of strings) against `/api/v2/transaction/`; categories from `/api/s1/profile/`.
-- The Diff API also returns **existing transactions**, which makes dedup-against-ZenMoney possible (not yet implemented — see plan).
+- The Diff API also returns **existing transactions**, which makes dedup-against-ZenMoney possible (not yet implemented — see plan). `fetchServerData` exposes them.
 - All amounts are positive; the `isIncome` flag determines direction.
 - The token is long-lived (effectively permanent) — far more stable than `PHPSESSID`. If you get a `401`, re-copy it from budgera.com/settings/api-key.
 - Run `bun test ./src/api.test.ts ./src/validate.test.ts ./src/regression-review.test.ts` (the `zerro/` vendored copy has its own failing tests — scope to our files) and `bunx tsc --noEmit` after code changes.

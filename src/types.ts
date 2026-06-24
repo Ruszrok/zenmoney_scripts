@@ -1,5 +1,11 @@
 /** What Claude extracts from banking screenshots */
 export interface ParsedTransaction {
+  /**
+   * Stable client-generated UUID. Assigned at --prepare time and persisted in
+   * review.json so re-submitting upserts (same id) instead of creating
+   * duplicates. Optional on input; backfilled by ensureIds().
+   */
+  id?: string;
   date: string; // DD.MM.YYYY
   amount: number;
   payee: string;

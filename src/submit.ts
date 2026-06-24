@@ -6,6 +6,7 @@ import {
   fetchTagsDiff,
   submitTransactionsDiff,
 } from "./diff-api";
+import { ensureIds } from "./idempotency";
 import type { ParsedTransaction, ReviewFile } from "./types";
 import { ValidationError, validateTransactions } from "./validate";
 
@@ -177,6 +178,10 @@ async function main() {
       new Set(categories.map((c) => String(c.id))),
     );
 
+    // Assign stable ids so a later --submit-review (or an accidental re-run)
+    // upserts by id instead of creating duplicates.
+    ensureIds(parsed);
+
     const review: ReviewFile = {
       account: flags.account,
       categories,
@@ -203,6 +208,12 @@ async function main() {
     }
 
     const review: ReviewFile = await file.json();
+
+    // Backfill ids for any hand-added rows and persist before submitting, so
+    // the ids we send are recorded and re-submits stay idempotent.
+    if (ensureIds(review.transactions)) {
+      await Bun.write(REVIEW_FILE, `${JSON.stringify(review, null, 2)}\n`);
+    }
 
     console.log(`Submitting ${review.transactions.length} transaction(s)...`);
     const result = await doSubmit(review.transactions, review.account);
