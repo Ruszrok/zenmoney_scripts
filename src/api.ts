@@ -102,7 +102,7 @@ export async function submitTransactions(
     transactions,
     accountId,
     new Set(Object.keys(accounts)),
-    new Set(tagGroups.map((g) => g.id)),
+    new Set(tagGroups.map((g) => String(g.id))),
   );
 
   const body = toZenMoney(transactions, accountId);

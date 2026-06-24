@@ -42,23 +42,29 @@ function isRealCalendarDate(s: string): boolean {
   );
 }
 
-function isPositiveInteger(n: unknown): n is number {
-  return typeof n === "number" && Number.isInteger(n) && n > 0;
-}
-
 function isPositiveFiniteAmount(n: unknown): n is number {
   return typeof n === "number" && Number.isFinite(n) && n > 0;
 }
 
+function isUsableCategoryId(id: unknown): id is string | number {
+  if (typeof id === "number") return Number.isInteger(id) && id > 0;
+  return typeof id === "string" && id.trim() !== "";
+}
+
 /**
  * Throws ValidationError with every issue across the batch if anything is
- * invalid. Pure: no I/O. Caller fetches the live accounts + tag_groups.
+ * invalid. Pure: no I/O. Caller fetches the live accounts + categories.
+ *
+ * `validCategoryIds` holds the live category IDs as strings — legacy
+ * (cookie) mode passes stringified integer tag_group IDs, Diff-API (token)
+ * mode passes tag UUIDs. Each transaction's categoryIds are matched by
+ * String(id) membership, so foreign IDs are caught in either mode.
  */
 export function validateTransactions(
   transactions: ParsedTransaction[],
   accountId: string,
   validAccountIds: ReadonlySet<string>,
-  validTagGroupIds: ReadonlySet<number>,
+  validCategoryIds: ReadonlySet<string>,
 ): void {
   const issues: ValidationIssue[] = [];
 
@@ -67,7 +73,7 @@ export function validateTransactions(
       txnIndex: null,
       field: "account",
       value: accountId,
-      reason: `account ${accountId} does not exist for this session — likely from a different ZenMoney account`,
+      reason: `account ${accountId} does not exist for this session — likely from a different ZenMoney account or auth mode`,
     });
   }
 
@@ -83,21 +89,22 @@ export function validateTransactions(
       });
     } else {
       for (const id of t.categoryIds) {
-        if (!isPositiveInteger(id)) {
+        if (!isUsableCategoryId(id)) {
           issues.push({
             txnIndex: i,
             field: "categoryIds",
             value: id,
-            reason: "categoryIds must be an array of positive integers",
+            reason:
+              "categoryIds must be positive integers (legacy) or non-empty UUID strings (Diff API)",
           });
           continue;
         }
-        if (!validTagGroupIds.has(id)) {
+        if (!validCategoryIds.has(String(id))) {
           issues.push({
             txnIndex: i,
             field: "categoryIds",
             value: id,
-            reason: `tag_group ${id} does not exist for this session — likely from a different ZenMoney account`,
+            reason: `category ${id} does not exist for this session — likely from a different ZenMoney account or auth mode`,
           });
         }
       }
