@@ -2,6 +2,13 @@
 
 This project automates adding bank transactions to ZenMoney from banking app screenshots.
 
+There are **two auth backends**, selected automatically by which credential you pass:
+
+- **Diff API (token) — PRIMARY.** Official API at `https://api.zenmoney.ru/v8/diff/` with a bearer token. Stable, doesn't log out. Account & category IDs are **UUIDs**.
+- **Legacy (cookie) — fallback.** Private web API at `https://zenmoney.ru/api/...` with a `PHPSESSID` cookie. Account & category IDs are **integers**. The cookie expires/logs out constantly — only use if you have no token.
+
+`src/submit.ts` uses the token (`--token` or `ZENMONEY_TOKEN` env) when present, otherwise the cookie (`--cookie`).
+
 ## Workflow
 
 When the user attaches banking screenshots, follow these steps:
@@ -11,67 +18,75 @@ When the user attaches banking screenshots, follow these steps:
 Use vision to extract transactions from each screenshot. For each transaction, extract:
 - **date** — format DD.MM.YYYY
 - **amount** — numeric, always positive
-- **payee** — merchant/sender name
+- **payee** — merchant/sender name (ASCII only — strip diacritics & `&`, they break iOS sync)
 - **comment** — additional details (can be empty)
 - **isIncome** — true if money received, false if spent
-- Skip **Denied** transactions (they didn't go through)
+- Skip **Denied** / **pending** transactions, and self-transfers (e.g. "Viacheslav Iudanov" payments).
 
-### 2. Get PHPSESSID from Chrome
+### 2. Auth — get a token (primary)
 
-Run this via `mcp__claude-in-chrome__javascript_tool` on a zenmoney.ru tab:
-```js
-document.cookie
+Get a ZenMoney bearer token (one-time) and put it in a gitignored `.env`:
+
+```bash
+echo 'ZENMONEY_TOKEN=...' > .env
 ```
-Extract the `PHPSESSID=...` value from the result.
+
+Copy the token from **`budgera.com/settings/api-key`** (the "API Key" page — it's a permanent token) or **`zerro.app/token`**. Bun auto-loads `.env`, so every `bun run src/submit.ts ...` picks it up — no flag needed. The token is a standard ZenMoney OAuth bearer; at runtime only `api.zenmoney.ru` is contacted (no dependency on Budgera/Zerro). The browser tool **blocks** reading the raw token, so the user must paste it themselves.
+
+> **Legacy cookie mode:** instead of a token, run `document.cookie` via `mcp__claude-in-chrome__javascript_tool` on a logged-in zenmoney.ru tab, extract `PHPSESSID=...`, and pass `--cookie "PHPSESSID=xxx"` to every command. Everything below works identically; just swap the auth flag and use integer IDs.
 
 ### 3. Fetch categories
 
 ```bash
-bun run src/submit.ts --list-categories --cookie "PHPSESSID=xxx"
+bun run src/submit.ts --list-categories
 ```
 
-This fetches the full tag_groups hierarchy from `/api/s1/profile/`, including subcategories (e.g. "Проезд / Такси", "Еда / Продукты").
+Returns the full category hierarchy as `id<TAB>label<TAB>type` (e.g. "Проезд / Такси", "Еда / Продукты"). In token mode `id` is a **tag UUID**; in cookie mode it's an integer tag_group ID.
 
 ### 4. Categorize transactions
 
-Map each transaction to one or more ZenMoney tag_group IDs using reasoning. Transactions use `categoryIds` (array of numbers) — multiple tag_groups can be applied to a single transaction.
+Map each transaction to one or more category IDs. Transactions use `categoryIds` (array) — multiple categories can be applied to one transaction. In token mode these are **UUID strings**; in cookie mode **integers**.
 
-**Important:** ZenMoney `tag_group` IDs are per-user. The hints table below is a *cache* — every run of `--prepare` and `--submit-review` validates `categoryIds` against the live tag_groups for the session and **hard-fails** if any ID doesn't belong. If you see a `ValidationError` listing foreign IDs, the table is stale for the current `PHPSESSID`; rebuild your category choices from the `categories` array in the freshly-written `data/review.json` and update the table afterwards.
+**Important:** category IDs are per-user AND per-auth-mode. The hints table below is a *cache* of this user's **Diff-API tag UUIDs**. Every `--prepare` and `--submit-review` validates `categoryIds` against the live categories for the session and **hard-fails** (exit 2) on any foreign ID. If you see a `ValidationError`, rebuild your choices from the `categories` array in the freshly-written `data/review.json` and update this table.
 
-**Category mapping hints** (payee substring → tag_group):
-| Payee contains | Category | tag_group ID |
+**Category mapping hints** (payee substring → category → Diff-API tag UUID):
+| Payee contains | Category | tag UUID |
 |---|---|---|
-| Bolt, Uber, Donkey Republic, Rejsekort, Copenhagen Metro, Aeroporto | Проезд / Такси | 37480071 |
-| Uber Eats, Wolt, Glovo, Starbucks, BUGA RAMEN, McDonalds, BEEBEE, Cofoco, Artisani, Vitaminas, SoLo Brewing, Order from restaurant | Еда / Кафе и рестораны | 650876 |
-| Lidl, Maxima, Rimi, Barbora, Continente, Pingo Doce, Gleba, Netto, Coop Danmark, fotex, Intermarche, TERRA PURA, MIX Markt, CAFEMILAGRE.COM, ALFACINHA FRES | Еда / Продукты | 650871 |
-| Decathlon, HP ACTIVE, FEDERACAO PORT, A.S. PADRE CRUZ, MOVIMENTO ENCA | Спорт | 2357438 |
-| Farmacia, Dental, medical, HOSPITAL CUF, CLINICA CUF, WELLS.PT, Farmacias Holon | Медицицина | 1143194 |
-| Spotify, Netflix, YouTube, Todoist, OpenAI, ChatGPT, Claude, Anthropic, Zoho, updown.io, Nord Security, Apple (small) | Подписки | 30850494 |
-| Fly.io, Lovable, Homesage.ai, Figma, Google Cloud | Бизнес расходы / 4realty.ai | 43938404 |
-| Maksu Services SA, Bx Valor 03-transacco, GALP, IUC | Машина | 650928 |
-| GOLDENERGY, PAGAMENTOS VOD, LW*EDP, PQ EDF SEDE EDP | Квартплата | 650878 |
-| Amazon, AliExpress, UNIQLO, Magasin, Other Stories | Личные траты | 650875 |
-| SEF, INSTITUTO DE GESTAO F | Налоги и пошлины | 35732742 |
-| MANUT CONTA, Invoice (bunq) | Банковские издержки | 4790456 |
-| Salary, Palk, Deel | Зарплата (income) | 650877 |
-| Cashback, bunq Payday | проценты (income) | 1536922 |
-| Swedbank, SEB, Luminor | skip — likely a transfer |  |
+| Bolt, Uber, Yandex Go, Lime, Donkey Republic, Rejsekort, Copenhagen Metro, Aeroporto | Проезд / Такси | `990e0f14-98d2-4ebb-876d-79e0c32d6bb4` |
+| Uber Eats, Yandex Eats, Wolt, Glovo, Starbucks, McDonalds, BEEBEE, restaurants/cafes/coffee | Еда / Кафе и рестораны | `4789c9cc-698f-432e-a4e2-ab2edee8fdcb` |
+| Lidl, Continente, Pingo Doce, Gleba, Carrefour, Auchan, Maxima, Rimi, Netto, fotex, CAFEMILAGRE.COM | Еда / Продукты | `e01738fa-7b33-449f-aca7-8bf6474b23a0` |
+| Decathlon, Protennis, PayPal Tennispro, BSPORT, Rackets Pro Academy, FEDERACAO PORT | Спорт | `3d5bb1c5-f876-4b0c-a257-a4634f4e41e3` |
+| Farmacia, Pharm Center, Dental, medical, HOSPITAL CUF, WELLS.PT | Медицицина | `3f8cca35-e2dc-4019-ae47-c666ff2d802c` |
+| Spotify, Netflix, YouTube, HBO Max, Zoom, LinkedIn, Paddle, OpenAI, Claude, Anthropic, Apple (small) | Подписки | `81a86b5e-8f1b-41e6-9bd2-85287b9c2fae` |
+| Fly.io, Lovable, Cloudflare, Figma, Google Cloud | Бизнес расходы / 4realty.ai | `f4595a1e-2bf8-41ec-a349-ed8f900ec5f0` |
+| Maksu Services SA, Bx Valor 03-transacco, GALP, TMP (parking), IUC | Машина | `ba9368a2-78f6-4ba2-99f8-13e9a06650ad` |
+| GOLDENERGY, PAGAMENTOS VOD, LMW*EDP, LW*EDP, PQ EDF SEDE EDP | Квартплата | `cc444313-43ad-4fdb-8930-61076935ea6c` |
+| Amazon, AliExpress, UNIQLO, Duty Free, Magasin, Other Stories | Личные траты | `24ed7b3f-4bfc-4324-88f3-42498c1f3d7c` |
+| G2A (game keys) | Отдых и развлечения | `a7555d2c-c1ad-4e44-a999-28e9720bb2c9` |
+| Holiday Inn, Air France, Paris Aeroport, hotels/flights | Отпуск | `f05417a6-dc01-44dc-a2e7-abf0fcceae48` |
+| SEF, INSTITUTO DE GESTAO F | Налоги и пошлины | `365101f2-302f-4fbc-9eef-91747b51ce25` |
+| MANUT CONTA, Invoice (bunq) | Банковские издержки | `fd46abc5-0ec3-4767-84d2-0479bc7bde2a` |
+| Salary, Palk, Deel | Зарплата (income) | `4869a1f1-a06f-4456-9bc5-fd3e5de6f051` |
+| Cashback, bunq Payday, bunq "Payment received" | проценты (income) | `c14c0c71-1859-44f1-9451-03b1ba4b6f1c` |
+| Swedbank, SEB, Luminor, Revolut | skip — likely a transfer |  |
 | To EUR, TRF CXDAPP, TRF POUP, Trf Mbway, LEVANTAMENTO | transfer — add with comment, user converts manually |  |
 
 When unsure, set `categoryIds: []` (uncategorized) and note it in the confirmation table.
 
 ### 5. Save review file
 
-Pipe the parsed transactions JSON to `--prepare`, which fetches tag_groups from ZenMoney and writes a review file to `data/review.json`:
+Pipe the parsed transactions JSON to `--prepare`, which fetches live categories and writes `data/review.json`:
 
 ```bash
-bun run src/submit.ts --prepare --cookie "PHPSESSID=xxx" --account "ACCOUNT_ID" <<< '[
-  {"date":"22.02.2026","amount":45.50,"payee":"Lidl","comment":"","isIncome":false,"categoryIds":[650871],"categoryName":"Еда / Продукты"}
+bun run src/submit.ts --prepare --account "ACCOUNT_ID" <<< '[
+  {"date":"22.02.2026","amount":45.50,"payee":"Lidl","comment":"","isIncome":false,"categoryIds":["e01738fa-7b33-449f-aca7-8bf6474b23a0"],"categoryName":"Еда / Продукты"}
 ]'
 ```
 
+`ACCOUNT_ID` is the bunq UUID `e30b1cf6-0c08-430d-9a10-c7482d8948f1` in token mode (see `config.ts` `DEFAULT_ACCOUNT_UUID`), or `11025256` in cookie mode.
+
 The review file contains:
-- `categories` — all available ZenMoney tag_groups (id, label, type) with full hierarchy
+- `categories` — all available categories (id, label, type) with full hierarchy
 - `transactions` — each transaction with `categoryIds` and `categoryName` for easy review
 - `account` — the target account ID
 
@@ -84,25 +99,23 @@ Wait for the user to review and edit the file. They may change `categoryIds`/`ca
 ### 7. Submit from review file
 
 ```bash
-bun run src/submit.ts --submit-review --cookie "PHPSESSID=xxx"
+bun run src/submit.ts --submit-review
 ```
 
-This reads `data/review.json` and submits all transactions in it.
-
-The submit path validates a second time inside `submitTransactions` (`src/api.ts`) using a fresh fetch of accounts + tag_groups, so any post-`--prepare` edits you made to `data/review.json` are still checked. There is no flag to disable this. On any validation failure the CLI prints all issues and exits with code 2.
+This reads `data/review.json` and submits all transactions in it. The submit path validates a second time inside the backend (`submitTransactionsDiff` in `src/diff-api.ts`, or `submitTransactions` in `src/api.ts`) using a fresh fetch of accounts + categories, so post-`--prepare` edits are still checked. No flag disables this. On validation failure the CLI prints all issues and exits with code 2.
 
 ## Other commands
 
-List accounts (to find account ID):
 ```bash
-bun run src/submit.ts --list-accounts --cookie "PHPSESSID=xxx"
+bun run src/submit.ts --list-accounts          # find account ID (UUID in token mode)
+bun run src/submit.ts --dry-run --account ID <<< '[json]'   # validate without submitting
 ```
 
 ## Notes
 
-- The PHPSESSID cookie expires; re-fetch from Chrome if you get auth errors
-- Account ID for the default account is stored in `config.ts`
-- All amounts are positive numbers; the `isIncome` flag determines direction
-- ZenMoney API uses `category: "0"` + `tag_groups: ["id1", "id2"]` for categorization
-- The old `tag_group` (singular) field is deprecated; always use `tag_groups` (array of strings)
-- Categories are fetched from `/api/s1/profile/` which returns the full tag_groups + tags hierarchy
+- **Token mode (primary):** single endpoint `POST /v8/diff/`, `Authorization: Bearer <token>`. Transactions are created by POSTing full transaction objects in the diff body — the server requires the **complete** object shape (all nullable props present), built in `toDiffTransactions` (`src/diff-api.ts`). Dates are converted DD.MM.YYYY → `yyyy-MM-dd`. IDs are client-generated UUIDs.
+- **Cookie mode (legacy):** `category: "0"` + `tag_groups: ["id1","id2"]` (array of strings) against `/api/v2/transaction/`; categories from `/api/s1/profile/`.
+- The Diff API also returns **existing transactions**, which makes dedup-against-ZenMoney possible (not yet implemented — see plan).
+- All amounts are positive; the `isIncome` flag determines direction.
+- The token is long-lived (effectively permanent) — far more stable than `PHPSESSID`. If you get a `401`, re-copy it from budgera.com/settings/api-key.
+- Run `bun test ./src/api.test.ts ./src/validate.test.ts ./src/regression-review.test.ts` (the `zerro/` vendored copy has its own failing tests — scope to our files) and `bunx tsc --noEmit` after code changes.

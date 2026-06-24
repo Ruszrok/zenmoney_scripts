@@ -4,7 +4,10 @@ import type { ParsedTransaction } from "./types";
 
 const ACCOUNT = "11025256";
 const VALID_ACCOUNTS = new Set([ACCOUNT, "11025255"]);
-const VALID_TAGS = new Set<number>([650871, 650876, 30850494]);
+// Validator keys on String(id), so this set holds stringified IDs. Legacy
+// integer tag_groups stringify to these; Diff-API tags would be UUID strings.
+const VALID_TAGS = new Set<string>(["650871", "650876", "30850494"]);
+const UUID_TAG = "9f8b1c2d-3e4f-5061-7283-94a5b6c7d8e9";
 
 function makeTxn(overrides: Partial<ParsedTransaction> = {}): ParsedTransaction {
   return {
@@ -121,8 +124,9 @@ describe("validateTransactions", () => {
     expect((err as ValidationError).issues[0].reason).toMatch(/array/i);
   });
 
-  test("fails when categoryIds contains non-integers", () => {
-    const cases: unknown[] = [NaN, 0.5, "650871", null, Infinity];
+  test("fails when categoryIds contains unusable values", () => {
+    // Non-integer numbers, null, and empty/whitespace strings are never usable.
+    const cases: unknown[] = [NaN, 0.5, null, Infinity, "", "   "];
     for (const bad of cases) {
       let err: unknown;
       try {
@@ -138,6 +142,33 @@ describe("validateTransactions", () => {
       expect(err).toBeInstanceOf(ValidationError);
       expect((err as ValidationError).issues[0].field).toBe("categoryIds");
     }
+  });
+
+  test("accepts a UUID string categoryId that exists (Diff-API mode)", () => {
+    expect(() =>
+      validateTransactions(
+        [makeTxn({ categoryIds: [UUID_TAG] })],
+        ACCOUNT,
+        VALID_ACCOUNTS,
+        new Set<string>([UUID_TAG]),
+      ),
+    ).not.toThrow();
+  });
+
+  test("rejects a UUID string categoryId that does not exist", () => {
+    let err: unknown;
+    try {
+      validateTransactions(
+        [makeTxn({ categoryIds: ["00000000-0000-0000-0000-000000000000"] })],
+        ACCOUNT,
+        VALID_ACCOUNTS,
+        new Set<string>([UUID_TAG]),
+      );
+    } catch (e) {
+      err = e;
+    }
+    expect(err).toBeInstanceOf(ValidationError);
+    expect((err as ValidationError).issues[0].field).toBe("categoryIds");
   });
 
   test("fails when date format is wrong", () => {

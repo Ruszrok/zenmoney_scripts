@@ -14,14 +14,15 @@ describe("regression: data/review.json", () => {
     }
     const review: ReviewFile = JSON.parse(readFileSync(REVIEW_PATH, "utf-8"));
     const accountIds = new Set([review.account]);
-    const tagGroupIds = new Set(review.categories.map((c) => c.id));
+    // Validator keys on String(id); categories may be integer (legacy) or UUID (Diff).
+    const categoryIds = new Set(review.categories.map((c) => String(c.id)));
 
     expect(() =>
       validateTransactions(
         review.transactions,
         review.account,
         accountIds,
-        tagGroupIds,
+        categoryIds,
       ),
     ).not.toThrow();
   });

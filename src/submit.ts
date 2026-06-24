@@ -1,9 +1,9 @@
+import { fetchAccounts, fetchTagGroups, submitTransactions } from "./api";
 import {
-  fetchAccounts,
-  fetchCategories,
-  fetchTagGroups,
-  submitTransactions,
-} from "./api";
+  fetchAccountsDiff,
+  fetchTagsDiff,
+  submitTransactionsDiff,
+} from "./diff-api";
 import { ValidationError, validateTransactions } from "./validate";
 import type { ParsedTransaction, ReviewFile } from "./types";
 import { mkdirSync } from "fs";
@@ -14,17 +14,23 @@ const REVIEW_FILE = join(DATA_DIR, "review.json");
 
 function usage(): never {
   console.error(`Usage:
-  bun run src/submit.ts --list-accounts --cookie "PHPSESSID=..."
-  bun run src/submit.ts --list-categories --cookie "PHPSESSID=..."
-  bun run src/submit.ts --prepare --cookie "PHPSESSID=..." --account "ID" <<< '[json]'
-  bun run src/submit.ts --submit-review --cookie "PHPSESSID=..."
-  bun run src/submit.ts [--dry-run] --cookie "PHPSESSID=..." --account "ID" <<< '[json]'`);
+  Auth (pick one): --token "<bearer>"  (or ZENMONEY_TOKEN env)  → official Diff API
+                   --cookie "PHPSESSID=..."                      → legacy zenmoney.ru API
+
+  bun run src/submit.ts --list-accounts   [--token <t> | --cookie <c>]
+  bun run src/submit.ts --list-categories [--token <t> | --cookie <c>]
+  bun run src/submit.ts --prepare --account "ID" [--token <t> | --cookie <c>] <<< '[json]'
+  bun run src/submit.ts --submit-review   [--token <t> | --cookie <c>]
+  bun run src/submit.ts [--dry-run] --account "ID" [--token <t> | --cookie <c>] <<< '[json]'
+
+  Diff-API account IDs are UUIDs; legacy account IDs are integers.`);
   process.exit(1);
 }
 
 function parseArgs(args: string[]) {
   const flags = {
     cookie: "",
+    token: "",
     account: "",
     listAccounts: false,
     listCategories: false,
@@ -36,6 +42,9 @@ function parseArgs(args: string[]) {
     switch (args[i]) {
       case "--cookie":
         flags.cookie = args[++i] ?? "";
+        break;
+      case "--token":
+        flags.token = args[++i] ?? "";
         break;
       case "--account":
         flags.account = args[++i] ?? "";
@@ -57,6 +66,7 @@ function parseArgs(args: string[]) {
         break;
     }
   }
+  if (!flags.token) flags.token = process.env.ZENMONEY_TOKEN ?? "";
   return flags;
 }
 
@@ -78,23 +88,58 @@ function printValidationError(err: ValidationError): void {
   }
 }
 
+interface AccountRow {
+  id: string;
+  title: string;
+  type: string;
+  balance: number;
+}
+interface CategoryRow {
+  id: string | number;
+  label: string;
+  type: string;
+}
+
 async function main() {
   const flags = parseArgs(process.argv.slice(2));
 
-  if (!flags.cookie) usage();
+  // Token takes precedence over cookie; need at least one.
+  const useDiff = !!flags.token;
+  if (!useDiff && !flags.cookie) usage();
+  console.error(
+    useDiff
+      ? "[auth] Diff API (api.zenmoney.ru) via bearer token"
+      : "[auth] legacy zenmoney.ru API via PHPSESSID cookie",
+  );
+
+  // ── backend-neutral helpers ────────────────────────────────────────────
+  const loadAccounts = async (): Promise<AccountRow[]> => {
+    if (useDiff) return fetchAccountsDiff(flags.token);
+    const accts = await fetchAccounts(flags.cookie);
+    return Object.entries(accts).map(([id, a]) => ({
+      id,
+      title: a.title,
+      type: a.type,
+      balance: a.balance,
+    }));
+  };
+  const loadCategories = async (): Promise<CategoryRow[]> =>
+    useDiff ? fetchTagsDiff(flags.token) : fetchTagGroups(flags.cookie);
+  const doSubmit = (txns: ParsedTransaction[], accountId: string) =>
+    useDiff
+      ? submitTransactionsDiff(flags.token, txns, accountId)
+      : submitTransactions(flags.cookie, txns, accountId);
 
   if (flags.listAccounts) {
-    const accounts = await fetchAccounts(flags.cookie);
-    for (const [id, acc] of Object.entries(accounts)) {
-      console.log(`${id}\t${acc.title}\t${acc.type}\tbalance: ${acc.balance}`);
+    for (const acc of await loadAccounts()) {
+      console.log(`${acc.id}\t${acc.title}\t${acc.type}\tbalance: ${acc.balance}`);
     }
     return;
   }
 
   if (flags.listCategories) {
-    const tagGroups = await fetchTagGroups(flags.cookie);
-    for (const tg of tagGroups) {
-      console.log(`${tg.id}\t${tg.label}\t${tg.type}`);
+    for (const c of await loadCategories()) {
+      console.log(`${c.id}\t${c.label}\t${c.type}`);
     }
     return;
   }
@@ -120,19 +165,19 @@ async function main() {
       process.exit(1);
     }
 
-    const accounts = await fetchAccounts(flags.cookie);
-    const tagGroups = await fetchTagGroups(flags.cookie);
+    const accounts = await loadAccounts();
+    const categories = await loadCategories();
 
     validateTransactions(
       parsed,
       flags.account,
-      new Set(Object.keys(accounts)),
-      new Set(tagGroups.map((g) => g.id)),
+      new Set(accounts.map((a) => a.id)),
+      new Set(categories.map((c) => String(c.id))),
     );
 
     const review: ReviewFile = {
       account: flags.account,
-      categories: tagGroups,
+      categories,
       transactions: parsed,
     };
 
@@ -140,13 +185,13 @@ async function main() {
     await Bun.write(REVIEW_FILE, JSON.stringify(review, null, 2) + "\n");
     console.log(`Review file written to ${REVIEW_FILE}`);
     console.log(
-      `${parsed.length} transaction(s), ${tagGroups.length} categories`,
+      `${parsed.length} transaction(s), ${categories.length} categories`,
     );
     return;
   }
 
   // --submit-review: read review JSON and submit (validator runs again inside
-  // submitTransactions with a fresh fetch — covers post-prepare edits).
+  // the backend with a fresh fetch — covers post-prepare edits).
   if (flags.submitReview) {
     const file = Bun.file(REVIEW_FILE);
     if (!(await file.exists())) {
@@ -158,16 +203,14 @@ async function main() {
     const review: ReviewFile = await file.json();
 
     console.log(`Submitting ${review.transactions.length} transaction(s)...`);
-    const result = await submitTransactions(
-      flags.cookie,
-      review.transactions,
-      review.account,
-    );
-    console.log("Success:", JSON.stringify(result, null, 2));
+    const result = await doSubmit(review.transactions, review.account);
+    const count = Array.isArray(result) ? result.length : undefined;
+    console.log(count != null ? `Created ${count} transaction(s).` : "Done.");
+    console.log(JSON.stringify(result, null, 2));
     return;
   }
 
-  // Direct submit from stdin (legacy).
+  // Direct submit from stdin (legacy convenience path).
   if (!flags.account) {
     console.error("Error: --account is required for submitting transactions");
     usage();
@@ -189,13 +232,13 @@ async function main() {
 
   if (flags.dryRun) {
     // Dry-run still validates so the user sees the same errors they would on submit.
-    const accounts = await fetchAccounts(flags.cookie);
-    const tagGroups = await fetchTagGroups(flags.cookie);
+    const accounts = await loadAccounts();
+    const categories = await loadCategories();
     validateTransactions(
       parsed,
       flags.account,
-      new Set(Object.keys(accounts)),
-      new Set(tagGroups.map((g) => g.id)),
+      new Set(accounts.map((a) => a.id)),
+      new Set(categories.map((c) => String(c.id))),
     );
     console.log("=== DRY RUN — validated, not submitting ===");
     console.log(JSON.stringify(parsed, null, 2));
@@ -203,8 +246,10 @@ async function main() {
   }
 
   console.log(`Submitting ${parsed.length} transaction(s)...`);
-  const result = await submitTransactions(flags.cookie, parsed, flags.account);
-  console.log("Success:", JSON.stringify(result, null, 2));
+  const result = await doSubmit(parsed, flags.account);
+  const count = Array.isArray(result) ? result.length : undefined;
+  console.log(count != null ? `Created ${count} transaction(s).` : "Done.");
+  console.log(JSON.stringify(result, null, 2));
 }
 
 main().catch((err) => {
