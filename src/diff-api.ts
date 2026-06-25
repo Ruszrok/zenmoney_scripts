@@ -41,7 +41,7 @@ async function diff(token: string, body: DiffRequest): Promise<DiffResponse> {
     if (res.status === 401) {
       throw new Error(
         `Diff API 401 Unauthorized — ZENMONEY_TOKEN is missing, invalid, or expired. ` +
-          `Get a fresh token from budgera.com/settings/export or zerro.app/token.`,
+          `Get a fresh token from budgera.com/settings/api-key or zerro.app/token.`,
       );
     }
     throw new Error(`Diff API failed: ${res.status} ${text}`);

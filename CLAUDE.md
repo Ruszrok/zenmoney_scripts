@@ -83,7 +83,7 @@ bun run src/submit.ts --prepare --account "ACCOUNT_ID" <<< '[
 ]'
 ```
 
-`ACCOUNT_ID` is the bunq UUID `e30b1cf6-0c08-430d-9a10-c7482d8948f1` in token mode (see `config.ts` `DEFAULT_ACCOUNT_UUID`), or `11025256` in cookie mode.
+`ACCOUNT_ID` is the bunq UUID `e30b1cf6-0c08-430d-9a10-c7482d8948f1` in token mode, or `11025256` in cookie mode (both are also recorded in MEMORY.md).
 
 The review file contains:
 - `categories` — all available categories (id, label, type) with full hierarchy
@@ -119,4 +119,4 @@ bun run src/submit.ts --dry-run --account ID <<< '[json]'   # validate without s
 - The Diff API also returns **existing transactions**, which makes dedup-against-ZenMoney possible (not yet implemented — see plan). `fetchServerData` exposes them.
 - All amounts are positive; the `isIncome` flag determines direction.
 - The token is long-lived (effectively permanent) — far more stable than `PHPSESSID`. If you get a `401`, re-copy it from budgera.com/settings/api-key.
-- Run `bun test ./src/api.test.ts ./src/validate.test.ts ./src/regression-review.test.ts` (the `zerro/` vendored copy has its own failing tests — scope to our files) and `bunx tsc --noEmit` after code changes.
+- Run `bun run test` (= `bun test ./src/*.test.ts`, which covers all four suites and excludes the `zerro/` vendored copy that has its own failing tests) and `bun run typecheck` (`tsc --noEmit`) after code changes — or just `bun run check` to do both.

@@ -79,7 +79,8 @@ export function validateTransactions(
         txnIndex: i,
         field: "categoryIds",
         value: t.categoryIds,
-        reason: "categoryIds must be an array of integers",
+        reason:
+          "categoryIds must be an array (integer tag_group IDs in legacy mode, or UUID strings in Diff API mode)",
       });
     } else {
       for (const id of t.categoryIds) {

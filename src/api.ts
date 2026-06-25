@@ -1,7 +1,6 @@
 import type {
   ParsedTransaction,
   ZenMoneyAccount,
-  ZenMoneyCategory,
   ZenMoneyTransaction,
 } from "./types";
 import { validateTransactions } from "./validate";
@@ -22,16 +21,6 @@ export async function fetchAccounts(
     headers: headers(cookie),
   });
   if (!res.ok) throw new Error(`fetchAccounts failed: ${res.status}`);
-  return res.json();
-}
-
-export async function fetchCategories(
-  cookie: string,
-): Promise<Record<string, ZenMoneyCategory>> {
-  const res = await fetch(`${BASE_URL}/v1/category/`, {
-    headers: headers(cookie),
-  });
-  if (!res.ok) throw new Error(`fetchCategories failed: ${res.status}`);
   return res.json();
 }
 

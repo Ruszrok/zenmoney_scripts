@@ -50,14 +50,6 @@ export interface ZenMoneyAccount {
   currency_id: number;
 }
 
-/** ZenMoney category from /api/v1/category/ */
-export interface ZenMoneyCategory {
-  id: number;
-  title: string;
-  parent_id: number | null;
-  type: string;
-}
-
 // ───────────────────────── Official Diff API (api.zenmoney.ru/v8/diff/) ─────
 // Field names are verbatim from the ZenMoney API wiki schema.
 

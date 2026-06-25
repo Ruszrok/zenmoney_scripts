@@ -2,6 +2,6 @@
 # Linters / formatters (fast). Quality checks (tsc + tests) run on pre-push.
 set -euo pipefail
 
-echo "[pre-commit] biome lint + format check (src/, config.ts)…"
+echo "[pre-commit] biome lint + format check (src/)…"
 bun run lint
 echo "[pre-commit] OK"

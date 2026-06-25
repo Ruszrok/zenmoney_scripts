@@ -9,4 +9,4 @@ Follow the workflow in CLAUDE.md:
 5. Tell the user to review `data/review.json`
 6. After user approves, run `--submit-review` to submit
 
-Use account from `config.ts` (DEFAULT_ACCOUNT_ID) unless the user specifies otherwise.
+Use the default bunq account unless the user specifies otherwise: UUID `e30b1cf6-0c08-430d-9a10-c7482d8948f1` in token mode, or integer `11025256` in cookie mode.

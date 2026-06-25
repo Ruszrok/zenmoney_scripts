@@ -79,6 +79,27 @@ async function readStdin(): Promise<string> {
   return Buffer.concat(chunks).toString("utf-8");
 }
 
+/** Read a JSON transaction array from stdin; exits with a clear error if empty/invalid. */
+async function readParsedStdin(): Promise<ParsedTransaction[]> {
+  const input = await readStdin();
+  if (!input.trim()) {
+    console.error("Error: no JSON input on stdin");
+    usage();
+  }
+  try {
+    return JSON.parse(input);
+  } catch {
+    console.error("Error: invalid JSON input");
+    process.exit(1);
+  }
+}
+
+function logSubmitResult(result: unknown): void {
+  const count = Array.isArray(result) ? result.length : undefined;
+  console.log(count != null ? `Created ${count} transaction(s).` : "Done.");
+  console.log(JSON.stringify(result, null, 2));
+}
+
 function printValidationError(err: ValidationError): void {
   console.error(err.message);
   for (const issue of err.issues) {
@@ -130,6 +151,21 @@ async function main() {
     useDiff
       ? submitTransactionsDiff(flags.token, txns, accountId)
       : submitTransactions(flags.cookie, txns, accountId);
+  // Fetch live accounts + categories and validate against them, returning both
+  // so callers can reuse the categories (e.g. to embed in the review file).
+  const validateAgainstLive = async (
+    txns: ParsedTransaction[],
+  ): Promise<{ accounts: AccountRow[]; categories: CategoryRow[] }> => {
+    const accounts = await loadAccounts();
+    const categories = await loadCategories();
+    validateTransactions(
+      txns,
+      flags.account,
+      new Set(accounts.map((a) => a.id)),
+      new Set(categories.map((c) => String(c.id))),
+    );
+    return { accounts, categories };
+  };
 
   if (flags.listAccounts) {
     for (const acc of await loadAccounts()) {
@@ -154,29 +190,8 @@ async function main() {
       usage();
     }
 
-    const input = await readStdin();
-    if (!input.trim()) {
-      console.error("Error: no JSON input on stdin");
-      usage();
-    }
-
-    let parsed: ParsedTransaction[];
-    try {
-      parsed = JSON.parse(input);
-    } catch {
-      console.error("Error: invalid JSON input");
-      process.exit(1);
-    }
-
-    const accounts = await loadAccounts();
-    const categories = await loadCategories();
-
-    validateTransactions(
-      parsed,
-      flags.account,
-      new Set(accounts.map((a) => a.id)),
-      new Set(categories.map((c) => String(c.id))),
-    );
+    const parsed = await readParsedStdin();
+    const { categories } = await validateAgainstLive(parsed);
 
     // Assign stable ids so a later --submit-review (or an accidental re-run)
     // upserts by id instead of creating duplicates.
@@ -217,9 +232,7 @@ async function main() {
 
     console.log(`Submitting ${review.transactions.length} transaction(s)...`);
     const result = await doSubmit(review.transactions, review.account);
-    const count = Array.isArray(result) ? result.length : undefined;
-    console.log(count != null ? `Created ${count} transaction(s).` : "Done.");
-    console.log(JSON.stringify(result, null, 2));
+    logSubmitResult(result);
     return;
   }
 
@@ -229,30 +242,11 @@ async function main() {
     usage();
   }
 
-  const input = await readStdin();
-  if (!input.trim()) {
-    console.error("Error: no JSON input on stdin");
-    usage();
-  }
-
-  let parsed: ParsedTransaction[];
-  try {
-    parsed = JSON.parse(input);
-  } catch {
-    console.error("Error: invalid JSON input");
-    process.exit(1);
-  }
+  const parsed = await readParsedStdin();
 
   if (flags.dryRun) {
     // Dry-run still validates so the user sees the same errors they would on submit.
-    const accounts = await loadAccounts();
-    const categories = await loadCategories();
-    validateTransactions(
-      parsed,
-      flags.account,
-      new Set(accounts.map((a) => a.id)),
-      new Set(categories.map((c) => String(c.id))),
-    );
+    await validateAgainstLive(parsed);
     console.log("=== DRY RUN — validated, not submitting ===");
     console.log(JSON.stringify(parsed, null, 2));
     return;
@@ -260,9 +254,7 @@ async function main() {
 
   console.log(`Submitting ${parsed.length} transaction(s)...`);
   const result = await doSubmit(parsed, flags.account);
-  const count = Array.isArray(result) ? result.length : undefined;
-  console.log(count != null ? `Created ${count} transaction(s).` : "Done.");
-  console.log(JSON.stringify(result, null, 2));
+  logSubmitResult(result);
 }
 
 main().catch((err) => {

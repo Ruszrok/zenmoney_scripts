@@ -1,12 +1,16 @@
 {
   "name": "zenmoney-scripts",
   "type": "module",
+  "packageManager": "bun@1.3.9",
+  "engines": {
+    "bun": ">=1.3.0"
+  },
   "scripts": {
     "submit": "bun run src/submit.ts",
     "accounts": "bun run src/submit.ts --list-accounts",
     "categories": "bun run src/submit.ts --list-categories",
-    "lint": "biome check src config.ts",
-    "format": "biome check --write src config.ts",
+    "lint": "biome check src",
+    "format": "biome check --write src",
     "typecheck": "tsc --noEmit",
     "test": "bun test ./src/*.test.ts",
     "check": "bun run typecheck && bun run test",
