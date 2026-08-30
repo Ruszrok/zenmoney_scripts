@@ -13,6 +13,7 @@
     "format": "biome check --write src",
     "typecheck": "tsc --noEmit",
     "test": "bun test ./src/*.test.ts",
+    "detect-log": "python3 scripts/detect_zenmoney_log.py",
     "check": "bun run typecheck && bun run test",
     "prepare": "git config core.hooksPath .githooks || true"
   },

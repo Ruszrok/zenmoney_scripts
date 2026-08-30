@@ -147,6 +147,26 @@ There is **no CLI flag** for this — the user sometimes asks ("создай е�
 
 Send `{ currentClientTimestamp, serverTimestamp: data.serverTimestamp, tag: [tag] }`. Nesting is **max 1 level** — `parent` must be a top-level tag. Check for an existing same-`title`+`parent` tag first so re-runs don't create twins. Re-run `--prepare` afterwards so the new UUID passes validation.
 
+## iOS log analysis
+
+Unrelated to transactions: `scripts/detect_zenmoney_log.py` reads Apple Console
+exports (TSV `level, time, process, message`) and reports endpoints, HTTP
+statuses, known failure signatures with occurrence counts, and likely causes.
+It produced `support_ticket.md`.
+
+```bash
+bun run detect-log logs/*.md              # markdown report
+bun run detect-log logs/*.md --json       # machine-readable
+scripts/run_log_detection.sh              # same, defaults to logs/*.md
+```
+
+Everything the tool recognises lives in the `SIGNATURES` table at the top of the
+script — one row carries the regex, its severity, the per-connection event label
+and the "likely causes" prose. **Teaching it a new signature is a one-row edit;
+never add a pattern check anywhere else.** A rising "Unclassified error/fault
+lines" count in the report means the log holds failures the table misses.
+`logs/` is gitignored, so log files stay local.
+
 ## Notes
 
 - **Token mode (primary):** single endpoint `POST /v8/diff/`, `Authorization: Bearer <token>`. Transactions are created by POSTing full transaction objects in the diff body — the server requires the **complete** object shape (all nullable props present), built in `toDiffTransactions` (`src/diff-api.ts`). Dates are converted DD.MM.YYYY → `yyyy-MM-dd`. IDs are client-generated **v4 UUIDs** (the server rejects non-UUID ids with a `validationError`).
