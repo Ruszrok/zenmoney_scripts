@@ -4,3 +4,5 @@ data/
 zerro/
 logs/
 .DS_Store
+pictures/
+*.ab

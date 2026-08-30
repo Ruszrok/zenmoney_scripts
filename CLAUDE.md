@@ -23,6 +23,26 @@ Use vision to extract transactions from each screenshot. For each transaction, e
 - **isIncome** — true if money received, false if spent
 - Skip **Denied** / **pending** transactions, and self-transfers (e.g. "Viacheslav Iudanov" payments).
 
+**bunq status vocabulary** (they are not interchangeable — read the subtitle *and* the amount styling):
+
+| Screenshot cue | Meaning | Action |
+|---|---|---|
+| `Denied …` + struck-through amount | never went through | **skip** |
+| struck-through amount, any subtitle (incl. `Payment returned`) | reversed / voided | **skip** |
+| `Payment pending` | authorization not yet settled; settles later as its **own separate row** | **skip** — else it double-counts |
+| `Reserved … payment` | authorized, settles **in place** (no second row) | **include** — user confirmed these count as paid |
+| `Refund` | real inbound money | include as `isIncome: true` |
+
+Dates: `Today` / `Yesterday` headers resolve against the screenshot's clock, not today's date — check the status-bar time.
+
+### 1b. Check for duplicates BEFORE preparing
+
+Screenshots overlap heavily and a range may already be partly imported. Always run a dedup pass first — the user asks for this. Read-only, via `fetchServerData`:
+
+1. Pull server transactions for the target account, find the **latest existing date**, and drop every parsed row at/before it.
+2. After `--prepare`, verify three things against the server: (a) no identical `date|amount|payee|isIncome` rows *within* `review.json` (catches double-entry from overlapping screenshots), (b) no `date|amount` match already on the account, (c) no `date|amount` match on **any other account** (catches a row filed to the wrong account).
+3. Repeated payees are normal, not dupes — e.g. Acento Coffee ×3 same day at different amounts, weekly `bunq Payday` €14.62. Only flag *exact* full-key matches.
+
 ### 2. Auth — get a token (primary)
 
 Get a ZenMoney bearer token (one-time) and put it in a gitignored `.env`:
@@ -53,17 +73,19 @@ Map each transaction to one or more category IDs. Transactions use `categoryIds`
 | Payee contains | Category | tag UUID |
 |---|---|---|
 | Bolt, Uber, Yandex Go, Lime, Donkey Republic, Rejsekort, Copenhagen Metro, Aeroporto | Проезд / Такси | `990e0f14-98d2-4ebb-876d-79e0c32d6bb4` |
-| Uber Eats, Yandex Eats, Wolt, Glovo, Starbucks, McDonalds, BEEBEE, restaurants/cafes/coffee | Еда / Кафе и рестораны | `4789c9cc-698f-432e-a4e2-ab2edee8fdcb` |
-| Lidl, Continente, Pingo Doce, Gleba, Carrefour, Auchan, Maxima, Rimi, Netto, fotex, CAFEMILAGRE.COM | Еда / Продукты | `e01738fa-7b33-449f-aca7-8bf6474b23a0` |
+| Uber Eats, Yandex Eats, Wolt, Glovo, Starbucks, McDonalds, BEEBEE, Monica Empire III, Acento Coffee, Drop Specialty Coffee, Zahir Kebab, ULU Cascais, Tertulia Apelativa, Alba bistro, Artisani, TACT, SumUp Artes e oficio, restaurants/cafes/coffee | Еда / Кафе и рестораны | `4789c9cc-698f-432e-a4e2-ab2edee8fdcb` |
+| Lidl, Continente, Pingo Doce, Gleba, Carrefour, Auchan, Maxima, Rimi, Netto, fotex, CAFEMILAGRE.COM, MIX Markt, Minipreco | Еда / Продукты | `e01738fa-7b33-449f-aca7-8bf6474b23a0` |
 | Decathlon, Protennis, PayPal Tennispro, BSPORT, Rackets Pro Academy, FEDERACAO PORT | Спорт | `3d5bb1c5-f876-4b0c-a257-a4634f4e41e3` |
 | Farmacia, Pharm Center, Dental, medical, HOSPITAL CUF, WELLS.PT | Медицицина | `3f8cca35-e2dc-4019-ae47-c666ff2d802c` |
 | Spotify, Netflix, YouTube, HBO Max, Zoom, LinkedIn, Paddle, OpenAI, Claude, Anthropic, Apple (small) | Подписки | `81a86b5e-8f1b-41e6-9bd2-85287b9c2fae` |
 | Fly.io, Lovable, Cloudflare, Figma, Google Cloud | Бизнес расходы / 4realty.ai | `f4595a1e-2bf8-41ec-a349-ed8f900ec5f0` |
-| Maksu Services SA, Bx Valor 03-transacco, GALP, TMP (parking), IUC | Машина | `ba9368a2-78f6-4ba2-99f8-13e9a06650ad` |
+| Maksu Services SA, Bx Valor 03-transacco, GALP, TMP (parking), IUC, **A.S. \<name\>** (Area de Servico = fuel station, e.g. A.S. TELHEIRAS) | Машина | `ba9368a2-78f6-4ba2-99f8-13e9a06650ad` |
 | GOLDENERGY, PAGAMENTOS VOD, LMW*EDP, LW*EDP, PQ EDF SEDE EDP | Квартплата | `cc444313-43ad-4fdb-8930-61076935ea6c` |
-| Amazon, AliExpress, UNIQLO, Duty Free, Magasin, Other Stories | Личные траты | `24ed7b3f-4bfc-4324-88f3-42498c1f3d7c` |
+| Amazon, AliExpress, UNIQLO, Duty Free, Magasin, Other Stories, Polo 1921, AS Originals Colombo | Личные траты | `24ed7b3f-4bfc-4324-88f3-42498c1f3d7c` |
 | G2A (game keys) | Отдых и развлечения | `a7555d2c-c1ad-4e44-a999-28e9720bb2c9` |
-| Holiday Inn, Air France, Paris Aeroport, hotels/flights | Отпуск | `f05417a6-dc01-44dc-a2e7-abf0fcceae48` |
+| PayPal (bare, no sub-merchant) | Хобби | `3b234c7f-467c-4919-877e-928a5a7a34f6` |
+| Regus, coworking/office space | Бизнес расходы (generic) | `a014ce97-53d5-4163-afeb-51664471bbd6` |
+| Holiday Inn, Marriott, Air France, Paris Aeroport, hotels/flights | Отпуск | `f05417a6-dc01-44dc-a2e7-abf0fcceae48` |
 | SEF, INSTITUTO DE GESTAO F | Налоги и пошлины | `365101f2-302f-4fbc-9eef-91747b51ce25` |
 | MANUT CONTA, Invoice (bunq) | Банковские издержки | `fd46abc5-0ec3-4767-84d2-0479bc7bde2a` |
 | Salary, Palk, Deel | Зарплата (income) | `4869a1f1-a06f-4456-9bc5-fd3e5de6f051` |
@@ -110,6 +132,20 @@ This reads `data/review.json` and submits all transactions in it. The submit pat
 bun run src/submit.ts --list-accounts          # find account ID (UUID in token mode)
 bun run src/submit.ts --dry-run --account ID <<< '[json]'   # validate without submitting
 ```
+
+### Creating a new category (tag)
+
+There is **no CLI flag** for this — the user sometimes asks ("создай её в отпусках если её нет"). Hand-roll a `POST /v8/diff/` with a `tag: [ … ]` body. The server needs the **full** tag shape and a client-generated **v4 UUID**; copy the field set from an existing sibling via `fetchServerData`:
+
+```ts
+{ id: crypto.randomUUID(), user: data.userId, changed: <now-seconds>,
+  icon: null, budgetIncome: false, budgetOutcome: false, required: null,
+  archive: false, showIncome: false, showOutcome: true, color: null,
+  picture: null, title: "2026 Португалия",
+  parent: "f05417a6-dc01-44dc-a2e7-abf0fcceae48", staticId: null }
+```
+
+Send `{ currentClientTimestamp, serverTimestamp: data.serverTimestamp, tag: [tag] }`. Nesting is **max 1 level** — `parent` must be a top-level tag. Check for an existing same-`title`+`parent` tag first so re-runs don't create twins. Re-run `--prepare` afterwards so the new UUID passes validation.
 
 ## Notes
 
