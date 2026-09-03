@@ -68,6 +68,12 @@ class StoreAndReadTest(unittest.TestCase):
         fx.store_rates(self.conn, {"2024-01-02": {"USD": 0.1}}, "filled")
         self.assertEqual((0.9, "ecb"), fx.rate_for(self.conn, "2024-01-02", "USD"))
 
+    def test_same_source_rewrite_updates_the_value(self) -> None:
+        """refresh() re-runs the ecb layer every time; it must be able to update."""
+        fx.store_rates(self.conn, {"2024-01-02": {"USD": 0.90}}, "ecb")
+        fx.store_rates(self.conn, {"2024-01-02": {"USD": 0.95}}, "ecb")
+        self.assertEqual((0.95, "ecb"), fx.rate_for(self.conn, "2024-01-02", "USD"))
+
 
 class ConversionTest(unittest.TestCase):
     def test_rounds_to_nearest_cent(self) -> None:

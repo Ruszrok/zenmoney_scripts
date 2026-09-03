@@ -3,8 +3,9 @@ from __future__ import annotations
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
-from finance import db, fx, ingest
+from finance import cli, db, fx, ingest
 
 FIXTURES = Path(__file__).parent / "fixtures"
 
@@ -79,6 +80,21 @@ class FillGapsTest(unittest.TestCase):
         fx.fill_gaps(self.conn, ["USD"], "2024-01-01", "2024-01-03")
         self.assertEqual((0.5, "ecb"), fx.rate_for(self.conn, "2024-01-02", "USD"))
 
+    def test_interpolation_weight_is_not_inverted(self) -> None:
+        """Asymmetric anchors: a symmetric fixture cannot catch a flipped weight."""
+        fx.store_rates(
+            self.conn,
+            {"2024-01-01": {"USD": 10.0}, "2024-01-11": {"USD": 20.0}},
+            "ecb",
+        )
+        fx.fill_gaps(self.conn, ["USD"], "2024-01-01", "2024-01-11")
+        self.assertAlmostEqual(
+            13.0, fx.rate_for(self.conn, "2024-01-04", "USD")[0], places=6
+        )
+        self.assertAlmostEqual(
+            17.0, fx.rate_for(self.conn, "2024-01-08", "USD")[0], places=6
+        )
+
 
 class MaterialiseTest(unittest.TestCase):
     def setUp(self) -> None:
@@ -117,6 +133,33 @@ class MaterialiseTest(unittest.TestCase):
             "SELECT fx_source FROM transactions WHERE date='2026-07-04'"
         ).fetchone()
         self.assertEqual("filled", row["fx_source"])
+
+
+class CliFxGateTest(unittest.TestCase):
+    """`fx --refresh` is the only path that may hit the network / mutate."""
+
+    def setUp(self) -> None:
+        self.tmp = tempfile.TemporaryDirectory()
+        self.path = Path(self.tmp.name) / "cli.db"
+
+    def tearDown(self) -> None:
+        self.tmp.cleanup()
+
+    def test_bare_fx_does_not_call_refresh(self) -> None:
+        def _boom(*args, **kwargs):
+            raise AssertionError("fx.refresh must not run without --refresh")
+
+        with mock.patch.object(fx, "refresh", side_effect=_boom):
+            with self.assertRaises(SystemExit):
+                cli.main(["fx", "--db", str(self.path)])
+
+    def test_fx_refresh_flag_calls_refresh(self) -> None:
+        with mock.patch.object(
+            fx, "refresh", return_value={"ecb": 0}
+        ) as mocked:
+            exit_code = cli.main(["fx", "--refresh", "--db", str(self.path)])
+        self.assertEqual(0, exit_code)
+        mocked.assert_called_once()
 
 
 if __name__ == "__main__":

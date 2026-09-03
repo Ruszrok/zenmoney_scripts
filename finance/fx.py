@@ -61,7 +61,14 @@ def fetch_ecb(
 def store_rates(
     conn: sqlite3.Connection, rates: dict[str, dict[str, float]], source: str
 ) -> int:
-    """Insert rates, keeping the higher-priority source on conflict."""
+    """Insert rates, keeping the higher-priority source on conflict.
+
+    A *strictly* lower-priority source never overwrites, but an equal
+    priority (i.e. the same source rewriting itself) must go through —
+    `refresh()` re-runs the `ecb` layer on every invocation, and a `>=`
+    comparison here would silently freeze every rate at whatever value it
+    got the first time, forever.
+    """
     written = 0
     for date, quotes in rates.items():
         for currency, value in quotes.items():
@@ -71,7 +78,7 @@ def store_rates(
             ).fetchone()
             if existing is not None and SOURCE_PRIORITY.get(
                 existing["source"], -1
-            ) >= SOURCE_PRIORITY.get(source, -1):
+            ) > SOURCE_PRIORITY.get(source, -1):
                 continue
             conn.execute(
                 """

@@ -78,6 +78,8 @@ def main(argv: list[str] | None = None) -> int:
     if args.command == "fx":
         conn = db.connect(args.db)
         db.migrate(conn)
+        if not args.refresh:
+            parser.error("finance fx requires --refresh")
         counts = fx.refresh(conn)
         for key, value in counts.items():
             print(f"{key}={value}")
