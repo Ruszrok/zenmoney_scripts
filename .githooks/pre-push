@@ -6,4 +6,6 @@ echo "[pre-push] typecheck (tsc --noEmit)…"
 bun run typecheck
 echo "[pre-push] tests (bun test ./src/*.test.ts)…"
 bun run test
+echo "[pre-push] python tests…"
+python3 -m unittest discover -s finance/tests -t .
 echo "[pre-push] OK"

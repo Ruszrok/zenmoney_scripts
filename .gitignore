@@ -7,3 +7,5 @@ logs/
 pictures/
 *.ab
 __pycache__/
+data/dumps/
+reports/
