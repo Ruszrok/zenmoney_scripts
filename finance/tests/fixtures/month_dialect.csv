@@ -1,0 +1,9 @@
+﻿zm_dump_2011,1788437723,,,"4,0",
+
+
+date,categoryName,payee,comment,outcomeAccountName,outcome,outcomeCurrencyShortTitle,incomeAccountName,income,incomeCurrencyShortTitle,createdDate,changedDate
+2026-07-02,"Еда / Кафе и рестораны","Acento Coffee",,"(EUR) Bunq","4,20",EUR,,,,"2026-08-02 17:52:24","2026-08-02 14:52:25"
+2026-07-02,"Еда / Кафе и рестораны","Acento Coffee",,"(EUR) Bunq","4,20",EUR,,,,"2026-08-02 17:53:00","2026-08-02 14:53:00"
+2026-07-03,"проценты",,,,,,"(RUB) Тинькофф депозит 8","7670,96",RUB,"2026-08-02 17:32:41","2026-08-02 14:32:41"
+2026-07-04,"Отпуск / 2023 France/Switzeland",,,"(RUB) Тинькофф Карта","25 000,00",RUB,"(USD) Wise","334,36",USD,"2026-08-02 17:00:00","2026-08-02 14:00:00"
+2026-07-05,"Корректировка",,,"(EUR) Bunq","10,00",EUR,,,,"2026-08-02 17:10:00","2026-08-02 14:10:00"
