@@ -105,6 +105,22 @@ zero same-account transfers and zero rows where both sides are `0`.
    `(RUB) Карточка Альфа`; eight variants of `Тинькофф депозит`).
    `accounts.toml` carries an optional `alias_of` so these can be merged
    without editing data.
+7. **The two dialects disagree about the currency of accounts whose name does
+   not declare one.** 79 `Debts` transfers are stamped `EUR` in the full dump
+   and `RUB` in the per-month dumps. Only the account name is a stable signal,
+   so where it carries no `(CCY)` prefix the currency is dropped from the
+   identity fields. Confirmed by prototyping: without this, ingesting both
+   dialects creates 79 duplicate rows.
+8. **The two dialects disagree about internal whitespace.** One comment reads
+   `"Циан.  Занесены"` in the per-month dump and `"Циан. Занесены"` in the
+   full dump. Whitespace runs are collapsed before hashing. Confirmed by
+   prototyping: without this, one duplicate row survives.
+
+Facts 7 and 8 were found by running the fingerprint algorithm across both
+export sets before implementation. With both normalisations applied, the
+17,397 full-dump rows produce 17,397 unique ids and **all 8,624 per-month rows
+fingerprint to ids already present in the full dump** — true cross-dialect
+identity.
 
 ## FX — the hard constraint
 
