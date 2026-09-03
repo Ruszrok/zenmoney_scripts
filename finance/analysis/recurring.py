@@ -11,12 +11,25 @@ A cluster is recurring when the median gap between occurrences sits close to a
 known period and the gaps are consistent.
 
 Dormancy is measured against `as_of` (a cluster is dormant once it has been
-silent for more than `DORMANT_PERIODS` periods as of that date). `as_of`
-defaults to today, so by default `detect()` is a real-time read and its
-active/dormant split will drift as calendar time passes even against an
-unchanged database. Callers who need a reproducible report — one that
+silent for more than `DORMANT_PERIODS` periods as of that date). A cluster is
+`new` when it is active but its first occurrence is still recent — within
+`NEW_PERIODS` periods of `as_of` — i.e. it has only run a few cycles.
+`as_of` defaults to today, so by default `detect()` is a real-time read and
+its active/dormant/new split will drift as calendar time passes even against
+an unchanged database. Callers who need a reproducible report — one that
 classifies the same way today and next month — should pass an explicit
 `as_of` date instead of relying on the default.
+
+There is deliberately no `price-increased` status. Two clusters sharing a
+`(category, account)` signature at different amounts are, on this data,
+usually distinct concurrent things (fuel/tolls/parking all under `Машина`;
+several overlapping SaaS subscriptions under one business-expense category),
+not one service whose price rose over time — telling those apart needs a
+merchant name, which is exactly what's missing for 2020-2025. Any succession
+heuristic tried against real data flagged ordinary multi-service categories
+as "price increases" on every run, so it was removed rather than kept
+half-working: being silent about a price rise is better than crying wolf on
+one that never happened.
 """
 
 from __future__ import annotations
@@ -36,6 +49,7 @@ PERIOD_TOLERANCE = 0.25  # median gap may sit this far from the nominal period
 GAP_VARIATION_LIMIT = 0.40  # stdev/mean of gaps above this is not a schedule
 MIN_OCCURRENCES = 3
 DORMANT_PERIODS = 2.0  # silent for this many periods → dormant
+NEW_PERIODS = 3.0  # first occurrence within this many periods of as_of → new
 DAYS_PER_MONTH = 30.44
 AMOUNT_TOLERANCE = 0.05
 
@@ -140,9 +154,13 @@ def detect(
                 else f"{category} @ {amount:.2f}"
             )
             silent_days = (reference - days[-1]).days
-            status = "dormant" if silent_days > period * DORMANT_PERIODS else "active"
-            if status == "active" and amounts[-1] > amounts[0] * (1 + tolerance):
-                status = "price-increased"
+            age_days = (reference - days[0]).days
+            if silent_days > period * DORMANT_PERIODS:
+                status = "dormant"
+            elif age_days <= period * NEW_PERIODS:
+                status = "new"
+            else:
+                status = "active"
 
             clusters.append(
                 Cluster(

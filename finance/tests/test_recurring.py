@@ -107,6 +107,32 @@ class RecurringTest(unittest.TestCase):
         self._monthly_series("1999-01-05", 8, 15.99, "Old")
         self.assertEqual("dormant", recurring.detect(self.conn)[0].status)
 
+    def test_new_status_for_a_recently_started_series(self) -> None:
+        # Three monthly occurrences, still well within its silence window,
+        # and its first occurrence is recent relative to `as_of` (68 days,
+        # under the 90-day = 3 * 30-day-period cutoff).
+        self._monthly_series("2026-01-01", 3, 42.00, "Fresh")
+        cluster = recurring.detect(self.conn, as_of=date(2026, 3, 10))[0]
+        self.assertEqual("new", cluster.status)
+
+    def test_signature_keys_on_category_not_payee(self) -> None:
+        """Regression for the module's central invariant: signatures must be
+        keyed on (category, account), never on payee — even as a `payee or
+        category` fallback — because payee is only 0.4-3.4% populated across
+        2020-2025. A detector that keys on payee when present fragments this
+        series into pieces below MIN_OCCURRENCES (or with too-irregular
+        gaps) and finds nothing.
+        """
+        first = date.fromisoformat("2026-01-05")
+        sparse_payees = {3: "Foo", 6: "Bar"}
+        for index in range(9):
+            day = (first + timedelta(days=30 * index)).isoformat()
+            self._add(day, 42.00, sparse_payees.get(index, ""))
+        self.conn.commit()
+        clusters = recurring.detect(self.conn)
+        self.assertEqual(1, len(clusters))
+        self.assertEqual(9, clusters[0].occurrences)
+
 
 if __name__ == "__main__":
     unittest.main()
