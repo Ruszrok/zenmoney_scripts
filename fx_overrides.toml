@@ -1,0 +1,7 @@
+# Manual EUR-per-unit FX rates, highest trust after the ECB.
+#
+# Use this for dates no other layer can reach. One table per date; each key is
+# a currency and each value is how many EUR one unit of it buys.
+#
+# [rates."2024-06-15"]
+# KZT = 0.00205
