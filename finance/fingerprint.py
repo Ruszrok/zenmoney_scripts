@@ -23,10 +23,22 @@ from .dialects import RawRow
 FIELD_SEPARATOR = "|"
 
 
+def _escape(value: str) -> str:
+    """Make the separator unambiguous.
+
+    Without this, payee="Foo|Bar"/comment="Baz" and payee="Foo"/comment="Bar|Baz"
+    produce the same canonical string and are silently merged into one identity —
+    losing a real transaction. Backslash is escaped first so the escaping itself
+    cannot be forged.
+    """
+    return value.replace("\\", "\\\\").replace(FIELD_SEPARATOR, "\\" + FIELD_SEPARATOR)
+
+
 def canonical(row: RawRow) -> str:
     """The identity string for `row`: mutable fields excluded."""
     return FIELD_SEPARATOR.join(
-        (
+        _escape(field)
+        for field in (
             row.date,
             row.payee,
             row.comment,
@@ -51,6 +63,15 @@ def assign_ids(rows: list[RawRow]) -> list[tuple[str, RawRow]]:
     by `created_at`, so a row keeps its id no matter where it sits in the file.
     Assigning by file position instead would hand the same transaction a
     different id on a re-export that happened to be sorted differently.
+
+    The tiebreak is `created_at` alone — `changed_at` is deliberately not a
+    secondary sort key. `changed_at` shifts on every re-export, so ordering
+    identity by it would let two real transactions swap ids across exports.
+    Members that also tie on `created_at` get an arbitrary but set-stable
+    assignment; that is fine because such rows are indistinguishable in every
+    field that feeds identity, so no aggregate can tell them apart. Do not
+    reach for `category` or `changed_at` as a further tiebreak — both are
+    mutable and would reintroduce the same instability.
     """
     groups: dict[str, list[int]] = defaultdict(list)
     for index, row in enumerate(rows):
@@ -58,13 +79,7 @@ def assign_ids(rows: list[RawRow]) -> list[tuple[str, RawRow]]:
 
     ids: list[str] = [""] * len(rows)
     for key, indexes in groups.items():
-        # Rows identical even in their timestamps are interchangeable, so the
-        # ordinal they each receive is arbitrary — but the set of ids the group
-        # produces is the same regardless of input order, which is what ingest
-        # depends on.
-        ranked = sorted(
-            indexes, key=lambda i: (rows[i].created_at, rows[i].changed_at)
-        )
+        ranked = sorted(indexes, key=lambda i: rows[i].created_at)
         for ordinal, index in enumerate(ranked, start=1):
             ids[index] = _digest(key, ordinal)
 

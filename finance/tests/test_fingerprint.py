@@ -29,6 +29,13 @@ class CanonicalTest(unittest.TestCase):
         cheaper = dialects.RawRow(**{**base.__dict__, "outcome_minor": 1})
         self.assertNotEqual(fingerprint.canonical(base), fingerprint.canonical(cheaper))
 
+    def test_separator_in_a_field_cannot_forge_another_rows_identity(self) -> None:
+        rows = dialects.read_rows(FIXTURES / "full_dialect.csv")
+        base = rows[0]
+        a = dialects.RawRow(**{**base.__dict__, "payee": "Foo|Bar", "comment": "Baz"})
+        b = dialects.RawRow(**{**base.__dict__, "payee": "Foo", "comment": "Bar|Baz"})
+        self.assertNotEqual(fingerprint.canonical(a), fingerprint.canonical(b))
+
 
 class AssignIdsTest(unittest.TestCase):
     def test_identical_rows_get_distinct_stable_ids(self) -> None:
