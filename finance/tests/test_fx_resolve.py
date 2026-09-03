@@ -45,6 +45,40 @@ class ImpliedRatesTest(unittest.TestCase):
         implied = fx.implied_rates(self.conn)
         self.assertEqual({}, implied)
 
+    def test_equal_amount_transfer_produces_no_implied_rate(self) -> None:
+        """Ruling 16: a genuine cross-currency transfer cannot have equal
+        amounts on both sides (that requires an exactly 1.0000 rate), so an
+        equal-amount row with differing currency labels is an artifact, not
+        an FX observation — e.g. dialects.py's symmetric-swap inference on
+        an undeclared/undeclared account pair. It must never seed a rate,
+        even when the EUR side trivially resolves via the base-currency
+        shortcut and would otherwise imply RUB = 1.0 EUR."""
+        self.conn.execute(
+            """
+            INSERT INTO transactions
+              (id, date, kind, outcome_minor, outcome_currency,
+               income_minor, income_currency)
+            VALUES ('eq','2013-11-09','transfer',21600,'RUB',21600,'EUR')
+            """
+        )
+        implied = fx.implied_rates(self.conn)
+        self.assertNotIn("2013-11-09", implied)
+
+    def test_unequal_amount_cross_currency_transfer_still_derives_a_rate(self) -> None:
+        """The exclusion must not be over-broad: a real cross-currency
+        transfer (unequal amounts) still derives a rate."""
+        self.conn.execute(
+            """
+            INSERT INTO transactions
+              (id, date, kind, outcome_minor, outcome_currency,
+               income_minor, income_currency)
+            VALUES ('uneq','2013-11-09','transfer',21600,'RUB',495,'EUR')
+            """
+        )
+        implied = fx.implied_rates(self.conn)
+        self.assertIn("RUB", implied["2013-11-09"])
+        self.assertAlmostEqual(495 / 21600, implied["2013-11-09"]["RUB"], places=9)
+
 
 class FillGapsTest(unittest.TestCase):
     def setUp(self) -> None:

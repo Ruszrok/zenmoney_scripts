@@ -17,6 +17,7 @@ which is the inverse of how the ECB quotes it.
 from __future__ import annotations
 
 import json
+import math
 import sqlite3
 import tomllib
 import urllib.request
@@ -133,6 +134,24 @@ def implied_rates(conn: sqlite3.Connection) -> dict[str, dict[str, float]]:
     A transfer of 25 000 RUB that arrived as 334.36 USD is an observation of
     the rate actually realised that day. When one side's EUR rate is already
     known, the other side follows.
+
+    Equal-amount transfers are excluded from the candidate query entirely
+    (`outcome_minor <> income_minor`) — Ruling 16. A genuine cross-currency
+    transfer cannot have identical amounts on both sides (that would require
+    an exactly 1.0000 exchange rate), so an equal-amount row with two
+    differing currency labels is definitionally not a real FX observation.
+    It is, in this dataset, `dialects._infer_stored_currency`'s symmetric
+    swap on a transfer between two accounts that both lack a declared
+    `(CCY)` prefix (see `finance/dialects.py`'s module docstring): one leg
+    genuinely needs a currency inferred, and with no authoritative side to
+    anchor on it borrows the other leg's raw value, occasionally producing a
+    mismatched-but-equal-amount pair. Feeding that pair to this function
+    derived RUB = 1.0 EUR on days with no ECB quote (the EUR side resolves
+    trivially via `rate_for`'s base-currency shortcut while the other side
+    is still unknown) — a ~44x overstatement that then WON permanently over
+    `fill_gaps`, because `store_rates`'s priority table ranks `implied`
+    above `filled`. This is the fix for that: never let an equal-amount row
+    become a candidate in the first place.
     """
     rows = conn.execute(
         """
@@ -142,6 +161,7 @@ def implied_rates(conn: sqlite3.Connection) -> dict[str, dict[str, float]]:
            AND deleted_at IS NULL
            AND outcome_currency <> income_currency
            AND outcome_minor > 0 AND income_minor > 0
+           AND outcome_minor <> income_minor
         """
     ).fetchall()
 
@@ -158,6 +178,10 @@ def implied_rates(conn: sqlite3.Connection) -> dict[str, dict[str, float]]:
             value = eur / row["outcome_minor"]
             currency = row["outcome_currency"]
         else:
+            continue
+        # Defensive guard: never store a non-finite or non-positive rate,
+        # whatever artifact of a future shape might produce one.
+        if not math.isfinite(value) or value <= 0:
             continue
         derived.setdefault(row["date"], {}).setdefault(currency, []).append(value)
 
