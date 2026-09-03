@@ -178,3 +178,50 @@ lines" count in the report means the log holds failures the table misses.
 - All amounts are positive; the `isIncome` flag determines direction.
 - The token is long-lived (effectively permanent) — far more stable than `PHPSESSID`. If you get a `401`, re-copy it from budgera.com/settings/api-key.
 - Run `bun run test` (= `bun test ./src/*.test.ts`, which covers all four suites and excludes the `zerro/` vendored copy that has its own failing tests) and `bun run typecheck` (`tsc --noEmit`) after code changes — or just `bun run check` to do both.
+
+## Finance warehouse (analytics)
+
+Unrelated to submitting transactions. `finance/` loads ZenMoney CSV exports
+into `data/finance.db` and analyses them (17,397 real transactions,
+2013-10 → 2026-08, no gaps, all converted to EUR). Use `/finance-advisor` for
+advice — it encodes several traps specific to this dataset (lumpy contractor
+income, dormant recurring charges, tax-month outliers) that a naive read of
+the numbers gets wrong.
+
+```bash
+bun run finance ingest --from data/dumps   # idempotent; safe to re-run
+bun run finance fx --refresh               # EUR rates + materialisation
+bun run finance verify                     # coverage, gaps, FX precision
+bun run finance report --months 24         # advisory tables
+bun run finance report --months 24 --json  # full payload for the skill
+bun run finance query "SELECT ..."         # ad-hoc SQL
+```
+
+(`bun run finance` is `python3 -m finance`; both work.)
+
+Query through the **views**, never the raw `transactions` table — you will
+double-count transfers otherwise: `v_spend` (transfers, `Корректировка`, and
+savings/investment moves already excluded), `v_income` (passive interest
+flagged separately), `v_monthly`, `v_transactions`.
+
+Two importer gotchas worth knowing before touching `finance/dialects.py` or
+`finance/ingest.py`:
+- ZenMoney emits **two CSV dialects with opposite transfer encoding** — the
+  full-history export fills in both account names on every transfer row, the
+  per-period exports don't. Getting this backwards silently mis-derives
+  `kind` (income/outcome/transfer) for every transfer row in one dialect.
+- **`payee` is empty for 2020–2025.** Category-level analysis is fine across
+  the whole range; merchant-level analysis is only honest outside that
+  window.
+
+`accounts.toml` classifies every account as spending/cash/savings/
+investment/credit/debt (with `alias_of` for renamed accounts and an optional
+`opening_balance_minor`) — the savings rate and any "is this a balance"
+answer is wrong if this file is wrong. None of the 49 accounts currently has
+an opening balance set, so every net-flow figure is net flow since 2013, not
+a balance — see rule 4 in the `finance-advisor` skill. `fx_overrides.toml`
+supplies rates the ECB never published (KZT — no ECB series at all — and RUB
+after March 2022).
+
+Run `bun run check` (typecheck + Bun tests + `python3 -m unittest discover`
+over `finance/tests`) after any change under `finance/`.
