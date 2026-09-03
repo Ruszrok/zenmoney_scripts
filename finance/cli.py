@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from . import db, ingest
+from . import accounts, db, ingest
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -32,6 +32,13 @@ def main(argv: list[str] | None = None) -> int:
     )
     ingest_cmd.add_argument("--file", dest="files", type=Path, action="append")
 
+    accounts_cmd = sub.add_parser(
+        "accounts", parents=[common], help="manage account classification"
+    )
+    accounts_cmd.add_argument("--seed", action="store_true")
+    accounts_cmd.add_argument("--apply", action="store_true")
+    accounts_cmd.add_argument("--path", type=Path, default=Path("accounts.toml"))
+
     args = parser.parse_args(argv)
     if args.command == "init":
         conn = db.connect(args.db)
@@ -50,5 +57,17 @@ def main(argv: list[str] | None = None) -> int:
             f"seen={result.rows_seen} new={result.rows_new} "
             f"updated={result.rows_updated} deleted={result.rows_deleted}"
         )
+        return 0
+    if args.command == "accounts":
+        conn = db.connect(args.db)
+        db.migrate(conn)
+        if args.seed:
+            args.path.write_text(accounts.seed_toml(conn), encoding="utf-8")
+            print(f"wrote {args.path}")
+        if args.apply:
+            count = accounts.apply_toml(
+                conn, args.path.read_text(encoding="utf-8")
+            )
+            print(f"applied {count} account(s)")
         return 0
     return 1

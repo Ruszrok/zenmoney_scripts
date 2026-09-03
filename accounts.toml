@@ -1,0 +1,182 @@
+# Account classification for the finance warehouse.
+# kind: cash | credit | debt | investment | savings | spending
+# alias_of: merge a duplicate account into another by name.
+# opening_balance / opening_date: set both to turn net flow into a
+# real balance. Without them, reports say 'net flow, not a balance'.
+
+[accounts."(Czech)(EUR) - Чехия"]
+kind = "spending"
+
+[accounts."(Czech)(USD) Чехия"]
+kind = "spending"
+
+[accounts."(EUR) Bunq"]
+kind = "spending"
+# currency = "EUR"
+
+[accounts."(EUR) Caixa PT Anya"]
+kind = "spending"
+# currency = "EUR"
+
+[accounts."(EUR) Caixa Portugal"]
+kind = "spending"
+# currency = "EUR"
+
+[accounts."(EUR) Wise"]
+kind = "spending"
+# currency = "EUR"
+
+[accounts."(EUR) bcc.kz"]
+kind = "spending"
+# currency = "EUR"
+
+[accounts."(EUR) cash"]
+kind = "cash"
+# currency = "EUR"
+
+[accounts."(EUR) Накопительный Тинькофф"]
+kind = "savings"
+# currency = "EUR"
+
+[accounts."(EUR) Тинькофф Карта"]
+kind = "spending"
+# currency = "EUR"
+
+[accounts."(KZT) BCC.kz"]
+kind = "spending"
+# currency = "KZT"
+
+[accounts."(KZT) Cash"]
+kind = "cash"
+# currency = "KZT"
+
+[accounts."(KZT) Kaspi"]
+kind = "spending"
+# currency = "KZT"
+
+[accounts."(RUB) BCC KZ"]
+kind = "spending"
+# currency = "RUB"
+
+[accounts."(RUB) Домашняя кубышка"]
+kind = "cash"
+# currency = "RUB"
+
+[accounts."(RUB) Карточка Альфа"]
+kind = "spending"
+# currency = "RUB"
+
+[accounts."(RUB) Карточка Сбербанк"]
+kind = "spending"
+# currency = "RUB"
+
+[accounts."(RUB) Наличные"]
+kind = "cash"
+# currency = "RUB"
+
+[accounts."(RUB) Райфайзен - машина"]
+kind = "spending"
+# currency = "RUB"
+
+[accounts."(RUB) Тинькофф Карта"]
+kind = "spending"
+# currency = "RUB"
+
+[accounts."(RUB) Тинькофф Накопительный"]
+kind = "savings"
+# currency = "RUB"
+
+[accounts."(RUB) Тинькофф депозит 8"]
+kind = "savings"
+# currency = "RUB"
+
+[accounts."(RUB) Тинькофф депозит 9"]
+kind = "savings"
+# currency = "RUB"
+
+[accounts."(RUB) Тинькофф кредитка"]
+kind = "credit"
+# currency = "RUB"
+
+[accounts."(USD) Caixa Portugal"]
+kind = "spending"
+# currency = "USD"
+
+[accounts."(USD) Cash"]
+kind = "cash"
+# currency = "USD"
+
+[accounts."(USD) Wise"]
+kind = "spending"
+# currency = "USD"
+
+[accounts."(USD) bcc.kz"]
+kind = "spending"
+# currency = "USD"
+
+[accounts."(USD) Альфа накопительный"]
+kind = "savings"
+# currency = "USD"
+
+[accounts."(USD) Капиталбанк uz"]
+kind = "spending"
+# currency = "USD"
+
+[accounts."(USD) Райфайзен-машина"]
+kind = "spending"
+# currency = "USD"
+
+[accounts."(USD) Тинькофф депозит"]
+kind = "savings"
+# currency = "USD"
+
+[accounts."Debts"]
+kind = "debt"
+
+[accounts."Deel income"]
+kind = "spending"
+
+[accounts."Interactive brokers"]
+kind = "investment"
+
+[accounts."Альфа накопительный счет"]
+kind = "savings"
+
+[accounts."Брокерский счет"]
+kind = "investment"
+
+[accounts."Вклад промсвязьбанк"]
+kind = "savings"
+
+[accounts."ИИС"]
+kind = "investment"
+
+[accounts."Карточка - Альфа"]
+kind = "spending"
+
+[accounts."Карточка - Росбанк"]
+kind = "spending"
+
+[accounts."Счет в промсвязьбанке"]
+kind = "spending"
+
+[accounts."Тинькофф депозит"]
+kind = "savings"
+
+[accounts."Тинькофф депозит - 2"]
+kind = "savings"
+
+[accounts."Тинькофф депозит - 3"]
+kind = "savings"
+
+[accounts."Тинькофф депозит -4"]
+kind = "savings"
+
+[accounts."Тинькофф депозит 5"]
+kind = "savings"
+
+[accounts."Тинькофф депозит 7"]
+kind = "savings"
+
+[accounts."Тинькофф доллары"]
+kind = "spending"
