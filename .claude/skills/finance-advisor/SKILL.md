@@ -19,9 +19,20 @@ python3 -m finance verify
 ```
 
 Read the coverage line. **Every figure you quote must name its real cutoff
-month** — do not imply the data runs to today. If `verify` reports missing
+month** — do not imply the data runs to today. A report generated today
+describes the data through its last covered month (e.g. 2026-08), not
+through today; state that cutoff explicitly, especially for anything
+relative to "now" (recurring dormancy included). If `verify` reports missing
 months, say so before any conclusion — a gap in the middle of a trend
 invalidates the trend.
+
+**Check whether the last month is complete** before trusting its budget
+variance: compare the last transaction date in `coverage.last_month` against
+the end of that calendar month. If the month is still in progress (a
+mid-month export), say so and treat that month's `budget` variances as
+provisional, or exclude that month from the comparison — a part-month will
+look like it came in under budget against every full-month baseline, which
+is an artifact of timing, not restraint.
 
 If `fx` reports `unresolved` above zero, name the affected currencies and
 dates and tell the user to add them to `fx_overrides.toml`.
@@ -36,10 +47,12 @@ This is the whole payload: `coverage`, `fx_precision` (this window) and
 `fx_precision_lifetime`, `fx_notes`, `cashflow`/`cashflow_3m`/`cashflow_12m`,
 `savings_rate_12m`, `drift`, `uncategorised`, `year_over_year`, `recurring`
 (one row per cluster, with a `status` of `active`/`new`/`dormant`),
-`recurring_active_total_eur`/`recurring_active_count`,
-`recurring_dormant_total_eur`/`recurring_dormant_count`, `budget`,
-`outliers`, `spend_outlier_months`, and `net_flow` (each account carries
-`is_true_balance` — see rule 4). Read it, then reason; don't just print it.
+`recurring_ongoing_total_eur`/`recurring_ongoing_count` (the headline
+figure — see rule 2), `recurring_active_total_eur`/`recurring_active_count`
+and `recurring_dormant_total_eur`/`recurring_dormant_count` (supporting
+detail), `budget`, `outliers`, `spend_outlier_months`, and `net_flow` (each
+account carries `is_true_balance` — see rule 4). Read it, then reason; don't
+just print it.
 
 For anything the payload doesn't answer, query the views directly:
 
@@ -70,10 +83,14 @@ exactly why they're rules and not left to judgment each time.
    cluster-detection pass over recurring charges typically finds a large
    minority that are cancelled or lapsed — summing everything the detector
    found overstates the user's real ongoing commitment, sometimes by more
-   than double. Report the ongoing figure (`recurring_active_total_eur` +
-   the `new`-status rows) as "your monthly commitment," and show the
-   dormant list underneath as "no longer charging" — useful, but not a
-   current cost.
+   than double. Quote `recurring_ongoing_total_eur` / `recurring_ongoing_count`
+   (already active + new, computed server-side) as "your monthly commitment"
+   — do not try to reconstruct it by adding `new`-status rows from
+   `recurring` yourself, since that list is truncated to the top 12 and a
+   `new` cluster can rank lower than that. Use `recurring_active_total_eur`/
+   `recurring_dormant_total_eur` only as supporting detail (e.g. "of which
+   €X/mo is newly added"), and show the dormant list underneath as "no
+   longer charging" — useful, but not a current cost.
 
 3. **The largest monthly outliers are usually annual tax, not overspending.**
    Check `spend_outlier_months` and `outliers` for a `Налоги и пошлины` (or
@@ -87,8 +104,26 @@ exactly why they're rules and not left to judgment each time.
    without an `opening_balance` set in `accounts.toml`), the number is net
    flow *since the account's first transaction*, not a balance. Do not sum
    accounts into a "net worth" total. If the user wants runway, tell them
-   what unlocks it: filling in `opening_balance_minor` for their accounts in
-   `accounts.toml`. Runway itself is not implemented.
+   that filling in **both** `opening_balance_minor` and `opening_date` for
+   an account in `accounts.toml` is the *planned* way to unlock a real
+   balance for it — present it as a capability being built, not one that
+   works today, and if the user does set both, tell them to sanity-check the
+   first resulting balance against a real statement rather than trust it
+   outright. Runway itself is not implemented regardless.
+   **`alias_of` (merging a duplicate account by name) is recorded and
+   validated but not yet applied anywhere** — no report or view resolves it,
+   so setting it merges nothing: per-account figures, the `kind` join, and
+   recurring-signature clustering all still key on the un-merged name.
+   Known limitation, not a feature — don't tell the user it will merge
+   anything.
+   **`accounts.toml`'s 49 classifications are machine-generated name
+   heuristics, unreviewed by a human.** `v_spend`'s savings/investment
+   exclusion depends on them and is material — currently 80 rows /
+   €9,188.58, 3.7% of the reported 24-month spend. Say so whenever quoting a
+   savings rate. Three worth naming if relevant: `Deel income` → `spending`
+   but looks like a payroll pass-through; `Тинькофф доллары` → `spending`
+   but may be a USD savings account; `Счет в промсвязьбанке` → `spending`
+   while its sibling `Вклад промсвязьбанк` → `savings`.
 
 5. **Quote FX precision volume-weighted, and only when it matters.** Use
    `fx_precision` (the window) over `fx_precision_lifetime` when talking
@@ -119,9 +154,15 @@ exactly why they're rules and not left to judgment each time.
 8. **A raw year-over-year comparison understates the current year** if it
    isn't complete — check `coverage`'s last month against December; if the
    current year has N months of data, its total is against an implicit
-   12/N undercount versus a full prior year. Either annualise
-   (`year_over_year[cat][this_year] * 12 / N`) or say plainly that the
-   comparison is partial.
+   12/N undercount versus a full prior year. **Do not annualise a category
+   whose spend is concentrated in one or two months** (check against rule
+   3 first) — `* 12 / N` on a category like `Налоги и пошлины`, whose whole
+   year can be a single August payment, invents months of spend that don't
+   exist (e.g. turns one real €18,320.79 charge into a fabricated ~€27,481).
+   Prefer comparing like-for-like periods instead — the same N months of
+   each year — over annualising at all, and always state the month count (N)
+   whenever you compare years. Reserve `* 12 / N` annualising, if you use it
+   at all, for categories with roughly even monthly spend.
 
 9. **Payee is empty for a multi-year stretch in the middle of the history**
    (roughly 2020–2025 in this data — confirm the actual sparse range with
@@ -191,4 +232,9 @@ Hand the user the Artifact link and the report file path.
   its own (rule 1).
 - Do not sum `net_flow` across accounts into a net-worth or balance figure
   (rule 4).
+- Do not claim `alias_of` merges an account, or that `opening_balance_minor`
+  alone gives a working balance today — both are unfinished (rule 4).
+- Do not annualise a category concentrated in one or two months (rule 8).
+- Do not quote a savings rate without noting `accounts.toml`'s
+  classifications are unreviewed heuristics (rule 4).
 - Do not compute spending from the raw `transactions` table — use `v_spend`.

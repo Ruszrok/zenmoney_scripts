@@ -1,8 +1,18 @@
 # Account classification for the finance warehouse.
 # kind: cash | credit | debt | investment | savings | spending
-# alias_of: merge a duplicate account into another by name.
-# opening_balance_minor / opening_date: set both to turn net flow into a
-# real balance. Without them, reports say 'net flow, not a balance'.
+# alias_of: intended to merge a duplicate account into another by name, but
+# this is a KNOWN LIMITATION — the field is stored and validated, but no
+# report or analysis module reads it today. Setting it changes nothing:
+# per-account figures, the kind join, and recurring-signature clustering
+# all still key on the un-merged account name. Not yet a working feature.
+# opening_balance_minor / opening_date: PLANNED capability to turn net flow
+# into a real balance — set both together once this is implemented. Without
+# them, reports say 'net flow, not a balance'. Sanity-check the first
+# resulting balance against a real statement once this lands.
+#
+# These 49 classifications are machine-generated name heuristics, not
+# reviewed by a human. v_spend's savings/investment exclusion depends
+# entirely on them and is material to the reported spend total.
 
 [accounts."(Czech)(EUR) - Чехия"]
 kind = "spending"

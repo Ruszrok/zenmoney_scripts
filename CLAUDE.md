@@ -199,6 +199,11 @@ bun run finance query "SELECT ..."         # ad-hoc SQL
 
 (`bun run finance` is `python3 -m finance`; both work.)
 
+`finance query` is for reading: it never calls `commit()`, so a `DELETE`/
+`UPDATE` through it silently rolls back — but DDL such as `DROP VIEW`
+persists anyway (SQLite auto-commits DDL). Don't rely on it to mutate rows,
+and be careful with DDL through it.
+
 Query through the **views**, never the raw `transactions` table — you will
 double-count transfers otherwise: `v_spend` (transfers, `Корректировка`, and
 savings/investment moves already excluded), `v_income` (passive interest
@@ -215,11 +220,16 @@ Two importer gotchas worth knowing before touching `finance/dialects.py` or
   window.
 
 `accounts.toml` classifies every account as spending/cash/savings/
-investment/credit/debt (with `alias_of` for renamed accounts and an optional
-`opening_balance_minor`) — the savings rate and any "is this a balance"
-answer is wrong if this file is wrong. None of the 49 accounts currently has
-an opening balance set, so every net-flow figure is net flow since 2013, not
-a balance — see rule 4 in the `finance-advisor` skill. `fx_overrides.toml`
+investment/credit/debt — the savings rate and any "is this a balance"
+answer is wrong if this file is wrong, and the 49 classifications are
+machine-seeded name heuristics no human has reviewed. None of the 49
+accounts currently has an opening balance set, so every net-flow figure is
+net flow since 2013, not a balance — see rule 4 in the `finance-advisor`
+skill. `opening_balance_minor` + `opening_date` are the planned way to fix
+that (set both together), but the fix hasn't landed yet, so treat that as
+not-yet-working. `alias_of` (for renamed/duplicate accounts) is likewise
+recorded and validated but **not applied anywhere** — no report or view
+resolves it today, so setting it merges nothing. `fx_overrides.toml`
 supplies rates the ECB never published (KZT — no ECB series at all — and RUB
 after March 2022).
 
