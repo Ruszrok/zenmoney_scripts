@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from . import accounts, db, fx, ingest
+from . import accounts, db, fx, ingest, verify
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -43,6 +43,14 @@ def main(argv: list[str] | None = None) -> int:
         "fx", parents=[common], help="refresh exchange rates and EUR amounts"
     )
     fx_cmd.add_argument("--refresh", action="store_true")
+
+    sub.add_parser(
+        "verify", parents=[common], help="report coverage and FX precision"
+    )
+    query_cmd = sub.add_parser(
+        "query", parents=[common], help="run ad-hoc SQL against the warehouse"
+    )
+    query_cmd.add_argument("sql")
 
     args = parser.parse_args(argv)
     if args.command == "init":
@@ -83,5 +91,21 @@ def main(argv: list[str] | None = None) -> int:
         counts = fx.refresh(conn)
         for key, value in counts.items():
             print(f"{key}={value}")
+        return 0
+    if args.command == "verify":
+        conn = db.connect(args.db)
+        db.migrate(conn)
+        cov = verify.coverage(conn)
+        print(f"months: {cov.months} ({cov.first_month} → {cov.last_month})")
+        print(f"missing: {', '.join(cov.missing) if cov.missing else 'none'}")
+        for source, share in sorted(
+            verify.fx_precision(conn).items(), key=lambda kv: -kv[1]
+        ):
+            print(f"  fx {source}: {share:.1%}")
+        return 0
+    if args.command == "query":
+        conn = db.connect(args.db)
+        for row in conn.execute(args.sql):
+            print("\t".join("" if v is None else str(v) for v in tuple(row)))
         return 0
     return 1

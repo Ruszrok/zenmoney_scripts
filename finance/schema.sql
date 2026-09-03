@@ -60,3 +60,47 @@ CREATE TABLE IF NOT EXISTS import_batches (
   rows_updated  INTEGER NOT NULL DEFAULT 0,
   rows_deleted  INTEGER NOT NULL DEFAULT 0
 );
+
+DROP VIEW IF EXISTS v_transactions;
+CREATE VIEW v_transactions AS
+SELECT
+  t.id, t.date, substr(t.date, 1, 7) AS month, t.kind,
+  c.full_name AS category, c.parent AS category_parent, c.leaf AS category_leaf,
+  t.payee, t.comment,
+  oa.name AS outcome_account, oa.kind AS outcome_account_kind,
+  t.outcome_minor / 100.0 AS outcome, t.outcome_currency,
+  t.outcome_eur_minor / 100.0 AS outcome_eur,
+  ia.name AS income_account, ia.kind AS income_account_kind,
+  t.income_minor / 100.0 AS income, t.income_currency,
+  t.income_eur_minor / 100.0 AS income_eur,
+  t.fx_source
+FROM transactions t
+LEFT JOIN categories c  ON c.id  = t.category_id
+LEFT JOIN accounts   oa ON oa.id = t.outcome_account_id
+LEFT JOIN accounts   ia ON ia.id = t.income_account_id
+WHERE t.deleted_at IS NULL;
+
+DROP VIEW IF EXISTS v_spend;
+CREATE VIEW v_spend AS
+SELECT * FROM v_transactions
+WHERE kind = 'outcome'
+  AND (category IS NULL OR category <> 'Корректировка')
+  AND (outcome_account_kind IS NULL
+       OR outcome_account_kind NOT IN ('savings', 'investment'));
+
+DROP VIEW IF EXISTS v_income;
+CREATE VIEW v_income AS
+SELECT *, CASE WHEN category = 'проценты' THEN 1 ELSE 0 END AS is_passive
+FROM v_transactions
+WHERE kind = 'income'
+  AND (category IS NULL OR category <> 'Корректировка');
+
+DROP VIEW IF EXISTS v_monthly;
+CREATE VIEW v_monthly AS
+SELECT month,
+       COALESCE(category, '(uncategorised)') AS category,
+       category_parent,
+       SUM(COALESCE(outcome_eur, 0)) AS spend_eur,
+       COUNT(*) AS transactions
+FROM v_spend
+GROUP BY month, category, category_parent;
