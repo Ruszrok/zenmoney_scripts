@@ -11,6 +11,19 @@ content. Two fields are deliberately excluded:
 Genuinely identical transactions on one day (two identical coffees) collide by
 construction. They are separated by an occurrence ordinal assigned in a
 canonical order that does not depend on how the file happened to be sorted.
+
+**Currency: identity, not storage.** `RawRow.outcome_currency` /
+`income_currency` now hold whatever `dialects._infer_stored_currency`
+decided is the best real currency for FX conversion — not what identity
+wants. Identity wants the opposite of "best real currency": for an account
+whose name doesn't declare a currency (`Debts`, `Брокерский счет`, …), the
+two CSV dialects disagree about what to stamp on it, so identity must drop
+the currency entirely or the same transaction hashes two different ways
+depending on which export produced it. `canonical()` re-derives that
+blanked value itself, via `dialects.account_currency()`, instead of trusting
+the row's stored currency — that is what keeps id generation exactly as it
+was before storage started keeping a real currency for these accounts. Do
+not "simplify" this by reading `row.outcome_currency` directly again.
 """
 
 from __future__ import annotations
@@ -18,7 +31,7 @@ from __future__ import annotations
 import hashlib
 from collections import defaultdict
 
-from .dialects import RawRow
+from .dialects import RawRow, account_currency
 
 FIELD_SEPARATOR = "|"
 
@@ -35,7 +48,12 @@ def _escape(value: str) -> str:
 
 
 def canonical(row: RawRow) -> str:
-    """The identity string for `row`: mutable fields excluded."""
+    """The identity string for `row`: mutable fields excluded.
+
+    Currency fields are re-blanked here via `account_currency()` rather than
+    read off `row` directly — see the module docstring's "identity, not
+    storage" note.
+    """
     return FIELD_SEPARATOR.join(
         _escape(field)
         for field in (
@@ -44,10 +62,10 @@ def canonical(row: RawRow) -> str:
             row.comment,
             row.outcome_account,
             str(row.outcome_minor),
-            row.outcome_currency,
+            account_currency(row.outcome_account, row.outcome_currency),
             row.income_account,
             str(row.income_minor),
-            row.income_currency,
+            account_currency(row.income_account, row.income_currency),
         )
     )
 

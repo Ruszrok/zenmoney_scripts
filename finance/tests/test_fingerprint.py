@@ -36,6 +36,33 @@ class CanonicalTest(unittest.TestCase):
         b = dialects.RawRow(**{**base.__dict__, "payee": "Foo", "comment": "Bar|Baz"})
         self.assertNotEqual(fingerprint.canonical(a), fingerprint.canonical(b))
 
+    def test_debts_style_row_still_has_a_blank_currency_field(self) -> None:
+        """Task 7b: `RawRow.outcome_currency` now holds a real inferred
+        currency ("RUB", not "") for storage, but canonical() must re-blank
+        it for identity exactly as before — assert the *exact* canonical
+        string, not just that it differs from something."""
+        row = dialects.read_rows(FIXTURES / "currency_full.csv")[0]
+        self.assertEqual("RUB", row.outcome_currency, "sanity: storage is inferred")
+        self.assertEqual(
+            "2024-01-01|||Debts|100000||(RUB) Тинькофф Карта|100000|RUB",
+            fingerprint.canonical(row),
+        )
+
+    def test_cross_dialect_identity_survives_currency_inference(self) -> None:
+        """The same Debts<->declared-account transfer, stamped EUR by the
+        full export and RUB by the month export (today's real dialect
+        disagreement) — both must still hash to the same id, even though
+        `_infer_stored_currency` now resolves them to different *stored*
+        currencies along the way (RUB either way here, but for the general
+        case storage is allowed to disagree across dialects; identity is
+        not)."""
+        full = dialects.read_rows(FIXTURES / "currency_full.csv")[-1]
+        month = dialects.read_rows(FIXTURES / "currency_month.csv")[0]
+        self.assertEqual(fingerprint.canonical(full), fingerprint.canonical(month))
+        full_id = fingerprint.assign_ids([full])[0][0]
+        month_id = fingerprint.assign_ids([month])[0][0]
+        self.assertEqual(full_id, month_id)
+
 
 class AssignIdsTest(unittest.TestCase):
     def test_identical_rows_get_distinct_stable_ids(self) -> None:

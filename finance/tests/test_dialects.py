@@ -115,6 +115,61 @@ class NormalisationTest(unittest.TestCase):
     def test_currency_dropped_for_an_empty_account(self) -> None:
         self.assertEqual("", dialects.account_currency("", "EUR"))
 
+    def test_identity_regex_does_not_pick_up_the_broadened_czech_prefix(self) -> None:
+        """account_currency() is IDENTITY ONLY and must stay on the old,
+        narrower regex — see the module docstring. If this ever starts
+        matching "(Czech)(USD) Чехия" too, ids for that account will change."""
+        self.assertEqual("", dialects.account_currency("(Czech)(USD) Чехия", "USD"))
+
+
+class CurrencyInferenceTest(unittest.TestCase):
+    """Storage currency inference (`_infer_stored_currency`, exercised via
+    `read_rows`) — distinct from `account_currency`'s identity-only rule."""
+
+    def setUp(self) -> None:
+        self.rows = {
+            r.date: r for r in dialects.read_rows(FIXTURES / "currency_full.csv")
+        }
+
+    def test_equal_amount_transfer_inherits_a_declared_counterpart(self) -> None:
+        """Debts (no prefix, raw EUR) vs. a declared (RUB) account, equal
+        amounts: Debts must store RUB, not its own mislabelled raw EUR."""
+        row = self.rows["2024-01-01"]
+        self.assertEqual("RUB", row.outcome_currency)
+        self.assertEqual("RUB", row.income_currency)
+
+    def test_equal_amount_transfer_between_two_undeclared_accounts_swaps(self) -> None:
+        """Neither Debts nor "Карточка - Альфа" declares a prefix, so there is
+        no authoritative side to anchor on; each borrows the other's raw
+        value. This still fixes Debts (EUR -> RUB) but, as a disclosed
+        residual quirk on this specific undeclared/undeclared combination,
+        flips the counterpart the other way (RUB -> EUR) for this one row.
+        See dialects.py's module docstring and the task-7b report."""
+        row = self.rows["2024-01-02"]
+        self.assertEqual("RUB", row.outcome_currency, "Debts is fixed")
+        self.assertEqual("EUR", row.income_currency, "documented residual quirk")
+
+    def test_unequal_amount_transfer_falls_back_to_raw_currency(self) -> None:
+        """Брокерский счет (no prefix) vs. a declared (EUR) account, but the
+        amounts differ — a real cross-currency transfer, not a mislabel — so
+        no inheritance happens; each side keeps its own raw CSV currency."""
+        row = self.rows["2024-01-03"]
+        self.assertEqual("RUB", row.outcome_currency)
+        self.assertEqual("EUR", row.income_currency)
+
+    def test_czech_account_declares_via_the_second_parenthesised_token(self) -> None:
+        """"(Czech)(USD) Чехия" — the regex fix from task 7b: a currency
+        token anywhere in the leading parenthesised run counts, not just the
+        very first token."""
+        row = self.rows["2024-01-04"]
+        self.assertEqual("USD", row.outcome_currency)
+
+    def test_undeclared_non_transfer_row_keeps_its_raw_currency(self) -> None:
+        """Брокерский счет income, not a transfer: no counterpart to borrow
+        from, so it simply keeps the raw CSV currency."""
+        row = self.rows["2024-01-05"]
+        self.assertEqual("RUB", row.income_currency)
+
 
 if __name__ == "__main__":
     unittest.main()

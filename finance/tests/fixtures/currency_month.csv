@@ -1,0 +1,2 @@
+date,categoryName,payee,comment,outcomeAccountName,outcome,outcomeCurrencyShortTitle,incomeAccountName,income,incomeCurrencyShortTitle,createdDate,changedDate
+2024-02-01,"Прочее",,,"Debts","1000,00",RUB,"(RUB) Тинькофф Карта","1000,00",RUB,"2024-02-01 11:00:00","2024-02-01 11:00:00"
