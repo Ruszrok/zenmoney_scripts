@@ -559,14 +559,20 @@ def to_markdown(payload: dict) -> str:
             f"{_fmt(row['amount_eur'])} | {_fmt(row['threshold_eur'])} |"
         )
 
+    net_flow_rows = payload["net_flow"]
+    anchored = [r for r in net_flow_rows if r["is_true_balance"]]
+    unanchored = [r for r in net_flow_rows if not r["is_true_balance"]]
+    anchored_verb = "has" if len(anchored) == 1 else "have"
+
     lines += [
         "",
         "## Net flow by account",
         "",
         "Every figure below is **net flow since the first imported month, "
-        "not a balance** — the source export carries no opening balances "
-        "(0 of these accounts have `opening_balance_minor` set in "
-        "`accounts.toml`). Runway is deliberately not computed here; adding "
+        "not a balance** unless anchored (see the last column) — "
+        f"{len(anchored)} of the {len(net_flow_rows)} accounts below "
+        f"{anchored_verb} `opening_balance_minor` set in `accounts.toml`. "
+        "Runway is deliberately not computed here; adding "
         "`opening_balance_minor` for an account in `accounts.toml` is what "
         "would turn its net flow into a real balance and enable a runway "
         "figure.",
@@ -574,17 +580,16 @@ def to_markdown(payload: dict) -> str:
         "| account | kind | net flow (EUR) | is a real balance? |",
         "| --- | --- | ---: | --- |",
     ]
-    for row in payload["net_flow"]:
+    for row in net_flow_rows:
         lines.append(
             f"| {row['account']} | {row['kind'] or '—'} | "
             f"{_fmt(row['net_eur'])} | {'yes' if row['is_true_balance'] else 'no'} |"
         )
 
-    balances = [r for r in payload["net_flow"] if not r["is_true_balance"]]
-    if balances:
+    if unanchored:
         lines += [
             "",
-            f"> {len(balances)} account(s) above have no opening balance in "
+            f"> {len(unanchored)} account(s) above have no opening balance in "
             "`accounts.toml`, so their figures are net flow since the first "
             "imported month, **not a balance**.",
         ]

@@ -431,6 +431,43 @@ class ReportTest(unittest.TestCase):
         if any(not row["is_true_balance"] for row in payload["net_flow"]):
             self.assertIn("not a balance", text.lower())
 
+    def test_net_flow_anchored_count_is_not_hardcoded_to_zero(self) -> None:
+        # Regression: the intro paragraph used to hardcode "(0 of these
+        # accounts have `opening_balance_minor` set...)" while the trailing
+        # note computed its count dynamically from `net_flow`. The moment a
+        # user anchors an account, that made the section contradict itself
+        # two lines apart. Anchor one account here and check both figures
+        # agree with the payload and with each other.
+        self.conn.execute(
+            "UPDATE accounts SET opening_balance_minor = 1000, "
+            "opening_date = '2026-07-01' WHERE name = '(EUR) Bunq'"
+        )
+        self.conn.commit()
+
+        payload = report.build(self.conn)
+        text = report.to_markdown(payload)
+
+        anchored_count = sum(
+            1 for r in payload["net_flow"] if r["is_true_balance"]
+        )
+        unanchored_count = sum(
+            1 for r in payload["net_flow"] if not r["is_true_balance"]
+        )
+        self.assertGreater(anchored_count, 0)
+        self.assertEqual(
+            anchored_count + unanchored_count, len(payload["net_flow"])
+        )
+
+        # The stale hardcoded literal must be gone...
+        self.assertNotIn("(0 of these accounts have", text)
+        # ...and the real, non-zero count must appear instead.
+        self.assertIn(str(anchored_count), text)
+        if unanchored_count:
+            self.assertIn(
+                f"{unanchored_count} account(s) above have no opening balance",
+                text,
+            )
+
     def test_uncategorised_is_called_out_not_treated_as_a_category(self) -> None:
         # Six months of quiet uncategorised history, then a spike in the
         # month the report treats as "actual" (the warehouse's last month).
