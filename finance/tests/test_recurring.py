@@ -98,6 +98,13 @@ class RecurringTest(unittest.TestCase):
 
     def test_dormant_when_the_series_stopped(self) -> None:
         self._monthly_series("2020-01-05", 8, 15.99, "Old")
+        clusters = recurring.detect(self.conn, as_of=date(2020, 12, 1))
+        self.assertEqual("dormant", clusters[0].status)
+
+    def test_as_of_defaults_to_today(self) -> None:
+        # A series that last occurred decades ago is dormant under today's
+        # real clock (the default), with no explicit `as_of` passed.
+        self._monthly_series("1999-01-05", 8, 15.99, "Old")
         self.assertEqual("dormant", recurring.detect(self.conn)[0].status)
 
 

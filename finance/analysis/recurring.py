@@ -9,6 +9,14 @@ supplies a friendlier label.
 
 A cluster is recurring when the median gap between occurrences sits close to a
 known period and the gaps are consistent.
+
+Dormancy is measured against `as_of` (a cluster is dormant once it has been
+silent for more than `DORMANT_PERIODS` periods as of that date). `as_of`
+defaults to today, so by default `detect()` is a real-time read and its
+active/dormant split will drift as calendar time passes even against an
+unchanged database. Callers who need a reproducible report — one that
+classifies the same way today and next month — should pass an explicit
+`as_of` date instead of relying on the default.
 """
 
 from __future__ import annotations
@@ -82,8 +90,13 @@ def detect(
     conn: sqlite3.Connection,
     since: str | None = None,
     tolerance: float = AMOUNT_TOLERANCE,
+    as_of: date | None = None,
 ) -> list[Cluster]:
-    """Recurring clusters, heaviest monthly load first."""
+    """Recurring clusters, heaviest monthly load first.
+
+    `as_of` is the reference date for dormancy and defaults to today; pass an
+    explicit date for a reproducible result.
+    """
     query = (
         "SELECT date, payee, COALESCE(category, '(uncategorised)') AS category, "
         "COALESCE(outcome_account, '(none)') AS account, outcome_eur "
@@ -100,11 +113,12 @@ def detect(
     if not signatures:
         return []
 
-    # "Dormant" measures silence against the real calendar, not against the
-    # dataset's own last row: a wholesale dataset MAX(date) would just equal
-    # a cluster's own last occurrence whenever it is the only data present
-    # (as in an isolated unit-test fixture), so nothing could ever go silent.
-    today = date.today()
+    # "Dormant" measures silence against a real calendar date, not against
+    # the dataset's own last row: a wholesale dataset MAX(date) would just
+    # equal a cluster's own last occurrence whenever it is the only data
+    # present (as in an isolated unit-test fixture), so nothing could ever
+    # go silent.
+    reference = as_of or date.today()
 
     clusters: list[Cluster] = []
     for (category, account), rows in signatures.items():
@@ -125,7 +139,7 @@ def detect(
                 if payees
                 else f"{category} @ {amount:.2f}"
             )
-            silent_days = (today - days[-1]).days
+            silent_days = (reference - days[-1]).days
             status = "dormant" if silent_days > period * DORMANT_PERIODS else "active"
             if status == "active" and amounts[-1] > amounts[0] * (1 + tolerance):
                 status = "price-increased"
