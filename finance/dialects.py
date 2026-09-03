@@ -60,7 +60,12 @@ class RawRow:
 
 def parse_amount(text: str) -> int:
     """Return `text` as integer minor units, accepting either decimal style."""
-    cleaned = text.strip().replace(" ", "").replace(" ", "").replace(",", ".")
+    cleaned = (
+        text.strip()
+        .replace("\N{NO-BREAK SPACE}", "")
+        .replace(" ", "")
+        .replace(",", ".")
+    )
     if not cleaned:
         return 0
     scaled = (Decimal(cleaned) / MINOR_UNITS).quantize(

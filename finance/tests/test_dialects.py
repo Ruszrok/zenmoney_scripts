@@ -27,6 +27,10 @@ class ParseAmountTest(unittest.TestCase):
     def test_rounds_half_up(self) -> None:
         self.assertEqual(767096, dialects.parse_amount("7670.96"))
 
+    def test_non_breaking_space_thousands_separator(self) -> None:
+        """U+00A0, not U+0020 — a regular space passing does not prove this."""
+        self.assertEqual(2500000, dialects.parse_amount("25\N{NO-BREAK SPACE}000,00"))
+
 
 class SplitCategoryTest(unittest.TestCase):
     def test_two_level(self) -> None:
