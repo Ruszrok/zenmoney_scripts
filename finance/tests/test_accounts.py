@@ -84,6 +84,64 @@ class TomlRoundTripTest(unittest.TestCase):
         ).fetchone()
         self.assertEqual(target["id"], row["alias_of"])
 
+    def test_reseeding_preserves_hand_edited_fields(self) -> None:
+        """seed -> hand-edit -> apply -> re-seed -> re-apply must not lose data."""
+        accounts.apply_toml(
+            self.conn,
+            '[accounts."(EUR) Bunq"]\nkind = "spending"\n'
+            '[accounts."(USD) Wise"]\nkind = "savings"\n'
+            'alias_of = "(EUR) Bunq"\n'
+            'opening_balance_minor = 123456\n'
+            'opening_date = "2026-01-01"\n',
+        )
+        accounts.apply_toml(self.conn, accounts.seed_toml(self.conn))
+        row = self.conn.execute(
+            "SELECT kind, alias_of, opening_balance_minor, opening_date "
+            "FROM accounts WHERE name = ?", ("(USD) Wise",)
+        ).fetchone()
+        target = self.conn.execute(
+            "SELECT id FROM accounts WHERE name = ?", ("(EUR) Bunq",)
+        ).fetchone()
+        self.assertEqual("savings", row["kind"])
+        self.assertEqual(target["id"], row["alias_of"])
+        self.assertEqual(123456, row["opening_balance_minor"])
+        self.assertEqual("2026-01-01", row["opening_date"])
+
+    def test_seed_escapes_special_characters_in_account_name(self) -> None:
+        weird_name = 'Weird "Name" \\ Account'
+        self.conn.execute(
+            "INSERT INTO accounts (name, currency, kind) VALUES (?, ?, ?)",
+            (weird_name, "EUR", "spending"),
+        )
+        self.conn.commit()
+        text = accounts.seed_toml(self.conn)
+        parsed = tomllib.loads(text)
+        self.assertIn(weird_name, parsed["accounts"])
+        self.assertEqual("spending", parsed["accounts"][weird_name]["kind"])
+
+    def test_bad_alias_of_leaves_db_unmodified(self) -> None:
+        before = [
+            tuple(row)
+            for row in self.conn.execute(
+                "SELECT name, kind, alias_of, opening_balance_minor, opening_date "
+                "FROM accounts ORDER BY name"
+            ).fetchall()
+        ]
+        with self.assertRaises(ValueError):
+            accounts.apply_toml(
+                self.conn,
+                '[accounts."(EUR) Bunq"]\nkind = "spending"\n'
+                'alias_of = "Does Not Exist"\n',
+            )
+        after = [
+            tuple(row)
+            for row in self.conn.execute(
+                "SELECT name, kind, alias_of, opening_balance_minor, opening_date "
+                "FROM accounts ORDER BY name"
+            ).fetchall()
+        ]
+        self.assertEqual(before, after)
+
 
 if __name__ == "__main__":
     unittest.main()

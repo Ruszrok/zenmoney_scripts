@@ -1,182 +1,329 @@
 # Account classification for the finance warehouse.
 # kind: cash | credit | debt | investment | savings | spending
 # alias_of: merge a duplicate account into another by name.
-# opening_balance / opening_date: set both to turn net flow into a
+# opening_balance_minor / opening_date: set both to turn net flow into a
 # real balance. Without them, reports say 'net flow, not a balance'.
 
 [accounts."(Czech)(EUR) - Чехия"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."(Czech)(USD) Чехия"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."(EUR) Bunq"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "EUR"
 
 [accounts."(EUR) Caixa PT Anya"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "EUR"
 
 [accounts."(EUR) Caixa Portugal"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "EUR"
 
 [accounts."(EUR) Wise"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "EUR"
 
 [accounts."(EUR) bcc.kz"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "EUR"
 
 [accounts."(EUR) cash"]
 kind = "cash"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "EUR"
 
 [accounts."(EUR) Накопительный Тинькофф"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "EUR"
 
 [accounts."(EUR) Тинькофф Карта"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "EUR"
 
 [accounts."(KZT) BCC.kz"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "KZT"
 
 [accounts."(KZT) Cash"]
 kind = "cash"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "KZT"
 
 [accounts."(KZT) Kaspi"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "KZT"
 
 [accounts."(RUB) BCC KZ"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "RUB"
 
 [accounts."(RUB) Домашняя кубышка"]
 kind = "cash"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "RUB"
 
 [accounts."(RUB) Карточка Альфа"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "RUB"
 
 [accounts."(RUB) Карточка Сбербанк"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "RUB"
 
 [accounts."(RUB) Наличные"]
 kind = "cash"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "RUB"
 
 [accounts."(RUB) Райфайзен - машина"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "RUB"
 
 [accounts."(RUB) Тинькофф Карта"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "RUB"
 
 [accounts."(RUB) Тинькофф Накопительный"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "RUB"
 
 [accounts."(RUB) Тинькофф депозит 8"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "RUB"
 
 [accounts."(RUB) Тинькофф депозит 9"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "RUB"
 
 [accounts."(RUB) Тинькофф кредитка"]
 kind = "credit"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "RUB"
 
 [accounts."(USD) Caixa Portugal"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "USD"
 
 [accounts."(USD) Cash"]
 kind = "cash"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "USD"
 
 [accounts."(USD) Wise"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "USD"
 
 [accounts."(USD) bcc.kz"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "USD"
 
 [accounts."(USD) Альфа накопительный"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "USD"
 
 [accounts."(USD) Капиталбанк uz"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "USD"
 
 [accounts."(USD) Райфайзен-машина"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "USD"
 
 [accounts."(USD) Тинькофф депозит"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 # currency = "USD"
 
 [accounts."Debts"]
 kind = "debt"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Deel income"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Interactive brokers"]
 kind = "investment"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Альфа накопительный счет"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Брокерский счет"]
 kind = "investment"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Вклад промсвязьбанк"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."ИИС"]
 kind = "investment"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Карточка - Альфа"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Карточка - Росбанк"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Счет в промсвязьбанке"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Тинькофф депозит"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Тинькофф депозит - 2"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Тинькофф депозит - 3"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Тинькофф депозит -4"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Тинькофф депозит 5"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Тинькофф депозит 7"]
 kind = "savings"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
 
 [accounts."Тинькофф доллары"]
 kind = "spending"
+# alias_of = "Other Account Name"
+# opening_balance_minor = 0
+# opening_date = "2026-01-01"
