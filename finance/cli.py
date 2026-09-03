@@ -3,9 +3,10 @@
 from __future__ import annotations
 
 import argparse
+import json
 from pathlib import Path
 
-from . import accounts, db, fx, ingest, verify
+from . import accounts, db, fx, ingest, report, verify
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -51,6 +52,13 @@ def main(argv: list[str] | None = None) -> int:
         "query", parents=[common], help="run ad-hoc SQL against the warehouse"
     )
     query_cmd.add_argument("sql")
+
+    report_cmd = sub.add_parser(
+        "report", parents=[common], help="write the advisory report"
+    )
+    report_cmd.add_argument("--months", type=int, default=report.DEFAULT_MONTHS)
+    report_cmd.add_argument("--json", action="store_true")
+    report_cmd.add_argument("--out", type=Path)
 
     args = parser.parse_args(argv)
     if args.command == "init":
@@ -107,5 +115,20 @@ def main(argv: list[str] | None = None) -> int:
         conn = db.connect(args.db)
         for row in conn.execute(args.sql):
             print("\t".join("" if v is None else str(v) for v in tuple(row)))
+        return 0
+    if args.command == "report":
+        conn = db.connect(args.db)
+        db.migrate(conn)
+        payload = report.build(conn, months=args.months)
+        if args.json:
+            print(json.dumps(payload, ensure_ascii=False, indent=2))
+            return 0
+        text = report.to_markdown(payload)
+        if args.out:
+            args.out.parent.mkdir(parents=True, exist_ok=True)
+            args.out.write_text(text, encoding="utf-8")
+            print(f"wrote {args.out}")
+        else:
+            print(text)
         return 0
     return 1
