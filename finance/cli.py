@@ -5,7 +5,7 @@ from __future__ import annotations
 import argparse
 from pathlib import Path
 
-from . import accounts, db, ingest
+from . import accounts, db, fx, ingest
 
 
 def main(argv: list[str] | None = None) -> int:
@@ -39,6 +39,11 @@ def main(argv: list[str] | None = None) -> int:
     accounts_cmd.add_argument("--apply", action="store_true")
     accounts_cmd.add_argument("--path", type=Path, default=Path("accounts.toml"))
 
+    fx_cmd = sub.add_parser(
+        "fx", parents=[common], help="refresh exchange rates and EUR amounts"
+    )
+    fx_cmd.add_argument("--refresh", action="store_true")
+
     args = parser.parse_args(argv)
     if args.command == "init":
         conn = db.connect(args.db)
@@ -69,5 +74,12 @@ def main(argv: list[str] | None = None) -> int:
                 conn, args.path.read_text(encoding="utf-8")
             )
             print(f"applied {count} account(s)")
+        return 0
+    if args.command == "fx":
+        conn = db.connect(args.db)
+        db.migrate(conn)
+        counts = fx.refresh(conn)
+        for key, value in counts.items():
+            print(f"{key}={value}")
         return 0
     return 1
