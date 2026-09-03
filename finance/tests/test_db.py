@@ -5,7 +5,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
-from finance import db
+from finance import cli, db
 
 
 class MigrateTest(unittest.TestCase):
@@ -46,6 +46,28 @@ class MigrateTest(unittest.TestCase):
         conn = db.connect(self.path)
         db.migrate(conn)
         self.assertEqual(1, conn.execute("PRAGMA foreign_keys").fetchone()[0])
+
+
+class CliDbOrderingTest(unittest.TestCase):
+    """Pins `--db` accepted after the subcommand, e.g. `finance init --db X`.
+
+    Every documented command (`finance ingest --from ...`, `finance accounts
+    --seed`, etc.) uses this ordering. If a later subparser is added without
+    `parents=[common]`, argparse rejects `--db` after the subcommand and this
+    test fails.
+    """
+
+    def setUp(self) -> None:
+        self.tmp = tempfile.TemporaryDirectory()
+        self.path = Path(self.tmp.name) / "cli.db"
+
+    def tearDown(self) -> None:
+        self.tmp.cleanup()
+
+    def test_db_flag_accepted_after_subcommand(self) -> None:
+        exit_code = cli.main(["init", "--db", str(self.path)])
+        self.assertEqual(0, exit_code)
+        self.assertTrue(self.path.exists())
 
 
 if __name__ == "__main__":
