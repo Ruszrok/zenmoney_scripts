@@ -6,6 +6,7 @@ import unittest
 import uuid
 from datetime import date, timedelta
 from pathlib import Path
+from unittest import mock
 
 from finance import accounts, db, fx, ingest, report
 from finance.analysis.recurring import DAYS_PER_MONTH
@@ -138,6 +139,98 @@ class ReportTest(unittest.TestCase):
     def test_markdown_states_the_cutoff(self) -> None:
         text = report.to_markdown(report.build(self.conn))
         self.assertIn("2026-07", text)
+
+    def test_kzt_footnote_reports_transaction_exposure_not_rate_calendar_days(
+        self,
+    ) -> None:
+        # `fx_rates` carries one row per *calendar day* the gap-filler ever
+        # ran over (100% by construction, both lifetime and per-window) —
+        # not one row per transaction. The footnote must instead disclose
+        # actual KZT-denominated transactions and their EUR volume: two
+        # transactions lifetime (one long before the window, one inside it),
+        # only the second falling inside the report's window.
+        old_acct = self._account_id("Old KZT Acct")
+        win_acct = self._account_id("KZT Acct")
+        self.conn.execute(
+            "INSERT INTO transactions (id, date, kind, outcome_account_id, "
+            "outcome_minor, outcome_currency) "
+            "VALUES (?, '2020-01-15', 'outcome', ?, 500000, 'KZT')",
+            (str(uuid.uuid4()), old_acct),
+        )
+        self.conn.execute(
+            "INSERT INTO transactions (id, date, kind, outcome_account_id, "
+            "outcome_minor, outcome_currency) "
+            "VALUES (?, '2026-07-06', 'outcome', ?, 50000, 'KZT')",
+            (str(uuid.uuid4()), win_acct),
+        )
+        fx.store_rates(
+            self.conn,
+            {"2020-01-15": {"KZT": 0.2}, "2026-07-06": {"KZT": 0.2}},
+            "manual",
+        )
+        self._finish()
+
+        payload = report.build(self.conn)
+        note = next((n for n in payload["fx_notes"] if "KZT" in n), None)
+        self.assertIsNotNone(note)
+
+        self.assertIn("2 transaction(s) / 1,100.00 EUR lifetime", note)
+        self.assertIn("1 transaction(s) / 100.00 EUR in this window", note)
+        self.assertIn("%", note)
+        self.assertNotIn("rate-day", note)
+
+    def test_payload_discloses_accounts_are_unreviewed(self) -> None:
+        # `accounts.toml`'s 49 classifications are heuristic guesses no
+        # human has checked, and `v_spend`'s savings/investment exclusion
+        # (and hence the savings rate) rests entirely on them being right.
+        # There is currently no review marker in the schema, so this is
+        # hardcoded false rather than a real heuristic — but it must be
+        # present so a consumer can detect the caveat.
+        payload = report.build(self.conn)
+        self.assertIn("accounts_reviewed", payload)
+        self.assertFalse(payload["accounts_reviewed"])
+
+    def test_markdown_discloses_unreviewed_account_classifications(self) -> None:
+        text = report.to_markdown(report.build(self.conn))
+        lowered = text.lower()
+        self.assertIn("accounts.toml", lowered)
+        self.assertIn("not been reviewed", lowered)
+        self.assertIn("savings", lowered)
+        # Prominent: the disclosure must appear before the first section
+        # heading, not buried at the bottom.
+        first_heading = text.index("\n## ")
+        disclosure_pos = lowered.index("accounts.toml")
+        self.assertLess(disclosure_pos, first_heading)
+
+    def test_fx_precision_window_excludes_history_outside_the_window(self) -> None:
+        # M8: if `_fx_precision`'s `since_date` filter were silently
+        # dropped, `fx_precision` (windowed) and `fx_precision_lifetime`
+        # would always be identical. Give them genuinely different source
+        # mixes by putting a distinctly-sourced transaction long before the
+        # report's window and confirming only the lifetime figure sees it.
+        old_acct = self._account_id("Ancient RUB Acct")
+        self.conn.execute(
+            "INSERT INTO transactions (id, date, kind, outcome_account_id, "
+            "outcome_minor, outcome_currency) "
+            "VALUES ('ancient-rub', '2015-01-01', 'outcome', ?, 100000000, 'RUB')",
+            (old_acct,),
+        )
+        fx.store_rates(self.conn, {"2015-01-01": {"RUB": 0.02}}, "filled")
+        self._finish()
+
+        payload = report.build(self.conn)
+        self.assertIn("filled", payload["fx_precision_lifetime"])
+        self.assertNotIn("filled", payload["fx_precision"])
+
+    def test_since_is_exactly_months_minus_one_back_from_the_last_month(
+        self,
+    ) -> None:
+        # M9: an off-by-12 in `_since` silently shifts every windowed
+        # figure (e.g. `--months 24` behaving like 36). Pin the exact
+        # value against the warehouse's real last month (2026-07 in this
+        # fixture) for two different window sizes.
+        self.assertEqual("2024-08", report.build(self.conn, months=24)["since"])
+        self.assertEqual("2026-02", report.build(self.conn, months=6)["since"])
 
     def test_markdown_discloses_fx_precision(self) -> None:
         text = report.to_markdown(report.build(self.conn))
@@ -279,6 +372,39 @@ class ReportTest(unittest.TestCase):
             expected_new,
             places=2,
         )
+
+    def test_ongoing_total_is_immune_to_the_wall_clock(self) -> None:
+        """Regression: `recurring.detect()` defaults dormancy to
+        `date.today()`, but a report describes the data, not the moment it
+        happens to run. Two months after the last export with no new data,
+        the same database must still read exactly as "ongoing" as it did on
+        export day — only recomputing against a real gap in the data itself
+        should ever move these numbers, never the passage of wall-clock time
+        alone.
+        """
+        today = date.today()
+        active_amount = 100.0
+        self._add_recurring_series(
+            "Спорт",
+            "Fitness",
+            active_amount,
+            [390, 360, 330, 300, 270, 240, 210, 180, 150, 120, 90, 60, 30, 0],
+            today,
+        )
+        self._finish()
+
+        baseline = report.build(self.conn)["recurring_ongoing_total_eur"]
+        self.assertGreater(baseline, 0.0)
+
+        # Simulate the report running two months after the last import,
+        # with an entirely unchanged database. Only `date.today()` inside
+        # recurring.py is faked; date parsing stays real.
+        with mock.patch("finance.analysis.recurring.date") as mock_date:
+            mock_date.today.return_value = today + timedelta(days=900)
+            mock_date.fromisoformat = date.fromisoformat
+            drifted = report.build(self.conn)["recurring_ongoing_total_eur"]
+
+        self.assertAlmostEqual(baseline, drifted, places=2)
 
     def test_markdown_leads_recurring_with_active_not_gross_total(self) -> None:
         today = date.today()

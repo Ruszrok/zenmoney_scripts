@@ -70,8 +70,20 @@ class CategoryAnalysisTest(unittest.TestCase):
 
     def test_year_over_year_totals(self) -> None:
         totals = categories.year_over_year(self.conn)
-        self.assertAlmostEqual(1200.0, totals["Еда / Кафе и рестораны"]["2025"])
-        self.assertAlmostEqual(1200.0, totals["Еда / Кафе и рестораны"]["2026"])
+        self.assertAlmostEqual(
+            1200.0, totals["Еда / Кафе и рестораны"]["2025"]["total_eur"]
+        )
+        self.assertAlmostEqual(
+            1200.0, totals["Еда / Кафе и рестораны"]["2026"]["total_eur"]
+        )
+
+    def test_year_over_year_reports_the_month_count_per_year(self) -> None:
+        # The fixture has 12 months of 2025 data and only 6 of 2026 — a
+        # naive total-vs-total read of the numbers above would understate
+        # 2026 by 2x without this count alongside them.
+        totals = categories.year_over_year(self.conn)
+        self.assertEqual(12, totals["Еда / Кафе и рестораны"]["2025"]["months"])
+        self.assertEqual(6, totals["Еда / Кафе и рестораны"]["2026"]["months"])
 
 
 if __name__ == "__main__":

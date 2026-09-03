@@ -98,6 +98,35 @@ class NetFlowTest(unittest.TestCase):
         bunq = next(r for r in rows if r["account"] == "(EUR) Bunq")
         self.assertTrue(bunq["is_true_balance"])
 
+    def test_opening_balance_only_counts_flow_on_or_after_its_date(self) -> None:
+        # Bunq in the fixture has two 4.20 EUR outcomes on 2026-07-02 and a
+        # 10.00 EUR outcome (the "Корректировка" row) on 2026-07-05 — flow on
+        # both sides of an opening_date set between them. If the pre-date
+        # 8.40 EUR were still summed in, this would read -8.40 instead of
+        # 0.00.
+        self.conn.execute(
+            "UPDATE accounts SET opening_balance_minor = 1000, "
+            "opening_date = '2026-07-04' WHERE name = '(EUR) Bunq'"
+        )
+        self.conn.commit()
+        rows = cashflow.net_flow_by_account(self.conn)
+        bunq = next(r for r in rows if r["account"] == "(EUR) Bunq")
+        self.assertAlmostEqual(0.0, bunq["net_eur"], places=2)
+        self.assertTrue(bunq["is_true_balance"])
+
+    def test_opening_balance_without_a_date_is_not_a_true_balance(self) -> None:
+        # An opening_balance_minor with no opening_date can't be dated
+        # against transaction history, so it must not be labelled a real
+        # balance.
+        self.conn.execute(
+            "UPDATE accounts SET opening_balance_minor = 1000 "
+            "WHERE name = '(EUR) Bunq'"
+        )
+        self.conn.commit()
+        rows = cashflow.net_flow_by_account(self.conn)
+        bunq = next(r for r in rows if r["account"] == "(EUR) Bunq")
+        self.assertFalse(bunq["is_true_balance"])
+
 
 if __name__ == "__main__":
     unittest.main()

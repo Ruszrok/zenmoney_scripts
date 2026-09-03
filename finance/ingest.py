@@ -4,7 +4,16 @@ Re-importing the same data must be a no-op, and re-importing an edited export
 must bring the warehouse into line with it. That means three behaviours:
 
 * rows keyed by content fingerprint, so an unchanged row is recognised;
-* mutable fields (category, amounts-in-EUR, timestamps) updated in place;
+* mutable fields updated in place — but that set is narrow: `_upsert` only
+  ever refreshes `category_id` (plus bookkeeping columns: `changed_at`,
+  `source_file`, `imported_at`, and clearing `deleted_at`). Amounts,
+  currencies, account names, and payee/comment on an *existing* id are
+  silently ignored on re-ingest, no matter what the source file now says —
+  the row is already fingerprinted, so a corrected raw currency or account
+  name on a row that already exists needs a database rebuild (a fresh
+  `finance init` + full re-ingest), not a re-run of `ingest_file` on the
+  edited export. This is exactly how an earlier currency-tagging fix in the
+  export had to be applied;
 * rows that vanished from a re-export soft-deleted — but only within the date
   range the file actually covers, so importing a single month never wipes the
   rest of the history.

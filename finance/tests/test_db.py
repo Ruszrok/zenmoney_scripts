@@ -42,6 +42,28 @@ class MigrateTest(unittest.TestCase):
         db.migrate(conn)
         self.assertEqual(before, self._tables(conn))
 
+    def test_migrate_does_not_wipe_existing_data(self) -> None:
+        # `migrate()` runs on nearly every subcommand. Same-name-set
+        # equality (the test above) would stay green even if `schema.sql`
+        # started dropping and recreating a table on every migrate — the
+        # table would exist again, just empty. Pin that a second migrate
+        # over real data is a genuine no-op, not just a same-shape rebuild.
+        conn = db.connect(self.path)
+        db.migrate(conn)
+        conn.execute(
+            "INSERT INTO accounts (id, name, currency, kind) "
+            "VALUES (1, 'Test Account', 'EUR', 'spending')"
+        )
+        conn.commit()
+
+        db.migrate(conn)
+
+        row = conn.execute(
+            "SELECT name FROM accounts WHERE id = 1"
+        ).fetchone()
+        self.assertIsNotNone(row)
+        self.assertEqual("Test Account", row["name"])
+
     def test_foreign_keys_enforced(self) -> None:
         conn = db.connect(self.path)
         db.migrate(conn)

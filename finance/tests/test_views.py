@@ -42,6 +42,38 @@ class ViewsTest(unittest.TestCase):
         count = self.conn.execute("SELECT COUNT(*) c FROM v_spend").fetchone()["c"]
         self.assertEqual(2, count, "two coffees only")
 
+    def test_spend_excludes_savings_and_investment_accounts(self) -> None:
+        # M5: `v_spend`'s savings/investment exclusion is the entire reason
+        # `finance/accounts.py` exists, but the fixture had zero outcome
+        # rows on a savings/investment account, so nothing ever exercised
+        # this predicate. "(RUB) Тинькофф депозит 8" is seeded as `savings`
+        # by accounts.toml; add a direct outflow from it and confirm it
+        # never reaches v_spend or v_monthly.
+        savings = self.conn.execute(
+            "SELECT id, kind FROM accounts WHERE name = '(RUB) Тинькофф депозит 8'"
+        ).fetchone()
+        self.assertEqual("savings", savings["kind"])
+
+        self.conn.execute(
+            "INSERT INTO transactions (id, date, kind, outcome_account_id, "
+            "outcome_minor, outcome_currency, outcome_eur_minor, fx_source) "
+            "VALUES ('savings-move', '2026-07-10', 'outcome', ?, "
+            "500000, 'RUB', 5000, 'ecb')",
+            (savings["id"],),
+        )
+        self.conn.commit()
+
+        accounts_in_spend = {
+            r["outcome_account"]
+            for r in self.conn.execute("SELECT outcome_account FROM v_spend")
+        }
+        self.assertNotIn("(RUB) Тинькофф депозит 8", accounts_in_spend)
+
+        total = self.conn.execute(
+            "SELECT SUM(spend_eur) AS s FROM v_monthly WHERE month = '2026-07'"
+        ).fetchone()["s"]
+        self.assertAlmostEqual(8.40, total, places=2)
+
     def test_income_flags_passive_interest(self) -> None:
         row = self.conn.execute(
             "SELECT is_passive FROM v_income WHERE category = 'проценты'"

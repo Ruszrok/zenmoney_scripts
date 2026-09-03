@@ -36,6 +36,7 @@ from __future__ import annotations
 
 import sqlite3
 from dataclasses import asdict
+from datetime import date
 from pathlib import Path
 
 from . import verify
@@ -53,6 +54,16 @@ SPEND_SPIKE_RATIO = 1.6  # a month spending this far above its trailing 12m mean
 # dormant") makes a future status addition an explicit decision rather than
 # something that silently falls into one bucket or the other.
 ONGOING_STATUSES = ("active", "new")
+# `accounts.toml`'s 49 classifications (see finance/accounts.py) are
+# heuristic guesses seeded from account-name matching, never checked by a
+# human, and `v_spend`'s savings/investment exclusion — hence the savings
+# rate and every reported spend total — rests entirely on them being right.
+# There is currently no review marker anywhere in the schema (no column, no
+# audit log), so this is hardcoded rather than computed from real state; it
+# exists purely so a payload consumer can detect the caveat programmatically
+# instead of only in markdown prose. Flip it only once a real review marker
+# is added to the schema and threaded through here.
+ACCOUNTS_REVIEWED = False
 
 
 def _since(conn: sqlite3.Connection, months: int) -> str | None:
@@ -91,23 +102,70 @@ def _fx_precision(conn: sqlite3.Connection, since_date: str | None) -> dict[str,
     return {row["source"]: (row["volume"] or 0) / total for row in rows}
 
 
-def _kzt_note(conn: sqlite3.Connection, since_date: str | None) -> str | None:
-    """KZT has no published ECB rate at all; note it if the data actually has any."""
-    total = conn.execute(
-        "SELECT COUNT(*) AS c FROM fx_rates WHERE currency = 'KZT'"
-    ).fetchone()["c"]
-    if not total:
+def _as_of(conn: sqlite3.Connection) -> date | None:
+    """The most recent live transaction date, as a `date`.
+
+    This is the reference point `recurring.detect()` measures dormancy
+    against. Using the wall clock there would make the same database read
+    as having fewer and fewer ongoing charges the longer it sits since the
+    last import — the headline recurring load must describe the data, not
+    the moment the report happens to run.
+    """
+    row = conn.execute(
+        "SELECT MAX(date) AS d FROM transactions WHERE deleted_at IS NULL"
+    ).fetchone()
+    if row is None or row["d"] is None:
         return None
-    window = 0
+    return date.fromisoformat(row["d"])
+
+
+def _kzt_stats(conn: sqlite3.Connection, since_date: str | None) -> dict:
+    """KZT-denominated transaction count, EUR volume, and share of total volume.
+
+    `fx_rates` carries one row per calendar day the gap-filler ever ran
+    over — 100% by construction, lifetime or windowed, and an artefact of
+    the filler rather than a measure of real exposure. This counts actual
+    transactions instead, which is what can honestly be called immaterial
+    or not.
+    """
+    query = (
+        "SELECT "
+        "SUM(CASE WHEN outcome_currency = 'KZT' OR income_currency = 'KZT' "
+        "         THEN 1 ELSE 0 END) AS kzt_txns, "
+        "SUM(CASE WHEN outcome_currency = 'KZT' "
+        "         THEN ABS(COALESCE(outcome_eur_minor, 0)) ELSE 0 END) "
+        "+ SUM(CASE WHEN income_currency = 'KZT' "
+        "           THEN ABS(COALESCE(income_eur_minor, 0)) ELSE 0 END) AS kzt_minor, "
+        "SUM(ABS(COALESCE(outcome_eur_minor, 0)) + ABS(COALESCE(income_eur_minor, 0))) "
+        "AS total_minor "
+        "FROM transactions WHERE deleted_at IS NULL"
+    )
+    params: tuple[str, ...] = ()
     if since_date:
-        window = conn.execute(
-            "SELECT COUNT(*) AS c FROM fx_rates WHERE currency = 'KZT' AND date >= ?",
-            (since_date,),
-        ).fetchone()["c"]
+        query += " AND date >= ?"
+        params = (since_date,)
+    row = conn.execute(query, params).fetchone()
+    total_minor = row["total_minor"] or 0
+    kzt_minor = row["kzt_minor"] or 0
+    return {
+        "txns": row["kzt_txns"] or 0,
+        "eur": kzt_minor / 100.0,
+        "share": (kzt_minor / total_minor) if total_minor else 0.0,
+    }
+
+
+def _kzt_note(conn: sqlite3.Connection, since_date: str | None) -> str | None:
+    """KZT has no published ECB rate at all; note actual exposure if any."""
+    lifetime = _kzt_stats(conn, None)
+    if not lifetime["txns"]:
+        return None
+    window = _kzt_stats(conn, since_date)
     return (
-        f"KZT has no published ECB rate — {total} rate-day(s) lifetime "
-        f"({window} within this window), all resolved via fallback layers. "
-        "Immaterial to the totals above, but worth knowing about."
+        f"KZT has no published ECB rate — {lifetime['txns']} transaction(s) / "
+        f"{lifetime['eur']:,.2f} EUR lifetime, {window['txns']} transaction(s) / "
+        f"{window['eur']:,.2f} EUR in this window ({window['share']:.2%} of "
+        "window volume), all resolved via fallback layers. Immaterial to "
+        "the totals above, but worth knowing about."
     )
 
 
@@ -159,6 +217,7 @@ def _empty_payload(coverage: verify.Coverage, months: int) -> dict:
     return {
         "coverage": asdict(coverage),
         "window_months": months,
+        "accounts_reviewed": ACCOUNTS_REVIEWED,
         "since": None,
         "fx_precision": {},
         "fx_precision_lifetime": {},
@@ -188,8 +247,17 @@ def _empty_payload(coverage: verify.Coverage, months: int) -> dict:
     }
 
 
-def build(conn: sqlite3.Connection, months: int = DEFAULT_MONTHS) -> dict:
-    """Every number the advisory needs, as plain JSON-safe structures."""
+def build(
+    conn: sqlite3.Connection, months: int = DEFAULT_MONTHS, as_of: date | None = None
+) -> dict:
+    """Every number the advisory needs, as plain JSON-safe structures.
+
+    `as_of` is the reference date for recurring-charge dormancy. It defaults
+    to the data's own last live transaction date (`_as_of`, above) — never
+    the wall clock — so the same database produces the same report no matter
+    when it happens to be run. Pass an explicit date only to reproduce a past
+    report.
+    """
     coverage = verify.coverage(conn)
     since = _since(conn, months)
     if since is None:
@@ -214,7 +282,7 @@ def build(conn: sqlite3.Connection, months: int = DEFAULT_MONTHS) -> dict:
 
     all_drift = categories.drift(conn)
     all_budget = budget.baselines(conn, coverage.last_month or "")
-    all_recurring = recurring.detect(conn, since=since)
+    all_recurring = recurring.detect(conn, since=since, as_of=as_of or _as_of(conn))
     unknown_statuses = sorted(
         {c.status for c in all_recurring} - set(ONGOING_STATUSES) - {"dormant"}
     )
@@ -245,6 +313,7 @@ def build(conn: sqlite3.Connection, months: int = DEFAULT_MONTHS) -> dict:
     return {
         "coverage": asdict(coverage),
         "window_months": months,
+        "accounts_reviewed": ACCOUNTS_REVIEWED,
         "since": since,
         "fx_precision": _fx_precision(conn, since_date),
         "fx_precision_lifetime": _fx_precision(conn, None),
@@ -303,6 +372,20 @@ def to_markdown(payload: dict) -> str:
         f"All figures are EUR and stop at **{coverage['last_month']}** — "
         "later months are not in this warehouse yet.",
         "",
+    ]
+
+    if not payload.get("accounts_reviewed", True):
+        lines += [
+            "> **Account classifications are machine-seeded and have not "
+            "been reviewed.** Every account's kind in `accounts.toml` was "
+            "guessed from its name by a heuristic, not checked by a human. "
+            "The savings rate below and every savings/investment exclusion "
+            "in the spend totals depend entirely on those guesses being "
+            "right. Review `accounts.toml` before trusting those numbers.",
+            "",
+        ]
+
+    lines += [
         "## Savings rate — trailing 12 months",
         "",
         "Income here is lumpy contractor payments, not a salary, so any single "

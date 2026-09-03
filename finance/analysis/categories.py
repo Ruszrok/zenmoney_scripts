@@ -81,12 +81,31 @@ def drift(
     return results
 
 
-def year_over_year(conn: sqlite3.Connection) -> dict[str, dict[str, float]]:
-    """Yearly EUR totals per category."""
-    result: dict[str, dict[str, float]] = {}
+def year_over_year(conn: sqlite3.Connection) -> dict[str, dict[str, dict[str, float]]]:
+    """Yearly EUR totals per category, each paired with its month count.
+
+    The current year is very often partial by the time this runs — 2026
+    covering only 8 of 12 months, say — so a naive total-vs-total read of
+    2025 against 2026 silently understates 2026 by roughly the ratio of
+    missing months. `months` here is the warehouse's own month coverage for
+    that year (not per-category occurrence, which can be legitimately zero
+    some months even in a fully-covered year), so a consumer of this data
+    cannot read the totals as directly comparable without also seeing that
+    number. Returns `{category: {year: {"total_eur": ..., "months": ...}}}`.
+    """
+    months, _ = matrix(conn)
+    months_per_year: dict[str, int] = {}
+    for month in months:
+        year = month[:4]
+        months_per_year[year] = months_per_year.get(year, 0) + 1
+
+    result: dict[str, dict[str, dict[str, float]]] = {}
     for row in conn.execute(
         "SELECT substr(month, 1, 4) AS year, category, SUM(spend_eur) AS total "
         "FROM v_monthly GROUP BY year, category"
     ):
-        result.setdefault(row["category"], {})[row["year"]] = row["total"]
+        result.setdefault(row["category"], {})[row["year"]] = {
+            "total_eur": row["total"],
+            "months": months_per_year.get(row["year"], 0),
+        }
     return result
