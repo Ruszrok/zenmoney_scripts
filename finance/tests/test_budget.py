@@ -18,6 +18,10 @@ class BudgetTest(unittest.TestCase):
             "VALUES (1,'Еда / Продукты','Еда','Продукты')"
         )
         self.conn.execute(
+            "INSERT INTO categories (id, full_name, parent, leaf) "
+            "VALUES (2,'Еда / Кафе и рестораны','Еда','Кафе и рестораны')"
+        )
+        self.conn.execute(
             "INSERT INTO accounts (id, name, kind) VALUES (1,'B','spending')"
         )
         self.counter = 0
@@ -26,7 +30,9 @@ class BudgetTest(unittest.TestCase):
         self.conn.close()
         self.tmp.cleanup()
 
-    def _add(self, day: str, eur: float, payee: str = "") -> None:
+    def _add(
+        self, day: str, eur: float, payee: str = "", category_id: int = 1
+    ) -> None:
         self.counter += 1
         minor = int(round(eur * 100))
         self.conn.execute(
@@ -34,9 +40,9 @@ class BudgetTest(unittest.TestCase):
             INSERT INTO transactions
               (id, date, category_id, payee, kind, outcome_account_id,
                outcome_minor, outcome_currency, outcome_eur_minor, fx_source)
-            VALUES (?,?,1,?,'outcome',1,?,'EUR',?,'base')
+            VALUES (?,?,?,?,'outcome',1,?,'EUR',?,'base')
             """,
-            (str(self.counter), day, payee, minor, minor),
+            (str(self.counter), day, category_id, payee, minor, minor),
         )
 
     def test_budget_is_the_trimmed_median_of_history(self) -> None:
@@ -80,6 +86,44 @@ class BudgetTest(unittest.TestCase):
             self._add(f"2026-01-{day:02d}", 10.0)
         self.conn.commit()
         self.assertEqual([], budget.outliers(self.conn))
+
+    def test_thin_category_spike_is_suppressed_but_a_thick_ones_surfaces(
+        self,
+    ) -> None:
+        # Note on percentile: at the default percentile=0.95, the threshold
+        # index `int(N * percentile)` equals `N - 1` (the maximum element
+        # itself) for any N <= 20, so a single spike in a small sample can
+        # never exceed its own threshold regardless of MIN_OUTLIER_SAMPLES —
+        # that guard would be untested at 0.95. percentile=0.5 pushes the
+        # threshold index well below the spike even for a 7-row category, so
+        # the assertions below actually exercise the gate rather than
+        # coasting on percentile math that already protects thin samples.
+
+        # Thin category: 6 ordinary rows plus one spike — 7 total, fewer
+        # than MIN_OUTLIER_SAMPLES(8). The spike must NOT be reported.
+        for day in range(1, 7):
+            self._add(f"2026-01-{day:02d}", 10.0, category_id=2)
+        self._add("2026-01-07", 500.0, "Thin Spike", category_id=2)
+
+        # Thick category (default category_id=1): 20 ordinary rows plus one
+        # spike — comfortably above the threshold, so its spike must surface.
+        for day in range(1, 21):
+            self._add(f"2026-01-{day:02d}", 10.0)
+        self._add("2026-01-25", 500.0, "Big Shop")
+        self.conn.commit()
+
+        found = budget.outliers(self.conn, percentile=0.5)
+        payees = {o.payee for o in found}
+        self.assertNotIn(
+            "Thin Spike",
+            payees,
+            "MIN_OUTLIER_SAMPLES must suppress outliers from thin categories",
+        )
+        self.assertIn(
+            "Big Shop",
+            payees,
+            "a category with ample history must still surface its outlier",
+        )
 
 
 if __name__ == "__main__":
