@@ -110,10 +110,31 @@ class RecurringTest(unittest.TestCase):
     def test_new_status_for_a_recently_started_series(self) -> None:
         # Three monthly occurrences, still well within its silence window,
         # and its first occurrence is recent relative to `as_of` (68 days,
-        # under the 90-day = 3 * 30-day-period cutoff).
+        # under the 180-day absolute NEW_WINDOW_DAYS cutoff).
         self._monthly_series("2026-01-01", 3, 42.00, "Fresh")
         cluster = recurring.detect(self.conn, as_of=date(2026, 3, 10))[0]
         self.assertEqual("new", cluster.status)
+
+    def test_new_window_is_absolute_not_period_scaled(self) -> None:
+        # An annual charge whose first occurrence is ~781 days before
+        # `as_of`: under a period-scaled window (365 * 3 = 1095 days) this
+        # would still read as "new" three years in. The absolute
+        # NEW_WINDOW_DAYS (180) must not do that — it's an established
+        # commitment, so "active".
+        for iso in ("2024-01-10", "2025-01-08", "2026-01-06"):
+            self._add(iso, 99.00, "OldAnnual")
+        # A short-lived cluster that genuinely started recently (first
+        # occurrence 90 days before `as_of`, under the 180-day window).
+        first = date.fromisoformat("2025-12-01")
+        for index in range(3):
+            self._add(
+                (first + timedelta(days=30 * index)).isoformat(), 42.00, "Fresh"
+            )
+        self.conn.commit()
+        as_of = date(2026, 3, 1)
+        clusters = {c.label: c for c in recurring.detect(self.conn, as_of=as_of)}
+        self.assertEqual("active", clusters["OldAnnual"].status)
+        self.assertEqual("new", clusters["Fresh"].status)
 
     def test_signature_keys_on_category_not_payee(self) -> None:
         """Regression for the module's central invariant: signatures must be
