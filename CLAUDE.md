@@ -91,7 +91,9 @@ Map each transaction to one or more category IDs. Transactions use `categoryIds`
 | Salary, Palk, Deel | Зарплата (income) | `4869a1f1-a06f-4456-9bc5-fd3e5de6f051` |
 | Cashback, bunq Payday, bunq "Payment received" | проценты (income) | `c14c0c71-1859-44f1-9451-03b1ba4b6f1c` |
 | Swedbank, SEB, Luminor, Revolut | skip — likely a transfer |  |
-| To EUR, TRF CXDAPP, TRF POUP, Trf Mbway, LEVANTAMENTO | transfer — add with comment, user converts manually |  |
+| **TRF POUP, TRF CXDAPP, To EUR, TFI \<own name\> (Wise→Caixa)** | **self-transfer — NEVER import.** Drop at the parse step; the user already books the other leg, so importing double-counts. Do *not* "add with a comment" |  |
+| Trf Mbway \<number\> | NOT a transfer — a real payment to a person. Categorize from history (912XXX977 → Спорт, 936XXX463 → Обучение) |  |
+| ATM …, LEVANTAMENTO | cash withdrawal — add uncategorized with comment `ATM cash withdrawal` |  |
 
 When unsure, set `categoryIds: []` (uncategorized) and note it in the confirmation table.
 
