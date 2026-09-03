@@ -14,8 +14,10 @@ data this warehouse holds:
   kept only as clearly-labelled detail.
 - `recurring.detect()` returns every cluster it ever saw, dormant or not; a
   headline "monthly recurring load" that quietly included lapsed charges
-  would overstate the real ongoing commitment. Active and dormant totals are
-  reported apart.
+  would overstate the real ongoing commitment. Ongoing (`active` + `new`)
+  and `dormant` totals are reported apart, bucketed off `ONGOING_STATUSES`
+  rather than an inline literal so a future status added to `recurring.py`
+  fails loudly here instead of being silently dropped from both totals.
 - FX precision is disclosed for the window being reported, not the dataset's
   whole lifetime — a 13-year mix would understate confidence in recent
   numbers that mostly rest on hard (base or ECB) rates.
@@ -23,8 +25,11 @@ data this warehouse holds:
   that it is net flow since the first imported month, not a balance, unless
   `accounts.toml` anchors it with an opening balance.
 - `(uncategorised)` is a bookkeeping-discipline signal, not a spending
-  category, so it is surfaced as its own line rather than left to compete
-  for attention inside ranked category tables.
+  category, so it always gets its own callout line ahead of the drift and
+  budget tables — even though it may *also* still appear ranked inside
+  those tables (it earns its rank on the same numbers as everything else
+  there); the callout is what keeps it from being mistaken for one more
+  line item.
 """
 
 from __future__ import annotations
@@ -42,6 +47,12 @@ TOP_N = 12
 INFERRED_SOURCES = ("implied", "filled", "unresolved")
 UNCATEGORISED = "(uncategorised)"
 SPEND_SPIKE_RATIO = 1.6  # a month spending this far above its trailing 12m mean is flagged
+# `recurring.Cluster.status` is one of "active", "new", "dormant" (see
+# finance/analysis/recurring.py). Everything NOT dormant counts toward the
+# ongoing load; naming the statuses here (instead of matching on "not
+# dormant") makes a future status addition an explicit decision rather than
+# something that silently falls into one bucket or the other.
+ONGOING_STATUSES = ("active", "new")
 
 
 def _since(conn: sqlite3.Connection, months: int) -> str | None:
@@ -164,6 +175,10 @@ def _empty_payload(coverage: verify.Coverage, months: int) -> dict:
         "recurring": [],
         "recurring_active_total_eur": 0.0,
         "recurring_active_count": 0,
+        "recurring_new_total_eur": 0.0,
+        "recurring_new_count": 0,
+        "recurring_ongoing_total_eur": 0.0,
+        "recurring_ongoing_count": 0,
         "recurring_dormant_total_eur": 0.0,
         "recurring_dormant_count": 0,
         "budget": [],
@@ -200,7 +215,19 @@ def build(conn: sqlite3.Connection, months: int = DEFAULT_MONTHS) -> dict:
     all_drift = categories.drift(conn)
     all_budget = budget.baselines(conn, coverage.last_month or "")
     all_recurring = recurring.detect(conn, since=since)
-    active = [c for c in all_recurring if c.status in ("active", "price-increased")]
+    unknown_statuses = sorted(
+        {c.status for c in all_recurring} - set(ONGOING_STATUSES) - {"dormant"}
+    )
+    if unknown_statuses:
+        # A status recurring.py might add later must not silently fall out of
+        # both buckets — fail loudly instead so ONGOING_STATUSES gets updated.
+        raise ValueError(
+            f"recurring.detect() returned unhandled status(es) {unknown_statuses}; "
+            "update ONGOING_STATUSES in finance/report.py"
+        )
+    active = [c for c in all_recurring if c.status == "active"]
+    new = [c for c in all_recurring if c.status == "new"]
+    ongoing = [c for c in all_recurring if c.status in ONGOING_STATUSES]
     dormant = [c for c in all_recurring if c.status == "dormant"]
 
     uncategorised_drift = next(
@@ -237,6 +264,10 @@ def build(conn: sqlite3.Connection, months: int = DEFAULT_MONTHS) -> dict:
         "recurring": [asdict(c) for c in all_recurring[:TOP_N]],
         "recurring_active_total_eur": sum(c.monthly_eur for c in active),
         "recurring_active_count": len(active),
+        "recurring_new_total_eur": sum(c.monthly_eur for c in new),
+        "recurring_new_count": len(new),
+        "recurring_ongoing_total_eur": sum(c.monthly_eur for c in ongoing),
+        "recurring_ongoing_count": len(ongoing),
         "recurring_dormant_total_eur": sum(c.monthly_eur for c in dormant),
         "recurring_dormant_count": len(dormant),
         "budget": [asdict(b) for b in all_budget[:TOP_N]],
@@ -384,18 +415,21 @@ def to_markdown(payload: dict) -> str:
             f"{_fmt(row['baseline_mean'])} | +{row['change_ratio']:.0%} |"
         )
 
-    active_total = payload["recurring_active_total_eur"]
-    active_count = payload["recurring_active_count"]
+    ongoing_total = payload["recurring_ongoing_total_eur"]
+    ongoing_count = payload["recurring_ongoing_count"]
+    new_count = payload["recurring_new_count"]
     dormant_total = payload["recurring_dormant_total_eur"]
     dormant_count = payload["recurring_dormant_count"]
+    new_note = f" ({new_count} of them new)" if new_count else ""
     lines += [
         "",
         "## Recurring charges",
         "",
-        f"**Active recurring load: {_fmt(active_total)} EUR/mo** across "
-        f"{active_count} charge(s). A further {_fmt(dormant_total)} EUR/mo "
-        f"across {dormant_count} charge(s) has gone dormant (kept below — "
-        "worth knowing what lapsed, but it is not part of the ongoing load).",
+        f"**Ongoing recurring load: {_fmt(ongoing_total)} EUR/mo** across "
+        f"{ongoing_count} charge(s){new_note}. A further {_fmt(dormant_total)} "
+        f"EUR/mo across {dormant_count} charge(s) has gone dormant (kept "
+        "below — worth knowing what lapsed, but it is not part of the "
+        "ongoing load).",
         "",
         "| charge | amount | period (days) | monthly load | status |",
         "| --- | ---: | ---: | ---: | --- |",
