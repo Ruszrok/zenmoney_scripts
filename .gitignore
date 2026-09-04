@@ -9,3 +9,10 @@ pictures/
 __pycache__/
 data/dumps/
 reports/
+
+# SQLite warehouses — never commit financial data
+*.db
+*.db-wal
+*.db-shm
+*.sqlite
+*.sqlite3
